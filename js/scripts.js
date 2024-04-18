@@ -1,6 +1,4 @@
 window.addEventListener('DOMContentLoaded', event => {
-
-    // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
         if (!navbarCollapsible) {
@@ -13,14 +11,8 @@ window.addEventListener('DOMContentLoaded', event => {
         }
 
     };
-
-    // Shrink the navbar 
     navbarShrink();
-
-    // Shrink the navbar when page is scrolled
     document.addEventListener('scroll', navbarShrink);
-
-    // Activate Bootstrap scrollspy on the main nav element
     const mainNav = document.body.querySelector('#mainNav');
     if (mainNav) {
         new bootstrap.ScrollSpy(document.body, {
@@ -28,8 +20,6 @@ window.addEventListener('DOMContentLoaded', event => {
             rootMargin: '0px 0px -40%',
         });
     };
-
-    // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
@@ -43,3 +33,19 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+function calculateAge(dateOfBirth) {
+    var diff = Date.now() - dateOfBirth.getTime();
+    var ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+var dateOfBirth = new Date('2002-08-29');
+var aboutMeElement = document.getElementById('aboutMe');
+var age = calculateAge(dateOfBirth);
+aboutMeElement.textContent = aboutMeElement.textContent.replace('{AGE}', age);
+
+var dateActuelle = new Date();
+var anneeActuelle = dateActuelle.getFullYear();
+var copyRightElement = document.getElementById('copyRight');
+copyRightElement.textContent = copyRightElement.textContent.replace('{DATE}', anneeActuelle);
