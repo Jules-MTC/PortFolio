@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "setup": "node scripts/setup.js"
+        "setup": "node /var/www/html/PortFolio/scripts/setup.js"
     },
     "dependencies": {
         "body-parser": "^1.19.1",
