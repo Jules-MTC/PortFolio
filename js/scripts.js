@@ -1,4 +1,16 @@
 window.addEventListener("DOMContentLoaded", (event) => {
+  var versionElement = document.getElementById("copyRight");
+  console.log(versionElement);
+  fetch("http://localhost:3000/api/version")
+  .then((response) => response.json())
+  .then((data) => {
+      versionElement.textContent = versionElement.textContent.replace(
+          "{VERSION}",
+          data.version
+      );
+  })
+  .catch((error) => console.error("Error fetching version:", error));
+ // document.getElementById("version").innerText = data.version;
   var navbarShrink = function () {
     const navbarCollapsible = document.body.querySelector("#mainNav");
     if (!navbarCollapsible) {
@@ -30,17 +42,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
       }
     });
   });
-});
-
-window.addEventListener("DOMContentLoaded", (event) => {
-  fetch("http://localhost:3000/api/version")
-    .then((response) => response.json())
-    .then((data) => {
-      // Afficher la version sur votre site
-      document.getElementById("version").innerText = data.version;
-      console.log(data.version);
-    })
-    .catch((error) => console.error("Error fetching version:", error));
 });
 
 function calculateAge(dateOfBirth) {

@@ -47,8 +47,6 @@ app.post("/send-email", (req, res) => {
 });
 
 app.get("/api/version", (req, res) => {
-  console.log(packageJson);
-  console.log(packageJson.version);
   res.json({ version: packageJson.version });
 });
 
