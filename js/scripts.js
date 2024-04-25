@@ -32,6 +32,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
+window.addEventListener("DOMContentLoaded", (event) => {
+  fetch("http://localhost:3000/api/version")
+    .then((response) => response.json())
+    .then((data) => {
+      // Afficher la version sur votre site
+      document.getElementById("version").innerText = data.version;
+      console.log(data.version);
+    })
+    .catch((error) => console.error("Error fetching version:", error));
+});
+
 function calculateAge(dateOfBirth) {
   var diff = Date.now() - dateOfBirth.getTime();
   var ageDate = new Date(diff);
