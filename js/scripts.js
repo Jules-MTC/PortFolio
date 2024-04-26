@@ -1,6 +1,5 @@
 window.addEventListener("DOMContentLoaded", (event) => {
   var versionElement = document.getElementById("copyRight");
-  console.log(versionElement);
   fetch("http://localhost:3000/api/version")
   .then((response) => response.json())
   .then((data) => {
@@ -10,7 +9,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
       );
   })
   .catch((error) => console.error("Error fetching version:", error));
- // document.getElementById("version").innerText = data.version;
   var navbarShrink = function () {
     const navbarCollapsible = document.body.querySelector("#mainNav");
     if (!navbarCollapsible) {
