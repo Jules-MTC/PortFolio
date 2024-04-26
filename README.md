@@ -195,6 +195,7 @@
 ##  Project Roadmap
 
 - [X] `► Update readme`
+- [ ] `► Add section and button to download my cv`
 - [ ] `► Add contact form`
 - [ ] `► Translate in french`
 - [ ] `► Configure DNS`
