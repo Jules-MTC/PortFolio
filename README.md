@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" alt="project-logo">
+  <img src="https://raw.githubusercontent.com/Jules-MTC/PortFolio/int/assets/favicon.ico" width="100" alt="project-logo">
 </p>
 <p align="center">
-    <h1 align="center">PORTFOLIO</h1>
+    <h1 align="center">Portfolio Website</h1>
 </p>
 <p align="center">
-    <em><code>► INSERT-TEXT-HERE</code></em>
+    <em><code>► This is my portfolio website</code></em>
 </p>
 <p align="center">
 	<img src="https://img.shields.io/github/license/Jules-MTC/PortFolio?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
@@ -28,7 +28,6 @@
 - [ Getting Started](#-getting-started)
   - [ Installation](#-installation)
   - [ Usage](#-usage)
-  - [ Tests](#-tests)
 - [ Project Roadmap](#-project-roadmap)
 - [ Contributing](#-contributing)
 - [ License](#-license)
@@ -38,13 +37,25 @@
 
 ##  Overview
 
-<code>► INSERT-TEXT-HERE</code>
+<code>► This project is a personal portfolio created to showcase my skills, experiences and projects in the field of web development. The portfolio is designed as a dynamic website with a backend, developed using JavaScript (Node.js), CSS, and HTML.</code>
 
 ---
 
 ##  Features
 
-<code>► INSERT-TEXT-HERE</code>
+<code>► Skills Showcase: A dedicated section to showcase my skills in different areas such as web development, graphic design, etc.</code>
+
+<code>► Project Portfolio: An interactive gallery showcasing my recent projects with detailed descriptions, screenshots and links to GitHub repositories or online demos.</code>
+
+<code>► Project Portfolio: An interactive gallery showcasing my recent projects with detailed descriptions, screenshots and links to GitHub repositories or online demos.</code>
+
+<code>► Contact Form: A contact form allowing visitors to contact me directly by email. The form is secure with anti-spam features.</code>
+
+<code>► Responsive Design: The site is designed to be fully responsive, providing an optimal user experience on all devices, from desktop to smartphones.</code>
+
+<code>► Robust backend: The backend is built with Express.js for efficient HTTP request handling and database communication. Security features such as data validation and protection against CSRF attacks are implemented.</code>
+
+<code>► Environment Management: Environment variables are managed securely using Dotenv, ensuring the confidentiality of sensitive information such as email IDs.</code>
 
 ---
 
@@ -82,10 +93,10 @@
 
 | File                                                                                      | Summary                         |
 | ---                                                                                       | ---                             |
-| [package.json](https://github.com/Jules-MTC/PortFolio/blob/master/package.json)           | <code>► INSERT-TEXT-HERE</code> |
-| [package-lock.json](https://github.com/Jules-MTC/PortFolio/blob/master/package-lock.json) | <code>► INSERT-TEXT-HERE</code> |
-| [release.config.js](https://github.com/Jules-MTC/PortFolio/blob/master/release.config.js) | <code>► INSERT-TEXT-HERE</code> |
-| [index.html](https://github.com/Jules-MTC/PortFolio/blob/master/index.html)               | <code>► INSERT-TEXT-HERE</code> |
+| [package.json](https://github.com/Jules-MTC/PortFolio/blob/master/package.json)           | <code>► This package.json file defines scripts and dependencies</code> |
+| [package-lock.json](https://github.com/Jules-MTC/PortFolio/blob/master/package-lock.json) | <code>► The package-lock.json file records exact dependencies and their specific versions to ensure reproducibility of installations</code> |
+| [release.config.js](https://github.com/Jules-MTC/PortFolio/blob/master/release.config.js) | <code>► The release.config.js file is used to configure the automatic code versioning and release process.</code> |
+| [index.html](https://github.com/Jules-MTC/PortFolio/blob/master/index.html)               | <code>► The index.html file is the home page of the Portfolio website.</code> |
 
 </details>
 
@@ -93,7 +104,7 @@
 
 | File                                                                            | Summary                         |
 | ---                                                                             | ---                             |
-| [setup.js](https://github.com/Jules-MTC/PortFolio/blob/master/scripts/setup.js) | <code>► INSERT-TEXT-HERE</code> |
+| [setup.js](https://github.com/Jules-MTC/PortFolio/blob/master/scripts/setup.js) | <code>► The setup.js file is used to configure and initialize.</code> |
 
 </details>
 
@@ -101,7 +112,7 @@
 
 | File                                                                            | Summary                         |
 | ---                                                                             | ---                             |
-| [styles.css](https://github.com/Jules-MTC/PortFolio/blob/master/css/styles.css) | <code>► INSERT-TEXT-HERE</code> |
+| [styles.css](https://github.com/Jules-MTC/PortFolio/blob/master/css/styles.css) | <code>► The styles.css file contains CSS styles for presentation and formatting.</code> |
 
 </details>
 
@@ -109,7 +120,7 @@
 
 | File                                                                           | Summary                         |
 | ---                                                                            | ---                             |
-| [scripts.js](https://github.com/Jules-MTC/PortFolio/blob/master/js/scripts.js) | <code>► INSERT-TEXT-HERE</code> |
+| [scripts.js](https://github.com/Jules-MTC/PortFolio/blob/master/js/scripts.js) | <code>► The scripts.js file contains JavaScript scripts to add interactive features.</code> |
 
 </details>
 
@@ -117,7 +128,7 @@
 
 | File                                                                              | Summary                         |
 | ---                                                                               | ---                             |
-| [server.js](https://github.com/Jules-MTC/PortFolio/blob/master/backend/server.js) | <code>► INSERT-TEXT-HERE</code> |
+| [server.js](https://github.com/Jules-MTC/PortFolio/blob/master/backend/server.js) | <code>► The server.js file is the entry point to your backend server.</code> |
 
 </details>
 
@@ -127,11 +138,32 @@
 
 **System Requirements:**
 
-* **JavaScript**: `version x.y.z`
+* **JavaScript**: `version 1.0.2`
 
 ###  Installation
 
-<h4>From <code>source</code></h4>
+<h4>From <code>source with the setup file</code></h4>
+
+> 1. Clone the PortFolio repository:
+>
+> ```console
+> $ git clone https://github.com/Jules-MTC/PortFolio
+> ```
+>
+> 2. Change to the project directory:
+> ```console
+> $ cd PortFolio
+> ```
+> 3. Change to the scripts directory:
+> ```console
+> $ cd scripts
+> ```
+>
+> 4. Run the setup:
+> ```console
+> $ npm run setup
+> ```
+<h4>From <code>source, if the setup file doesn't work</code></h4>
 
 > 1. Clone the PortFolio repository:
 >
@@ -153,25 +185,21 @@
 
 <h4>From <code>source</code></h4>
 
-> Run PortFolio using the command below:
+> Run PortFolio back-end using the command below:
 > ```console
-> $ node app.js
-> ```
-
-###  Tests
-
-> Run the test suite using the command below:
-> ```console
-> $ npm test
+> $ node ./backend/server.js
 > ```
 
 ---
 
 ##  Project Roadmap
 
-- [X] `► INSERT-TASK-1`
-- [ ] `► INSERT-TASK-2`
-- [ ] `► ...`
+- [X] `► Update readme`
+- [ ] `► Add contact form`
+- [ ] `► Translate in french`
+- [ ] `► Configure DNS`
+- [ ] `► Add this project on the website`
+- [ ] `► Add CI/CD for auto deploy`
 
 ---
 
@@ -222,7 +250,7 @@ Contributions are welcome! Here are several ways you can contribute:
 
 ##  License
 
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
+This project is protected under the [The Unlicense](https://https://choosealicense.com/licenses/unlicense/) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
 
 ---
 
