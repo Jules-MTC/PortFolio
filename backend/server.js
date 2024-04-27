@@ -51,5 +51,5 @@ app.get("/api/version", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server start on http://localhost:${port}`);
+  console.log(`Server start on http://*:${port}`);
 });
