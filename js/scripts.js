@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", (event) => {
   var versionElement = document.getElementById("copyRight");
-  fetch("http://portfolio.julesantoine.tech/:3000/api/version")
+  fetch("http://portfolio.julesantoine.tech:3000/api/version")
   .then((response) => response.json())
   .then((data) => {
       versionElement.textContent = versionElement.textContent.replace(
