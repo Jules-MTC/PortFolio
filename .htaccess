@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Restricted Content"
-AuthUserFile ../Config/PortFolio/.htpasswd
-Require expr %{REQUEST_URI} =~ m#^/chemin/vers/votre/int/# && %{REMOTE_USER} != 'Tortue'
