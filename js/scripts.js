@@ -3,13 +3,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
   var currentURL = currentURL.slice(0, -1);
   var environnementElement = document.getElementById("environment");
   switch (currentURL) {
-    case "http://localhost/":
+    case "http://localhost":
       environnementElement.textContent = environnementElement.textContent.replace(
         "{ENV}",
         "Local - "
       );
       break;
-    case "http://portfolio.julesantoine.tech/":
+    case "http://portfolio.julesantoine.tech":
       environnementElement.textContent = environnementElement.textContent.replace(
         "{ENV}",
         ""
