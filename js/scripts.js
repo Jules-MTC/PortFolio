@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", (event) => {
+  var currentURL = window.location.href;
   var versionElement = document.getElementById("copyRight");
-  fetch("http://portfolio.julesantoine.tech:3000/api/version")
+  fetch(currentURL + ":3000/api/version")
   .then((response) => response.json())
   .then((data) => {
       versionElement.textContent = versionElement.textContent.replace(
