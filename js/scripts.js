@@ -1,5 +1,6 @@
 window.addEventListener("DOMContentLoaded", (event) => {
   var currentURL = window.location.href;
+  var currentURL = currentURL.slice(0, -1);
   var environnementElement = document.getElementById("environment");
   switch (currentURL) {
     case "http://localhost/":
