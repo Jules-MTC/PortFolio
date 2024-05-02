@@ -15,33 +15,37 @@ app.use(bodyParser.json());
 
 app.post("/send-email", (req, res) => {
   const { name, email, phone, message } = req.body;
-  // CHANGER TO A SIMPLE PASSWORD
-  // Configuration de nodemailer pour envoyer l'e-mail
+  console.log(name, email, phone, message);
   const transporter = nodemailer.createTransport({
-    service: "Outlook",
+    host: 'smtp-mail.outlook.com',
+    port: 587,
+    secure: false,
     auth: {
       user: process.env.EMAIL_FROM_ADDRESS,
-      pass: process.env.EMAIL_FROM_PASSWORD,
+      pass: process.env.EMAIL_FROM_PASSWORD
     },
+    logger: false,
+    debug: false
   });
+  
 
   const mailOptions = {
     from: process.env.EMAIL_FROM_ADDRESS,
     to: process.env.EMAIL_TO_ADDRESS,
     subject: `Nouveau message de ${name}`,
-    text: `Nom: ${name}\nEmail: ${email}\nTéléphone: ${phone}\nMessage: ${message}`,
+    text: `Nom: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
   };
 
-  // Envoyer l'e-mail
+  // Send the email
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error("Erreur lors de l'envoi de l'e-mail :", error);
+      console.error("Error during email sending:", error);
       res
         .status(500)
-        .send("Une erreur est survenue lors de l'envoi de l'e-mail.");
+        .send("An error occurred during email sending.");
     } else {
-      console.log("E-mail envoyé :", info.response);
-      res.status(200).send("E-mail envoyé avec succès.");
+      console.log("Email sent:", info.response);
+      res.status(200).send("Email sent successfully.");
     }
   });
 });
