@@ -1,5 +1,25 @@
 window.addEventListener("DOMContentLoaded", (event) => {
   var currentURL = window.location.href;
+  var environnementElement = document.getElementById("environment");
+  switch (currentURL) {
+    case "http://localhost/":
+      environnementElement.textContent = environnementElement.textContent.replace(
+        "{ENV}",
+        "Local - "
+      );
+      break;
+    case "http://portfolio.julesantoine.tech/":
+      environnementElement.textContent = environnementElement.textContent.replace(
+        "{ENV}",
+        ""
+      );
+      break;
+    default:
+      environnementElement.textContent = environnementElement.textContent.replace(
+        "{ENV}",
+        "INT - "
+      );
+  }
   var versionElement = document.getElementById("copyRight");
   fetch(currentURL + ":3000/api/version")
   .then((response) => response.json())
