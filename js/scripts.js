@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       "Local - "
     );
   } else if (currentURL.includes("julesantoine.tech")) {
-    var currentURL = "http://portfolio.julesantoine.tech/";
+    var currentURL = "http://portfolio.julesantoine.tech";
     environnementElement.textContent = environnementElement.textContent.replace(
       "{ENV}",
       ""
