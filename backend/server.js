@@ -15,9 +15,7 @@ app.use(cors());
 app.use(upload.none());
 
 app.post("/send-email", (req, res) => {
-  console.log(process.env.EMAIL_FROM_ADDRESS, process.env.EMAIL_FROM_PASSWORD);
   const { name, email, phone, message } = req.body;
-
   if (!name || !email || !phone || !message) {
     return res.status(400).send("All fields are required.");
   }
