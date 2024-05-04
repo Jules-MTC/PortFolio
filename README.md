@@ -196,11 +196,12 @@
 
 - [X] `► Update readme`
 - [X] `► Add section and button to download my cv`
-- [ ] `► Add contact form`
+- [X] `► Add contact form`
 - [ ] `► Translate in french`
-- [ ] `► Configure DNS`
+- [X] `► Configure DNS`
 - [ ] `► Add this project on the website`
 - [ ] `► Add CI/CD for auto deploy`
+- [ ] `► New design ?`
 
 ---
 

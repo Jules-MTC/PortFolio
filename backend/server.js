@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
-const bodyParser = require("body-parser");
+const multer = require("multer");
 const nodemailer = require("nodemailer");
 const packageJson = require("../package.json");
 const cors = require("cors");
@@ -9,16 +9,22 @@ const cors = require("cors");
 const app = express();
 const port = 3000;
 
+const upload = multer();
+
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(upload.none());
 
 app.post("/send-email", (req, res) => {
   const { name, email, phone, message } = req.body;
-  // CHANGER TO A SIMPLE PASSWORD
-  // Configuration de nodemailer pour envoyer l'e-mail
+
+  if (!name || !email || !phone || !message) {
+    return res.status(400).send("All fields are required.");
+  }
+
   const transporter = nodemailer.createTransport({
-    service: "Outlook",
+    host: "smtp-mail.outlook.com",
+    port: 587,
+    secure: false,
     auth: {
       user: process.env.EMAIL_FROM_ADDRESS,
       pass: process.env.EMAIL_FROM_PASSWORD,
@@ -28,20 +34,18 @@ app.post("/send-email", (req, res) => {
   const mailOptions = {
     from: process.env.EMAIL_FROM_ADDRESS,
     to: process.env.EMAIL_TO_ADDRESS,
-    subject: `Nouveau message de ${name}`,
-    text: `Nom: ${name}\nEmail: ${email}\nTéléphone: ${phone}\nMessage: ${message}`,
+    subject: `New message from ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+    replyTo: email,
   };
 
-  // Envoyer l'e-mail
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error("Erreur lors de l'envoi de l'e-mail :", error);
-      res
-        .status(500)
-        .send("Une erreur est survenue lors de l'envoi de l'e-mail.");
+      console.error("Error during email sending:", error);
+      res.status(500).send("An error occurred during email sending.");
     } else {
-      console.log("E-mail envoyé :", info.response);
-      res.status(200).send("E-mail envoyé avec succès.");
+      console.log("Email sent:", info.response);
+      res.status(200).send("Email sent successfully.");
     }
   });
 });
@@ -51,5 +55,5 @@ app.get("/api/version", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server start on port :${port}`);
+  console.log(`Server start on port : ${port}`);
 });
