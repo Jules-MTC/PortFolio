@@ -1,39 +1,44 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-  var loader = document.getElementById('loader-form');
   var currentURL = window.location.href;
   var currentURL = currentURL.slice(0, -1);
   var environnementElement = document.getElementById("environment");
-  loader.style.display = 'none';
 
-  switch (currentURL) {
-    case "http://localhost":
-      environnementElement.textContent = environnementElement.textContent.replace(
-        "{ENV}",
-        "Local - "
-      );
-      break;
-    case "http://portfolio.julesantoine.tech":
-      environnementElement.textContent = environnementElement.textContent.replace(
-        "{ENV}",
-        ""
-      );
-      break;
-    default:
-      environnementElement.textContent = environnementElement.textContent.replace(
-        "{ENV}",
-        "INT - "
-      );
+  if (currentURL.includes("localhost")) {
+    var currentURL = "http://localhost";
+    environnementElement.textContent = environnementElement.textContent.replace(
+      "{ENV}",
+      "Local - "
+    );
+  } else if (currentURL.includes("julesantoine.tech")) {
+    var currentURL = "http://julesantoine.tech";
+    environnementElement.textContent = environnementElement.textContent.replace(
+      "{ENV}",
+      ""
+    );
+  } else {
+    environnementElement.textContent = environnementElement.textContent.replace(
+      "{ENV}",
+      "INT - "
+    );
   }
+
   var versionElement = document.getElementById("copyRight");
   fetch(currentURL + ":3000/api/version")
-  .then((response) => response.json())
-  .then((data) => {
-      versionElement.textContent = versionElement.textContent.replace(
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.version != null) {
+        versionElement.textContent = versionElement.textContent.replace(
           "{VERSION}",
           data.version
-      );
-  })
-  .catch((error) => console.error("Error fetching version:", error));
+        );
+      } else {
+        versionElement.textContent = versionElement.textContent.replace(
+          "{VERSION}",
+          ""
+        );
+      }
+    })
+    .catch((error) => console.error("Error fetching version:", error));
   var navbarShrink = function () {
     const navbarCollapsible = document.body.querySelector("#mainNav");
     if (!navbarCollapsible) {
@@ -78,13 +83,13 @@ var aboutMeElement = document.getElementById("aboutMe");
 var age = calculateAge(dateOfBirth);
 aboutMeElement.textContent = aboutMeElement.textContent.replace("{AGE}", age);
 
-var dateActuelle = new Date();
-var anneeActuelle = dateActuelle.getFullYear();
+var currentDate = new Date();
+var currentYears = currentDate.getFullYear();
 var copyRightElement = document.getElementById("copyRight");
-if ("2024" != anneeActuelle) {
+if ("2024" != currentYears) {
   copyRightElement.textContent = copyRightElement.textContent.replace(
     "{DATE}",
-    " - " + anneeActuelle
+    " - " + currentYears
   );
 } else {
   copyRightElement.textContent = copyRightElement.textContent.replace(
@@ -95,58 +100,72 @@ if ("2024" != anneeActuelle) {
 
 // Mail section
 
-    var nameInput = document.getElementById('name');
-    var emailInput = document.getElementById('email');
-    var phoneInput = document.getElementById('phone');
-    var messageInput = document.getElementById('message');
-    var submitButton = document.getElementById('submitButton');
-    var currentURL = window.location.href;
-    var currentURL = currentURL.slice(0, -1);
+var nameInput = document.getElementById("name");
+var emailInput = document.getElementById("email");
+var phoneInput = document.getElementById("phone");
+var messageInput = document.getElementById("message");
+var submitButton = document.getElementById("submitButton");
+var currentURL = window.location.href;
+var currentURL = currentURL.slice(0, -1);
 
-    function validateForm() {
-        var nameIsValid = nameInput.value.trim() !== '';
-        var emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
-        var phoneIsValid = phoneInput.value.trim() !== '';
-        var messageIsValid = messageInput.value.trim() !== '';
+function validateForm() {
+  var nameIsValid = nameInput.value.trim() !== "";
+  var emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
+  var phoneIsValid = phoneInput.value.trim() !== "";
+  var messageIsValid = messageInput.value.trim() !== "";
 
-        return nameIsValid && emailIsValid && phoneIsValid && messageIsValid;
-    }
+  return nameIsValid && emailIsValid && phoneIsValid && messageIsValid;
+}
 
-    function updateSubmitButton() {
-        submitButton.disabled = !validateForm();
-    }
+function updateSubmitButton() {
+  submitButton.disabled = !validateForm();
+}
 
-    nameInput.addEventListener('input', updateSubmitButton);
-    emailInput.addEventListener('input', updateSubmitButton);
-    phoneInput.addEventListener('input', updateSubmitButton);
-    messageInput.addEventListener('input', updateSubmitButton);
-    
-    updateSubmitButton();
+nameInput.addEventListener("input", updateSubmitButton);
+emailInput.addEventListener("input", updateSubmitButton);
+phoneInput.addEventListener("input", updateSubmitButton);
+messageInput.addEventListener("input", updateSubmitButton);
 
-    // Modal
-    var modal = document.getElementById('confirmationModal');
-    var closeButton = document.querySelector('.close-form');
-    closeButton.onclick = function() {
-        modal.style.display = 'none';
-    }
+updateSubmitButton();
 
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        var loader = document.getElementById('loader-form');
-        loader.style.display = 'block';
-        var formData = new FormData(document.getElementById('contactForm'));
-        fetch(currentURL + ':3000/send-email', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                loader.style.display = 'none';
-                modal.style.display = 'block';
-            }
-        })
-        .catch(error => {
-            loader.style.display = 'none';
-            console.error('Erreur lors de l\'envoi du formulaire :', error);
-        });
-    });
+// Modal
+var modalConf = document.getElementById("confirmationModal");
+var modalError = document.getElementById("errorModal");
+var confCloseButton = document.querySelector(".conf-close-form");
+var errorCloseButton = document.querySelector(".error-close-form");
+
+confCloseButton.onclick = function () {
+  modalConf.style.display = "none";
+};
+
+errorCloseButton.onclick = function () {
+  modalError.style.display = "none";
+};
+
+document
+  .getElementById("contactForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    var loader = document.getElementById("loader-form");
+    var contentOverlay = document.getElementById("content-overlay");
+    loader.style.display = "block";
+    contentOverlay.style.display = "none";
+    var formData = new FormData(document.getElementById("contactForm"));
+    fetch(currentURL + ":3000/send-email", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          loader.style.display = "none";
+          contentOverlay.style.display = "block";
+          modalConf.style.display = "block";
+        }
+      })
+      .catch((error) => {
+        loader.style.display = "none";
+        contentOverlay.style.display = "block";
+        modalError.style.display = "block";
+        console.error("Erreur lors de l'envoi du formulaire :", error);
+      });
+  });
