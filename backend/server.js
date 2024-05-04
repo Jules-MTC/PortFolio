@@ -16,6 +16,7 @@ app.use(upload.none());
 
 app.post("/send-email", (req, res) => {
   const { name, email, phone, message } = req.body;
+
   if (!name || !email || !phone || !message) {
     return res.status(400).send("All fields are required.");
   }
