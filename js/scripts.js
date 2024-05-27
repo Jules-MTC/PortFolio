@@ -39,6 +39,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       }
     })
     .catch((error) => console.error("Error fetching version:", error));
+
   var navbarShrink = function () {
     const navbarCollapsible = document.body.querySelector("#mainNav");
     if (!navbarCollapsible) {
@@ -169,3 +170,25 @@ document
         console.error("Erreur lors de l'envoi du formulaire :", error);
       });
   });
+
+const languageSwitcher = document.getElementById('languageSwitcher');
+
+languageSwitcher.addEventListener('change', (event) => {
+  const selectedLanguage = event.target.value;
+
+  // Envoyez une requête au backend pour mettre à jour la langue
+  fetch(currentURL + ':3000/api/set-language', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ language: selectedLanguage })
+  })
+  .then(response => response.json())
+  .then(data => {
+    window.location.reload();
+  })
+  .catch(error => {
+    console.error('Error setting language:', error);
+  });
+});
