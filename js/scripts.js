@@ -1,50 +1,39 @@
-window.addEventListener("DOMContentLoaded", (event) => {
-  var currentURL = window.location.href;
-  var currentURL = currentURL.slice(0, -1);
-  var environnementElement = document.getElementById("environment");
+document.addEventListener("DOMContentLoaded", () => {
+  let currentURL = window.location.href.slice(0, -1);
+  const environnementElement = document.getElementById("environment");
+  const versionElement = document.getElementById("copyRight");
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const phoneInput = document.getElementById("phone");
+  const messageInput = document.getElementById("message");
+  const submitButton = document.getElementById("submitButton");
+  const aboutMeElement = document.getElementById("aboutMe");
+  const modalConf = document.getElementById("confirmationModal");
+  const modalError = document.getElementById("errorModal");
+  const confCloseButton = document.querySelector(".conf-close-form");
+  const errorCloseButton = document.querySelector(".error-close-form");
+  const copyRightElement = document.getElementById("copyRight");
 
   if (currentURL.includes("localhost")) {
-    var currentURL = "http://localhost";
-    environnementElement.textContent = environnementElement.textContent.replace(
-      "{ENV}",
-      "Local - "
-    );
+    currentURL = "http://localhost";
+    environnementElement.textContent = environnementElement.textContent.replace("{ENV}", "Local - ");
   } else if (currentURL.includes("julesantoine.tech")) {
-    var currentURL = "http://portfolio.julesantoine.tech";
-    environnementElement.textContent = environnementElement.textContent.replace(
-      "{ENV}",
-      ""
-    );
+    currentURL = "http://portfolio.julesantoine.tech";
+    environnementElement.textContent = environnementElement.textContent.replace("{ENV}", "");
   } else {
-    environnementElement.textContent = environnementElement.textContent.replace(
-      "{ENV}",
-      "INT - "
-    );
+    environnementElement.textContent = environnementElement.textContent.replace("{ENV}", "INT - ");
   }
 
-  var versionElement = document.getElementById("copyRight");
   fetch(currentURL + ":3000/api/version")
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.version != null) {
-        versionElement.textContent = versionElement.textContent.replace(
-          "{VERSION}",
-          data.version
-        );
-      } else {
-        versionElement.textContent = versionElement.textContent.replace(
-          "{VERSION}",
-          ""
-        );
-      }
+    .then(response => response.json())
+    .then(data => {
+      versionElement.textContent = versionElement.textContent.replace("{VERSION}", data.version || "");
     })
-    .catch((error) => console.error("Error fetching version:", error));
+    .catch(error => console.error("Error fetching version:", error));
 
-  var navbarShrink = function () {
+  const navbarShrink = function () {
     const navbarCollapsible = document.body.querySelector("#mainNav");
-    if (!navbarCollapsible) {
-      return;
-    }
+    if (!navbarCollapsible) return;
     if (window.scrollY === 0) {
       navbarCollapsible.classList.remove("navbar-shrink");
     } else {
@@ -53,117 +42,70 @@ window.addEventListener("DOMContentLoaded", (event) => {
   };
   navbarShrink();
   document.addEventListener("scroll", navbarShrink);
+
   const mainNav = document.body.querySelector("#mainNav");
   if (mainNav) {
-    new bootstrap.ScrollSpy(document.body, {
-      target: "#mainNav",
-      rootMargin: "0px 0px -40%",
-    });
+    new bootstrap.ScrollSpy(document.body, { target: "#mainNav", rootMargin: "0px 0px -40%" });
   }
+
   const navbarToggler = document.body.querySelector(".navbar-toggler");
-  const responsiveNavItems = [].slice.call(
-    document.querySelectorAll("#navbarResponsive .nav-link")
-  );
-  responsiveNavItems.map(function (responsiveNavItem) {
+  const responsiveNavItems = [].slice.call(document.querySelectorAll("#navbarResponsive .nav-link"));
+  responsiveNavItems.map(responsiveNavItem => {
     responsiveNavItem.addEventListener("click", () => {
       if (window.getComputedStyle(navbarToggler).display !== "none") {
         navbarToggler.click();
       }
     });
   });
-});
 
-function calculateAge(dateOfBirth) {
-  var diff = Date.now() - dateOfBirth.getTime();
-  var ageDate = new Date(diff);
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
-}
-
-var dateOfBirth = new Date("2002-08-29");
-var aboutMeElement = document.getElementById("aboutMe");
-var age = calculateAge(dateOfBirth);
-aboutMeElement.textContent = aboutMeElement.textContent.replace("{AGE}", age);
-
-var currentDate = new Date();
-var currentYears = currentDate.getFullYear();
-var copyRightElement = document.getElementById("copyRight");
-if ("2024" != currentYears) {
+  const dateOfBirth = new Date("2002-08-29");
+  const age = calculateAge(dateOfBirth);
+  aboutMeElement.textContent = aboutMeElement.textContent.replace("{AGE}", age);
+  const currentDate = new Date();
+  const currentYears = currentDate.getFullYear();
   copyRightElement.textContent = copyRightElement.textContent.replace(
     "{DATE}",
-    " - " + currentYears
+    currentYears !== 2024 ? " - " + currentYears : ""
   );
-} else {
-  copyRightElement.textContent = copyRightElement.textContent.replace(
-    "{DATE}",
-    ""
-  );
-}
 
-// Mail section
+  const validateForm = () => {
+    return (
+      nameInput.value.trim() !== "" &&
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()) &&
+      phoneInput.value.trim() !== "" &&
+      messageInput.value.trim() !== ""
+    );
+  };
 
-var nameInput = document.getElementById("name");
-var emailInput = document.getElementById("email");
-var phoneInput = document.getElementById("phone");
-var messageInput = document.getElementById("message");
-var submitButton = document.getElementById("submitButton");
-var currentURL = window.location.href;
-var currentURL = currentURL.slice(0, -1);
+  const updateSubmitButton = () => {
+    submitButton.disabled = !validateForm();
+  };
 
-function validateForm() {
-  var nameIsValid = nameInput.value.trim() !== "";
-  var emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
-  var phoneIsValid = phoneInput.value.trim() !== "";
-  var messageIsValid = messageInput.value.trim() !== "";
+  [nameInput, emailInput, phoneInput, messageInput].forEach(input => {
+    input.addEventListener("input", updateSubmitButton);
+  });
 
-  return nameIsValid && emailIsValid && phoneIsValid && messageIsValid;
-}
+  updateSubmitButton();
 
-function updateSubmitButton() {
-  submitButton.disabled = !validateForm();
-}
+  confCloseButton.onclick = () => { modalConf.style.display = "none"; };
+  errorCloseButton.onclick = () => { modalError.style.display = "none"; };
 
-nameInput.addEventListener("input", updateSubmitButton);
-emailInput.addEventListener("input", updateSubmitButton);
-phoneInput.addEventListener("input", updateSubmitButton);
-messageInput.addEventListener("input", updateSubmitButton);
-
-updateSubmitButton();
-
-// Modal
-var modalConf = document.getElementById("confirmationModal");
-var modalError = document.getElementById("errorModal");
-var confCloseButton = document.querySelector(".conf-close-form");
-var errorCloseButton = document.querySelector(".error-close-form");
-
-confCloseButton.onclick = function () {
-  modalConf.style.display = "none";
-};
-
-errorCloseButton.onclick = function () {
-  modalError.style.display = "none";
-};
-
-document
-  .getElementById("contactForm")
-  .addEventListener("submit", function (event) {
+  document.getElementById("contactForm").addEventListener("submit", event => {
     event.preventDefault();
-    var loader = document.getElementById("loader-form");
-    var contentOverlay = document.getElementById("content-overlay");
+    const loader = document.getElementById("loader-form");
+    const contentOverlay = document.getElementById("content-overlay");
     loader.style.display = "block";
     contentOverlay.style.display = "none";
-    var formData = new FormData(document.getElementById("contactForm"));
-    fetch(currentURL + ":3000/send-email", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
+    const formData = new FormData(document.getElementById("contactForm"));
+    fetch(currentURL + ":3000/send-email", { method: "POST", body: formData })
+      .then(response => {
         if (response.ok) {
           loader.style.display = "none";
           contentOverlay.style.display = "block";
           modalConf.style.display = "block";
         }
       })
-      .catch((error) => {
+      .catch(error => {
         loader.style.display = "none";
         contentOverlay.style.display = "block";
         modalError.style.display = "block";
@@ -171,24 +113,55 @@ document
       });
   });
 
-const languageSwitcher = document.getElementById('languageSwitcher');
+  const savedLanguage = localStorage.getItem('language') || 'en';
+  languageSwitcher.value = savedLanguage;
+  document.documentElement.lang = savedLanguage;
+  loadTranslations(savedLanguage);
 
-languageSwitcher.addEventListener('change', (event) => {
-  const selectedLanguage = event.target.value;
-
-  // Envoyez une requête au backend pour mettre à jour la langue
-  fetch(currentURL + ':3000/api/set-language', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ language: selectedLanguage })
-  })
-  .then(response => response.json())
-  .then(data => {
-    window.location.reload();
-  })
-  .catch(error => {
-    console.error('Error setting language:', error);
+  languageSwitcher.addEventListener('change', event => {
+    const selectedLanguage = event.target.value;
+    localStorage.setItem('language', selectedLanguage);
+    document.documentElement.lang = selectedLanguage;
+    sendLanguageToServer(selectedLanguage);
   });
+
+  function loadTranslations(language) {
+    fetch(`/backend/locales/${language}.json`)
+      .then(response => response.json())
+      .then(data => {
+        applyTranslations(data);
+      })
+      .catch(error => {
+        console.error('Error loading translations:', error);
+      });
+  }
+
+  function applyTranslations(translations) {
+    document.querySelectorAll('[data-i18n-key]').forEach(element => {
+      const keys = element.getAttribute('data-i18n-key').split('.');
+      let value = translations;
+      keys.forEach(key => value = value[key]);
+      element.textContent = value || element.getAttribute('data-i18n-key');
+    });
+  }
+
+  function sendLanguageToServer(language) {
+    fetch(currentURL + ':3000/api/set-language', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept-Language': language },
+      body: JSON.stringify({ language })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) window.location.reload();
+      else console.error('Error setting language');
+    })
+    .catch(error => console.error('Error setting language:', error));
+  }
 });
+
+function calculateAge(dateOfBirth) {
+  const diff = Date.now() - dateOfBirth.getTime();
+  const ageDate = new Date(diff);
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
