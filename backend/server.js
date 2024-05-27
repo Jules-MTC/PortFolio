@@ -5,6 +5,8 @@ const multer = require("multer");
 const nodemailer = require("nodemailer");
 const packageJson = require("../package.json");
 const cors = require("cors");
+const https = require('https');
+const fs = require('fs');
 
 const app = express();
 const port = 3000;
@@ -13,6 +15,13 @@ const upload = multer();
 
 app.use(cors());
 app.use(upload.none());
+
+const options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/cert.pem')
+};
+
+https.createServer(options, app).listen(443);
 
 app.post("/send-email", (req, res) => {
   const { name, email, phone, message } = req.body;
