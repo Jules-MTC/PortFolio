@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const phoneInput = document.getElementById("phone");
   const messageInput = document.getElementById("message");
   const submitButton = document.getElementById("submitButton");
-  const aboutMeElement = document.getElementById("aboutMe");
   const modalConf = document.getElementById("confirmationModal");
   const modalError = document.getElementById("errorModal");
   const confCloseButton = document.querySelector(".conf-close-form");
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       versionElement.textContent = versionElement.textContent.replace("{VERSION}", data.version || "");
     })
     .catch(error => console.error("Error fetching version:", error));
-
+        
   const navbarShrink = function () {
     const navbarCollapsible = document.body.querySelector("#mainNav");
     if (!navbarCollapsible) return;
@@ -58,15 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const dateOfBirth = new Date("2002-08-29");
-  const age = calculateAge(dateOfBirth);
-  aboutMeElement.textContent = aboutMeElement.textContent.replace("{AGE}", age);
-  const currentDate = new Date();
-  const currentYears = currentDate.getFullYear();
-  copyRightElement.textContent = copyRightElement.textContent.replace(
-    "{DATE}",
-    currentYears !== 2024 ? " - " + currentYears : ""
-  );
 
   const validateForm = () => {
     return (
