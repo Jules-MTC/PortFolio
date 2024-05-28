@@ -30,10 +30,10 @@
   },
   "aboutSection": {
     "title": "À propos",
-    "text1": "Originaire de Lorraine en France et âgé de {AGE}, je suis actuellement étudiant en école d'ingénierie informatique. Après avoir suivi une classe préparatoire aux grandes écoles, j'ai choisi de me spécialiser dans ce domaine passionnant. En parallèle de mes études, je travaille comme product owner, où j'ai l'opportunité de mettre en pratique mes compétences techniques tout en développant mes compétences en gestion de projet. Je suis passionné par les nouvelles technologies et motivé par les défis que ce secteur en constante évolution présente.",
+    "text1": "Originaire de Lorraine en France, je suis actuellement étudiant en école d'ingénierie informatique. Après avoir suivi une classe préparatoire aux grandes écoles, j'ai choisi de me spécialiser dans ce domaine passionnant. En parallèle de mes études, je travaille comme product owner, où j'ai l'opportunité de mettre en pratique mes compétences techniques tout en développant mes compétences en gestion de projet. Je suis passionné par les nouvelles technologies et motivé par les défis que ce secteur en constante évolution présente.",
     "text2": "En tant qu'ingénieur, je maîtrise plusieurs langages de programmation tels que Java, Python et JavaScript. Je suis également à l'aise avec les méthodes agiles et les outils de gestion de projet. En dehors du domaine technique, j'ai d'excellentes compétences en communication, travail d'équipe et résolution de problèmes. Mon approche polyvalente et mon désir d'apprendre constamment me permettent de m'adapter rapidement aux nouvelles situations et de contribuer efficacement aux projets ambitieux."
   },
-  "downloadCV": "<i class='fas fa-download me-2'></i>Télécharger mon CV !",
+  "downloadCV": "Télécharger mon CV !",
   "contactSection": {
     "title": "Contactez-moi",
     "nameLabel": "Nom complet",
