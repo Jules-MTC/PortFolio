@@ -95,14 +95,23 @@ app.post("/api/set-language", (req, res) => {
 });
 
 // Lire les certificats SSL
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/fullchain.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/chain.pem', 'utf8');
+const privateKey = fs.readFileSync(
+  "/etc/letsencrypt/live/portfolio.julesantoine.tech/privkey.pem",
+  "utf8"
+);
+const certificate = fs.readFileSync(
+  "/etc/letsencrypt/live/portfolio.julesantoine.tech/fullchain.pem",
+  "utf8"
+);
+const ca = fs.readFileSync(
+  "/etc/letsencrypt/live/portfolio.julesantoine.tech/chain.pem",
+  "utf8"
+);
 
 const credentials = {
   key: privateKey,
   cert: certificate,
-  ca: ca
+  ca: ca,
 };
 
 // Créer un serveur HTTPS

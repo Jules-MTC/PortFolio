@@ -15,7 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (currentURL.includes("localhost")) {
     currentURL = "http://localhost";
-    environnementElement.textContent = environnementElement.textContent.replace("{ENV}", "Local - ");
+    environnementElement.textContent = environnementElement.textContent.replace(
+      "{ENV}",
+      "Local - "
+    );
   } else if (currentURL.includes("julesantoine.tech")) {
     var currentURL = "https://portfolio.julesantoine.tech";
     environnementElement.textContent = environnementElement.textContent.replace(
@@ -23,16 +26,22 @@ document.addEventListener("DOMContentLoaded", () => {
       ""
     );
   } else {
-    environnementElement.textContent = environnementElement.textContent.replace("{ENV}", "INT - ");
+    environnementElement.textContent = environnementElement.textContent.replace(
+      "{ENV}",
+      "INT - "
+    );
   }
 
   fetch(currentURL + ":3000/api/version")
-    .then(response => response.json())
-    .then(data => {
-      versionElement.textContent = versionElement.textContent.replace("{VERSION}", data.version || "");
+    .then((response) => response.json())
+    .then((data) => {
+      versionElement.textContent = versionElement.textContent.replace(
+        "{VERSION}",
+        data.version || ""
+      );
     })
-    .catch(error => console.error("Error fetching version:", error));
-        
+    .catch((error) => console.error("Error fetching version:", error));
+
   const navbarShrink = function () {
     const navbarCollapsible = document.body.querySelector("#mainNav");
     if (!navbarCollapsible) return;
@@ -47,12 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const mainNav = document.body.querySelector("#mainNav");
   if (mainNav) {
-    new bootstrap.ScrollSpy(document.body, { target: "#mainNav", rootMargin: "0px 0px -40%" });
+    new bootstrap.ScrollSpy(document.body, {
+      target: "#mainNav",
+      rootMargin: "0px 0px -40%",
+    });
   }
 
   const navbarToggler = document.body.querySelector(".navbar-toggler");
-  const responsiveNavItems = [].slice.call(document.querySelectorAll("#navbarResponsive .nav-link"));
-  responsiveNavItems.map(responsiveNavItem => {
+  const responsiveNavItems = [].slice.call(
+    document.querySelectorAll("#navbarResponsive .nav-link")
+  );
+  responsiveNavItems.map((responsiveNavItem) => {
     responsiveNavItem.addEventListener("click", () => {
       if (window.getComputedStyle(navbarToggler).display !== "none") {
         navbarToggler.click();
@@ -60,7 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
+  const currentYears = new Date().getFullYear();
+  if ("2024" != currentYears) {
+    copyRightElement.textContent = copyRightElement.textContent.replace(
+      "{DATE}",
+      " - " + currentYears
+    );
+  } else {
+    copyRightElement.textContent = copyRightElement.textContent.replace(
+      "{DATE}",
+      ""
+    );
+  }
   const validateForm = () => {
     return (
       nameInput.value.trim() !== "" &&
@@ -74,16 +99,20 @@ document.addEventListener("DOMContentLoaded", () => {
     submitButton.disabled = !validateForm();
   };
 
-  [nameInput, emailInput, phoneInput, messageInput].forEach(input => {
+  [nameInput, emailInput, phoneInput, messageInput].forEach((input) => {
     input.addEventListener("input", updateSubmitButton);
   });
 
   updateSubmitButton();
 
-  confCloseButton.onclick = () => { modalConf.style.display = "none"; };
-  errorCloseButton.onclick = () => { modalError.style.display = "none"; };
+  confCloseButton.onclick = () => {
+    modalConf.style.display = "none";
+  };
+  errorCloseButton.onclick = () => {
+    modalError.style.display = "none";
+  };
 
-  document.getElementById("contactForm").addEventListener("submit", event => {
+  document.getElementById("contactForm").addEventListener("submit", (event) => {
     event.preventDefault();
     const loader = document.getElementById("loader-form");
     const contentOverlay = document.getElementById("content-overlay");
@@ -91,14 +120,14 @@ document.addEventListener("DOMContentLoaded", () => {
     contentOverlay.style.display = "none";
     const formData = new FormData(document.getElementById("contactForm"));
     fetch(currentURL + ":3000/send-email", { method: "POST", body: formData })
-      .then(response => {
+      .then((response) => {
         if (response.ok) {
           loader.style.display = "none";
           contentOverlay.style.display = "block";
           modalConf.style.display = "block";
         }
       })
-      .catch(error => {
+      .catch((error) => {
         loader.style.display = "none";
         contentOverlay.style.display = "block";
         modalError.style.display = "block";
@@ -106,55 +135,52 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  const savedLanguage = localStorage.getItem('language') || 'en';
+  const savedLanguage = localStorage.getItem("language") || "en";
   languageSwitcher.value = savedLanguage;
   document.documentElement.lang = savedLanguage;
   loadTranslations(savedLanguage);
 
-  languageSwitcher.addEventListener('change', event => {
+  languageSwitcher.addEventListener("change", (event) => {
     const selectedLanguage = event.target.value;
-    localStorage.setItem('language', selectedLanguage);
+    localStorage.setItem("language", selectedLanguage);
     document.documentElement.lang = selectedLanguage;
     sendLanguageToServer(selectedLanguage);
   });
 
   function loadTranslations(language) {
     fetch(`/backend/locales/${language}.json`)
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         applyTranslations(data);
       })
-      .catch(error => {
-        console.error('Error loading translations:', error);
+      .catch((error) => {
+        console.error("Error loading translations:", error);
       });
   }
 
   function applyTranslations(translations) {
-    document.querySelectorAll('[data-i18n-key]').forEach(element => {
-      const keys = element.getAttribute('data-i18n-key').split('.');
+    document.querySelectorAll("[data-i18n-key]").forEach((element) => {
+      const keys = element.getAttribute("data-i18n-key").split(".");
       let value = translations;
-      keys.forEach(key => value = value[key]);
-      element.textContent = value || element.getAttribute('data-i18n-key');
+      keys.forEach((key) => (value = value[key]));
+      element.textContent = value || element.getAttribute("data-i18n-key");
     });
   }
 
   function sendLanguageToServer(language) {
-    fetch(currentURL + ':3000/api/set-language', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept-Language': language },
-      body: JSON.stringify({ language })
+    fetch(currentURL + ":3000/api/set-language", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept-Language": language,
+      },
+      body: JSON.stringify({ language }),
     })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) window.location.reload();
-      else console.error('Error setting language');
-    })
-    .catch(error => console.error('Error setting language:', error));
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) window.location.reload();
+        else console.error("Error setting language");
+      })
+      .catch((error) => console.error("Error setting language:", error));
   }
 });
-
-function calculateAge(dateOfBirth) {
-  const diff = Date.now() - dateOfBirth.getTime();
-  const ageDate = new Date(diff);
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
-}
