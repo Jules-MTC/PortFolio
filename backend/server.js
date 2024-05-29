@@ -57,9 +57,9 @@ app.get("/api/version", (req, res) => {
 });
 
 // Lire les certificats SSL
-const privateKey = fs.readFileSync('/path/to/your/private.key', 'utf8');
-const certificate = fs.readFileSync('/path/to/your/certificate.crt', 'utf8');
-const ca = fs.readFileSync('/path/to/your/ca_bundle.crt', 'utf8');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/fullchain.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/chain.pem', 'utf8');
 
 const credentials = {
   key: privateKey,
