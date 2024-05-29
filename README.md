@@ -197,8 +197,9 @@
 - [X] `► Update readme`
 - [X] `► Add section and button to download my cv`
 - [X] `► Add contact form`
-- [ ] `► Translate in french`
+- [X] `► Translate in french`
 - [X] `► Configure DNS`
+- [X] `► Add https`
 - [ ] `► Add this project on the website`
 - [ ] `► Add CI/CD for auto deploy`
 - [ ] `► New design ?`
