@@ -187,7 +187,7 @@
 
 > Run PortFolio back-end using the command below:
 > ```console
-> $ node ./backend/server.js
+> $ sudo node ./backend/server.js
 > ```
 
 ---
