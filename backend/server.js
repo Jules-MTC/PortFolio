@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+const fs = require("fs");
+const https = require("https");
 const express = require("express");
 const multer = require("multer");
 const nodemailer = require("nodemailer");
@@ -92,6 +94,20 @@ app.post("/api/set-language", (req, res) => {
   res.json({ success: true });
 });
 
-app.listen(port, () => {
-  console.log(`Server start on port: ${port}`);
+// Lire les certificats SSL
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/fullchain.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/portfolio.julesantoine.tech/chain.pem', 'utf8');
+
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca
+};
+
+// Créer un serveur HTTPS
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(port, () => {
+  console.log(`Server started on port : ${port}`);
 });

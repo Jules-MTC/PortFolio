@@ -17,8 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
     currentURL = "http://localhost";
     environnementElement.textContent = environnementElement.textContent.replace("{ENV}", "Local - ");
   } else if (currentURL.includes("julesantoine.tech")) {
-    currentURL = "http://portfolio.julesantoine.tech";
-    environnementElement.textContent = environnementElement.textContent.replace("{ENV}", "");
+    var currentURL = "https://portfolio.julesantoine.tech";
+    environnementElement.textContent = environnementElement.textContent.replace(
+      "{ENV}",
+      ""
+    );
   } else {
     environnementElement.textContent = environnementElement.textContent.replace("{ENV}", "INT - ");
   }
