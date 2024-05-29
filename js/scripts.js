@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let currentURL = window.location.href.slice(0, -1);
+  currentURL = window.location.href.slice(0, -1);
   const environnementElement = document.getElementById("environment");
   const versionElement = document.getElementById("copyRight");
   const nameInput = document.getElementById("name");
