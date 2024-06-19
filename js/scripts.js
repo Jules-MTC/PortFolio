@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const updateFormCSRFToken = async () => {
       try {
         const csrfToken = await getCSRFToken();
+        console.log('CSRF token:', csrfToken);
         if (csrfToken) {
           document.querySelector('input[name="_csrf"]').value = csrfToken;
         } else {
