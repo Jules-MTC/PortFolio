@@ -90,17 +90,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fonction pour récupérer le jeton CSRF
     const getCSRFToken = () => {
       return fetch(currentURL + ":3000/csrf-token")
-        .then(response => response.json())
-        .then(data => data.csrfToken)
+        .then(response => {
+          console.log('Response status:', response.status); // Vérifiez le statut de la réponse
+          return response.json();
+        })
+        .then(data => {
+          console.log('CSRF token data:', data); // Vérifiez les données de jeton CSRF retournées
+          return data.csrfToken;
+        })
         .catch(error => {
           console.error('Error fetching CSRF token:', error);
           return '';
         });
     };
     
+    
     // Fonction pour mettre à jour le formulaire avec le jeton CSRF
     const updateFormCSRFToken = async () => {
       try {
+        // Get the CSRF token
         const csrfToken = await getCSRFToken();
         console.log('CSRF token:', csrfToken);
         if (csrfToken) {
@@ -112,9 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error('Error updating CSRF token:', error);
       }
     };    
-
-  // Appeler la fonction pour mettre à jour le jeton CSRF au chargement de la page
-  updateFormCSRFToken();
+    
+    // Call the function to update the CSRF token on page load
+    updateFormCSRFToken();
 
   const validateForm = () => {
     return (
