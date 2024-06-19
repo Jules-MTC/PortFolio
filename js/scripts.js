@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Retrieve the current URL without the trailing slash
   currentURL = window.location.href.slice(0, -1);
+
+  // Get DOM elements
   const environnementElement = document.getElementById("environment");
   const versionElement = document.getElementById("copyRight");
   const nameInput = document.getElementById("name");
@@ -13,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const errorCloseButton = document.querySelector(".error-close-form");
   const copyRightElement = document.getElementById("copyRight");
 
+  // Adjust environment text based on current URL
   if (currentURL.includes("localhost")) {
     currentURL = "http://localhost";
     environnementElement.textContent = environnementElement.textContent.replace(
@@ -32,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+  // Fetch and display API version
   fetch(currentURL + ":3000/api/version")
     .then((response) => response.json())
     .then((data) => {
@@ -42,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((error) => console.error("Error fetching version:", error));
 
+  // Function to shrink navbar on scroll
   const navbarShrink = function () {
     const navbarCollapsible = document.body.querySelector("#mainNav");
     if (!navbarCollapsible) return;
@@ -54,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   navbarShrink();
   document.addEventListener("scroll", navbarShrink);
 
+  // Initialize ScrollSpy for main navigation
   const mainNav = document.body.querySelector("#mainNav");
   if (mainNav) {
     new bootstrap.ScrollSpy(document.body, {
@@ -62,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Toggle navbar collapse on small screens
   const navbarToggler = document.body.querySelector(".navbar-toggler");
   const responsiveNavItems = [].slice.call(
     document.querySelectorAll("#navbarResponsive .nav-link")
@@ -74,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Update copyright year if not 2024
   const currentYears = new Date().getFullYear();
   if ("2024" != currentYears) {
     copyRightElement.textContent = copyRightElement.textContent.replace(
@@ -86,6 +95,40 @@ document.addEventListener("DOMContentLoaded", () => {
       ""
     );
   }
+
+  // Function to fetch CSRF token
+  const getCSRFToken = () => {
+    return fetch(currentURL + ":3000/csrf-token")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return data.csrfToken;
+      })
+      .catch((error) => {
+        console.error("Error fetching CSRF token:", error);
+        return "";
+      });
+  };
+
+  // Function to update CSRF token in the form
+  const updateFormCSRFToken = async () => {
+    try {
+      const csrfToken = await getCSRFToken();
+      if (csrfToken) {
+        document.querySelector('input[name="_csrf"]').value = csrfToken;
+      } else {
+        console.error("CSRF token is empty or undefined.");
+      }
+    } catch (error) {
+      console.error("Error updating CSRF token:", error);
+    }
+  };
+
+  // Call function to update CSRF token on page load
+  updateFormCSRFToken();
+
+  // Function to validate form inputs
   const validateForm = () => {
     return (
       nameInput.value.trim() !== "" &&
@@ -95,51 +138,73 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   };
 
+  // Function to update submit button state based on form validation
   const updateSubmitButton = () => {
     submitButton.disabled = !validateForm();
   };
 
+  // Attach input event listeners to form inputs for real-time validation
   [nameInput, emailInput, phoneInput, messageInput].forEach((input) => {
     input.addEventListener("input", updateSubmitButton);
   });
 
+  // Initialize submit button state on page load
   updateSubmitButton();
 
+  // Close confirmation modal on button click
   confCloseButton.onclick = () => {
     modalConf.style.display = "none";
   };
+
+  // Close error modal on button click
   errorCloseButton.onclick = () => {
     modalError.style.display = "none";
   };
 
-  document.getElementById("contactForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const loader = document.getElementById("loader-form");
-    const contentOverlay = document.getElementById("content-overlay");
-    loader.style.display = "block";
-    contentOverlay.style.display = "none";
-    const formData = new FormData(document.getElementById("contactForm"));
-    fetch(currentURL + ":3000/send-email", { method: "POST", body: formData })
-      .then((response) => {
+  // Handle form submission
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const loader = document.getElementById("loader-form");
+      const contentOverlay = document.getElementById("content-overlay");
+      loader.style.display = "block";
+      contentOverlay.style.display = "none";
+
+      try {
+        // Update CSRF token before sending form data
+        await updateFormCSRFToken();
+
+        // Create and send POST request with FormData
+        const formData = new FormData(document.getElementById("contactForm"));
+        const response = await fetch(currentURL + ":3000/send-email", {
+          method: "POST",
+          body: formData,
+        });
+
+        // Handle response
         if (response.ok) {
           loader.style.display = "none";
           contentOverlay.style.display = "block";
           modalConf.style.display = "block";
+        } else {
+          throw new Error("Failed to send email");
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         loader.style.display = "none";
         contentOverlay.style.display = "block";
         modalError.style.display = "block";
-        console.error("Erreur lors de l'envoi du formulaire :", error);
-      });
-  });
+        console.error("Error sending form:", error);
+      }
+    });
 
+  // Load saved language preference from local storage
   const savedLanguage = localStorage.getItem("language") || "en";
   languageSwitcher.value = savedLanguage;
   document.documentElement.lang = savedLanguage;
   loadTranslations(savedLanguage);
 
+  // Change event listener for language switcher
   languageSwitcher.addEventListener("change", (event) => {
     const selectedLanguage = event.target.value;
     localStorage.setItem("language", selectedLanguage);
@@ -147,6 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sendLanguageToServer(selectedLanguage);
   });
 
+  // Function to load translations based on selected language
   function loadTranslations(language) {
     fetch(`/backend/locales/${language}.json`)
       .then((response) => response.json())
@@ -158,6 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
+  // Function to apply translations to elements with data-i18n-key attribute
   function applyTranslations(translations) {
     document.querySelectorAll("[data-i18n-key]").forEach((element) => {
       const keys = element.getAttribute("data-i18n-key").split(".");
@@ -167,6 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Function to send selected language to server
   function sendLanguageToServer(language) {
     fetch(currentURL + ":3000/api/set-language", {
       method: "POST",

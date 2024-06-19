@@ -1,7 +1,10 @@
 // scripts/setup.js
 
-// Installer les dépendances
-const { execSync } = require('child_process');
-execSync('npm install');
+// Require the 'execSync' function from the 'child_process' module
+const { execSync } = require("child_process");
 
-console.log('Configuration terminée.');
+// Run 'npm install' synchronously to install dependencies
+execSync("npm install");
+
+// Log a message indicating the configuration is completed
+console.log("Configuration terminée.");
