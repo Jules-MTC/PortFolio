@@ -99,10 +99,18 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     
     // Fonction pour mettre à jour le formulaire avec le jeton CSRF
-  const updateFormCSRFToken = async () => {
-    const csrfToken = await getCSRFToken();
-    document.querySelector('input[name="_csrf"]').value = csrfToken;
-  };
+    const updateFormCSRFToken = async () => {
+      try {
+        const csrfToken = await getCSRFToken();
+        if (csrfToken) {
+          document.querySelector('input[name="_csrf"]').value = csrfToken;
+        } else {
+          console.error('CSRF token is empty or undefined.');
+        }
+      } catch (error) {
+        console.error('Error updating CSRF token:', error);
+      }
+    };    
 
   // Appeler la fonction pour mettre à jour le jeton CSRF au chargement de la page
   updateFormCSRFToken();
