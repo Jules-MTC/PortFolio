@@ -1,33 +1,33 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Jules-MTC/PortFolio/int/assets/favicon.ico" width="100" alt="project-logo">
+   <img src="https://raw.githubusercontent.com/Jules-MTC/PortFolio/int/assets/favicon.ico" width="100" alt="project-logo">
 </p>
 <p align="center">
-    <h1 align="center">Portfolio Website</h1>
+      <h1 align="center">Portfolio Website</h1>
 </p>
 <p align="center">
-    <em><code>► This is my portfolio website</code></em>
+      <em><code>► This is my portfolio website</code></em>
 </p>
 <p align="center">
-	<img src="https://img.shields.io/github/license/Jules-MTC/PortFolio?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
-	<img src="https://img.shields.io/github/last-commit/Jules-MTC/PortFolio?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
-	<img src="https://img.shields.io/github/languages/top/Jules-MTC/PortFolio?style=default&color=0080ff" alt="repo-top-language">
-	<img src="https://img.shields.io/github/languages/count/Jules-MTC/PortFolio?style=default&color=0080ff" alt="repo-language-count">
+   <img src="https://img.shields.io/github/license/Jules-MTC/PortFolio?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
+   <img src="https://img.shields.io/github/last-commit/Jules-MTC/PortFolio?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+   <img src="https://img.shields.io/github/languages/top/Jules-MTC/PortFolio?style=default&color=0080ff" alt="repo-top-language">
+   <img src="https://img.shields.io/github/languages/count/Jules-MTC/PortFolio?style=default&color=0080ff" alt="repo-language-count">
 <p>
 <p align="center">
-	<!-- default option, no dependency badges. -->
+   <!-- default option, no dependency badges. -->
 </p>
 
 <br><!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary><br>
+   <summary>Table of Contents</summary><br>
 
 - [ Overview](#-overview)
 - [ Features](#-features)
 - [ Repository Structure](#-repository-structure)
 - [ Modules](#-modules)
 - [ Getting Started](#-getting-started)
-  - [ Installation](#-installation)
-  - [ Usage](#-usage)
+   - [ Installation](#-installation)
+   - [ Usage](#-usage)
 - [ Project Roadmap](#-project-roadmap)
 - [ Contributing](#-contributing)
 - [ License](#-license)
@@ -47,8 +47,6 @@
 
 <code>► Project Portfolio: An interactive gallery showcasing my recent projects with detailed descriptions, screenshots and links to GitHub repositories or online demos.</code>
 
-<code>► Project Portfolio: An interactive gallery showcasing my recent projects with detailed descriptions, screenshots and links to GitHub repositories or online demos.</code>
-
 <code>► Contact Form: A contact form allowing visitors to contact me directly by email. The form is secure with anti-spam features.</code>
 
 <code>► Responsive Design: The site is designed to be fully responsive, providing an optimal user experience on all devices, from desktop to smartphones.</code>
@@ -63,26 +61,26 @@
 
 ```sh
 └── PortFolio/
-    ├── LICENSE
-    ├── README.md
-    ├── assets
-    │   ├── dossier-portfolio.ico:Zone.Identifier
-    │   ├── dossier-portfolio.png:Zone.Identifier
-    │   ├── favicon.ico
-    │   ├── img
-    │   └── old-favicon.ico
-    ├── backend
-    │   └── server.js
-    ├── css
-    │   └── styles.css
-    ├── index.html
-    ├── js
-    │   └── scripts.js
-    ├── package-lock.json
-    ├── package.json
-    ├── release.config.js
-    └── scripts
-        └── setup.js
+      ├── LICENSE
+      ├── README.md
+      ├── assets
+      │   ├── dossier-portfolio.ico:Zone.Identifier
+      │   ├── dossier-portfolio.png:Zone.Identifier
+      │   ├── favicon.ico
+      │   ├── img
+      │   └── old-favicon.ico
+      ├── backend
+      │   └── server.js
+      ├── css
+      │   └── styles.css
+      ├── index.html
+      ├── js
+      │   └── scripts.js
+      ├── package-lock.json
+      ├── package.json
+      ├── release.config.js
+      └── scripts
+            └── setup.js
 ```
 
 ---
@@ -219,22 +217,22 @@ Contributions are welcome! Here are several ways you can contribute:
 
 1. **Fork the Repository**: Start by forking the project repository to your github account.
 2. **Clone Locally**: Clone the forked repository to your local machine using a git client.
-   ```sh
-   git clone https://github.com/Jules-MTC/PortFolio
-   ```
+    ```sh
+    git clone https://github.com/Jules-MTC/PortFolio
+    ```
 3. **Create a New Branch**: Always work on a new branch, giving it a descriptive name.
-   ```sh
-   git checkout -b new-feature-x
-   ```
+    ```sh
+    git checkout -b new-feature-x
+    ```
 4. **Make Your Changes**: Develop and test your changes locally.
 5. **Commit Your Changes**: Commit with a clear message describing your updates.
-   ```sh
-   git commit -m 'Implemented new feature x.'
-   ```
+    ```sh
+    git commit -m 'Implemented new feature x.'
+    ```
 6. **Push to github**: Push the changes to your forked repository.
-   ```sh
-   git push origin new-feature-x
-   ```
+    ```sh
+    git push origin new-feature-x
+    ```
 7. **Submit a Pull Request**: Create a PR against the original project repository. Clearly describe the changes and their motivations.
 8. **Review**: Once your PR is reviewed and approved, it will be merged into the main branch. Congratulations on your contribution!
 </details>
@@ -243,9 +241,9 @@ Contributions are welcome! Here are several ways you can contribute:
 <summary>Contributor Graph</summary>
 <br>
 <p align="center">
-   <a href="https://github.com{/Jules-MTC/PortFolio/}graphs/contributors">
-      <img src="https://contrib.rocks/image?repo=Jules-MTC/PortFolio">
-   </a>
+    <a href="https://github.com{/Jules-MTC/PortFolio/}graphs/contributors">
+         <img src="https://contrib.rocks/image?repo=Jules-MTC/PortFolio">
+    </a>
 </p>
 </details>
 
