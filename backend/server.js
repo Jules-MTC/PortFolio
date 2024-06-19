@@ -45,6 +45,9 @@ app.get("/form", (req, res) => {
 });
 
 app.post("/send-email", (req, res) => {
+  if (!req.csrfToken()) {
+    return res.status(403).send("CSRF token missing or invalid.");
+  }
   const { name, email, phone, message } = req.body;
 
   if (!name || !email || !phone || !message) {
