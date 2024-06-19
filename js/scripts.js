@@ -86,6 +86,27 @@ document.addEventListener("DOMContentLoaded", () => {
       ""
     );
   }
+
+    // Fonction pour récupérer le jeton CSRF
+    const getCSRFToken = () => {
+      return fetch(currentURL + ":3000/csrf-token")
+        .then(response => response.json())
+        .then(data => data.csrfToken)
+        .catch(error => {
+          console.error('Error fetching CSRF token:', error);
+          return '';
+        });
+    };
+    
+    // Fonction pour mettre à jour le formulaire avec le jeton CSRF
+  const updateFormCSRFToken = async () => {
+    const csrfToken = await getCSRFToken();
+    document.querySelector('input[name="_csrf"]').value = csrfToken;
+  };
+
+  // Appeler la fonction pour mettre à jour le jeton CSRF au chargement de la page
+  updateFormCSRFToken();
+
   const validateForm = () => {
     return (
       nameInput.value.trim() !== "" &&
@@ -112,28 +133,36 @@ document.addEventListener("DOMContentLoaded", () => {
     modalError.style.display = "none";
   };
 
-  document.getElementById("contactForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const loader = document.getElementById("loader-form");
-    const contentOverlay = document.getElementById("content-overlay");
-    loader.style.display = "block";
-    contentOverlay.style.display = "none";
-    const formData = new FormData(document.getElementById("contactForm"));
-    fetch(currentURL + ":3000/send-email", { method: "POST", body: formData })
-      .then((response) => {
+    // Écouter l'événement de soumission du formulaire
+    document.getElementById("contactForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const loader = document.getElementById("loader-form");
+      const contentOverlay = document.getElementById("content-overlay");
+      loader.style.display = "block";
+      contentOverlay.style.display = "none";
+  
+      try {
+        // Mettre à jour le jeton CSRF avant d'envoyer le formulaire
+        await updateFormCSRFToken();
+  
+        // Créer et envoyer la requête POST avec FormData
+        const formData = new FormData(document.getElementById("contactForm"));
+        const response = await fetch(currentURL + ":3000/send-email", { method: "POST", body: formData });
+  
         if (response.ok) {
           loader.style.display = "none";
           contentOverlay.style.display = "block";
           modalConf.style.display = "block";
+        } else {
+          throw new Error('Failed to send email');
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         loader.style.display = "none";
         contentOverlay.style.display = "block";
         modalError.style.display = "block";
-        console.error("Erreur lors de l'envoi du formulaire :", error);
-      });
-  });
+        console.error("Error sending form:", error);
+      }
+    });
 
   const savedLanguage = localStorage.getItem("language") || "en";
   languageSwitcher.value = savedLanguage;

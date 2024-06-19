@@ -42,14 +42,9 @@ const csrfProtection = csrf();
 
 app.use(csrfProtection);
 
-app.use((req, _, next) => {
+app.get("/csrf-token", (req, res) => {
   console.log("CSRF token:", req.csrfToken());
-  next();
-});
-
-app.get("/form", (req, res) => {
-  console.log("CSRF token:", req.csrfToken());
-  res.render("index", { csrfToken: req.csrfToken() });
+  res.json({ csrfToken: req.csrfToken() });
 });
 
 app.post("/send-email", (req, res) => {
