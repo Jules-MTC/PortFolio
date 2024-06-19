@@ -9,6 +9,8 @@ const packageJson = require("../package.json");
 const cors = require("cors");
 const i18n = require("i18n");
 const session = require("express-session");
+const csrf = require("lusca").csrf;
+
 const secret = require("crypto").randomBytes(64).toString("hex");
 const app = express();
 const port = 3000;
@@ -35,6 +37,12 @@ app.use(
     cookie: { secure: false },
   })
 );
+
+app.use(csrf());
+
+app.get("/form", (req, res) => {
+  res.render("form", { csrfToken: req.csrfToken() });
+});
 
 app.post("/send-email", (req, res) => {
   const { name, email, phone, message } = req.body;
