@@ -38,7 +38,14 @@ app.use(
   })
 );
 
-app.use(csrf());
+const csrfProtection = csrf();
+
+app.use(csrfProtection);
+
+app.use((req, _, next) => {
+  console.log("CSRF token:", req.csrfToken());
+  next();
+});
 
 app.get("/form", (req, res) => {
   console.log("CSRF token:", req.csrfToken());
