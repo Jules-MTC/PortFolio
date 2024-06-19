@@ -43,7 +43,6 @@ const csrfProtection = csrf();
 app.use(csrfProtection);
 
 app.get("/csrf-token", (req, res) => {
-  console.log("CSRF token:", req.csrfToken());
   res.json({ csrfToken: req.csrfToken() });
 });
 
@@ -80,7 +79,6 @@ app.post("/send-email", (req, res) => {
       console.error("Error during email sending:", error);
       res.status(500).send("An error occurred during email sending.");
     } else {
-      console.log("Email sent:", info.response);
       res.status(200).send("Email sent successfully.");
     }
   });

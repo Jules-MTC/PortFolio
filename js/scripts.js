@@ -91,11 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const getCSRFToken = () => {
       return fetch(currentURL + ":3000/csrf-token")
         .then(response => {
-          console.log('Response status:', response.status); // Vérifiez le statut de la réponse
           return response.json();
         })
         .then(data => {
-          console.log('CSRF token data:', data); // Vérifiez les données de jeton CSRF retournées
           return data.csrfToken;
         })
         .catch(error => {
@@ -110,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         // Get the CSRF token
         const csrfToken = await getCSRFToken();
-        console.log('CSRF token:', csrfToken);
         if (csrfToken) {
           document.querySelector('input[name="_csrf"]').value = csrfToken;
         } else {
