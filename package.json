@@ -1,13 +1,12 @@
 {
     "name": "portfolio",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "description": "This project is a personal portfolio created to showcase my skills, experiences and projects in the field of web development. The portfolio is designed as a dynamic website with a backend, developed using JavaScript (Node.js), CSS, and HTML.",
     "main": "index.js",
     "scripts": {
         "start": "echo \"Error: no need this\" && exit 1",
         "test": "echo \"Error: no test specified\" && exit 1",
         "setup": "node /var/www/html/PortFolio/scripts/setup.js"
-
     },
     "dependencies": {
         "body-parser": "^1.19.1",
