@@ -41,6 +41,7 @@ app.use(
 app.use(csrf());
 
 app.get("/form", (req, res) => {
+  console.log("CSRF token:", req.csrfToken());
   res.render("form", { csrfToken: req.csrfToken() });
 });
 
