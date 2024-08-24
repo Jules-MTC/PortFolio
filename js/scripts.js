@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Retrieve the current URL without the trailing slash
-  currentURL = window.location.href.slice(0, -1);
+  const url = new URL(window.location.href);
+  currentURL = `${url.protocol}//${url.hostname}`;
 
   // Get DOM elements
   const environnementElement = document.getElementById("environment");
@@ -97,18 +98,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Function to fetch CSRF token
-  const getCSRFToken = () => {
-    return fetch(currentURL + ":3000/csrf-token")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return data.csrfToken;
-      })
-      .catch((error) => {
-        console.error("Error fetching CSRF token:", error);
-        return "";
-      });
+  const getCSRFToken = async () => {
+    try {
+      const response = await fetch(`${currentURL}:3000/csrf-token`);
+      const data = await response.json();
+      return data.csrfToken;
+    } catch (error) {
+      console.error("Error fetching CSRF token:", error);
+      return "";
+    }
   };
 
   // Function to update CSRF token in the form
@@ -235,20 +233,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Function to send selected language to server
-  function sendLanguageToServer(language) {
-    fetch(currentURL + ":3000/api/set-language", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept-Language": language,
-      },
-      body: JSON.stringify({ language }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) window.location.reload();
-        else console.error("Error setting language");
-      })
-      .catch((error) => console.error("Error setting language:", error));
+  async function sendLanguageToServer(language) {
+    try {
+      const csrfToken = await getCSRFToken();
+      const response = await fetch(`${currentURL}:3000/api/set-language`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken, // Inclure le jeton CSRF dans les en-têtes
+        },
+        body: JSON.stringify({ language }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        window.location.reload();
+      } else {
+        console.error("Error setting language");
+      }
+    } catch (error) {
+      console.error("Error setting language:", error);
+    }
   }
 });
