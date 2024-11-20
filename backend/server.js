@@ -54,16 +54,19 @@ app.post("/send-email", (req, res) => {
     return res.status(400).send("All fields are required.");
   }
 
-  const transporter = nodemailer.createTransport({
-    host: "smtp-mail.outlook.com",
+  const transporterConfig = {
+    host: "us2.smtp.mailhostbox.com",
     port: 587,
     secure: false,
     auth: {
       user: process.env.EMAIL_FROM_ADDRESS,
       pass: process.env.EMAIL_FROM_PASSWORD,
     },
-  });
-
+  };
+  if (process.env.NODE_ENV === "devlopment") {
+    transporterConfig.tls = { rejectUnauthorized: false };
+  }
+  const transporter = nodemailer.createTransport(transporterConfig);
   const mailOptions = {
     from: process.env.EMAIL_FROM_ADDRESS,
     to: process.env.EMAIL_TO_ADDRESS,
@@ -89,7 +92,8 @@ app.get("/api/version", (req, res) => {
 
 // Middleware to set language based on Accept-Language header or session
 app.use((req, res, next) => {
-  const language = req.headers["accept-language"] || req.session.language || "en";
+  const language =
+    req.headers["accept-language"] || req.session.language || "en";
   i18n.setLocale(language);
   next();
 });
@@ -101,7 +105,7 @@ app.post("/api/set-language", (req, res, next) => {
   req.session.save((err) => {
     if (err) return next(err);
     console.log("Language set to:", req.body.language);
-    res.json({ success: true});
+    res.json({ success: true });
   });
 });
 
@@ -117,7 +121,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 if (process.env.NODE_ENV === "production") {
-  https.createServer({ key: privateKey, cert: certificate, ca: ca }, app).listen(port);
+  https
+    .createServer({ key: privateKey, cert: certificate, ca: ca }, app)
+    .listen(port);
 } else {
   app.listen(port, () => {
     console.log("Server running on http://localhost:" + port);
