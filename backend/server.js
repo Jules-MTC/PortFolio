@@ -12,6 +12,7 @@ const cors = require("cors");
 const i18n = require("i18n");
 const session = require("express-session");
 const crypto = require("crypto");
+const lusca = require("lusca");
 
 // Generate a random secret for session management
 const secret = crypto.randomBytes(64).toString("hex");
@@ -35,6 +36,9 @@ app.use(
     cookie: { secure: process.env.NODE_ENV === "production" },
   })
 );
+
+// Setup CSRF protection middleware
+app.use(lusca.csrf());
 
 // Configure i18n for internationalization
 i18n.configure({
@@ -83,11 +87,7 @@ app.post("/send-email", (req, res) => {
       res.status(200).send("Email sent successfully.");
     }
   });
-});
-
-// Route to retrieve API version from package.json
-app.get("/api/version", (req, res) => {
-  res.json({ version: packageJson.version });
+res.json({ version: packageJson.version });
 });
 
 // Middleware to set language based on Accept-Language header or session
