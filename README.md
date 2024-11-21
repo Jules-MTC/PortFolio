@@ -199,7 +199,7 @@
 - [X] `► Configure DNS`
 - [X] `► Add https`
 - [ ] `► Add this project on the website`
-- [X] `► Add auto deploy with auto release with semantic`
+- [X] `► Add auto deploy with auto release with semantic TEST XXXXX`
 - [ ] `► New design ?`
 
 ---
