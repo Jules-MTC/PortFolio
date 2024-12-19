@@ -113,6 +113,8 @@ app.post("/api/set-language", (req, res, next) => {
 let privateKey, certificate, ca;
 
 if (process.env.NODE_ENV === "production") {
+  console.log("SSL Key Path:", process.env.SSL_KEY_PATH);
+  console.log("SSL Cert Path:", process.env.SSL_CERT_PATH);
   privateKey = fs.readFileSync(process.env.SSL_KEY_PATH, "utf8");
   certificate = fs.readFileSync(process.env.SSL_CERT_PATH, "utf8");
   ca = fs.readFileSync(process.env.SSL_CA_PATH, "utf8");
