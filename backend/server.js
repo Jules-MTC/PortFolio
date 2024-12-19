@@ -63,7 +63,7 @@ app.post("/send-email", (req, res) => {
       pass: process.env.EMAIL_FROM_PASSWORD,
     },
   };
-  if (process.env.NODE_ENV === "devlopment") {
+  if (process.env.NODE_ENV === "development") {
     transporterConfig.tls = { rejectUnauthorized: false };
   }
   const transporter = nodemailer.createTransport(transporterConfig);
