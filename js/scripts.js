@@ -96,38 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // Function to fetch CSRF token
-  const getCSRFToken = () => {
-    return fetch(currentURL + ":3000/csrf-token")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return data.csrfToken;
-      })
-      .catch((error) => {
-        console.error("Error fetching CSRF token:", error);
-        return "";
-      });
-  };
-
-  // Function to update CSRF token in the form
-  const updateFormCSRFToken = async () => {
-    try {
-      const csrfToken = await getCSRFToken();
-      if (csrfToken) {
-        document.querySelector('input[name="_csrf"]').value = csrfToken;
-      } else {
-        console.error("CSRF token is empty or undefined.");
-      }
-    } catch (error) {
-      console.error("Error updating CSRF token:", error);
-    }
-  };
-
-  // Call function to update CSRF token on page load
-  updateFormCSRFToken();
-
   // Function to validate form inputs
   const validateForm = () => {
     return (
@@ -162,55 +130,35 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Handle form submission
-  document
-    .getElementById("contactForm")
-    .addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const loader = document.getElementById("loader-form");
-      const contentOverlay = document.getElementById("content-overlay");
-      loader.style.display = "block";
-      contentOverlay.style.display = "none";
-
-      try {
-        // Update CSRF token before sending form data
-        await updateFormCSRFToken();
-
-        // Create and send POST request with FormData
-        const formData = new FormData(document.getElementById("contactForm"));
-        const response = await fetch(currentURL + ":3000/send-email", {
-          method: "POST",
-          body: formData,
-        });
-
-        // Handle response
-        if (response.ok) {
-          loader.style.display = "none";
-          contentOverlay.style.display = "block";
-          modalConf.style.display = "block";
-        } else {
-          throw new Error("Failed to send email");
-        }
-      } catch (error) {
+  document.getElementById("contactForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const loader = document.getElementById("loader-form");
+    const contentOverlay = document.getElementById("content-overlay");
+    loader.style.display = "block";
+    contentOverlay.style.display = "none";
+    try {
+      // Create and send POST request with FormData
+      const formData = new FormData(document.getElementById("contactForm"));  
+      const response = await fetch(currentURL + ":3000/send-email", {
+        method: "POST",
+        body: formData,
+      });
+  
+      // Handle response
+      if (response.ok) {
         loader.style.display = "none";
         contentOverlay.style.display = "block";
-        modalError.style.display = "block";
-        console.error("Error sending form:", error);
+        modalConf.style.display = "block";
+      } else {
+        throw new Error("Failed to send email");
       }
-    });
-
-  // Load saved language preference from local storage
-  const savedLanguage = localStorage.getItem("language") || "en";
-  languageSwitcher.value = savedLanguage;
-  document.documentElement.lang = savedLanguage;
-  loadTranslations(savedLanguage);
-
-  // Change event listener for language switcher
-  languageSwitcher.addEventListener("change", (event) => {
-    const selectedLanguage = event.target.value;
-    localStorage.setItem("language", selectedLanguage);
-    document.documentElement.lang = selectedLanguage;
-    sendLanguageToServer(selectedLanguage);
-  });
+    } catch (error) {
+      loader.style.display = "none";
+      contentOverlay.style.display = "block";
+      modalError.style.display = "block";
+      console.error("Error sending form:", error);
+    }
+  });  
 
   // Function to load translations based on selected language
   function loadTranslations(language) {
@@ -234,21 +182,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Load translations based on selected language
+  document.getElementById("languageSwitcher").addEventListener("change", async (event) => {
+    const selectedLanguage = event.target.value;
+    localStorage.setItem("language", selectedLanguage);
+    document.documentElement.lang = selectedLanguage;
+    await sendLanguageToServer(selectedLanguage);
+  });
+  
   // Function to send selected language to server
-  function sendLanguageToServer(language) {
-    fetch(currentURL + ":3000/api/set-language", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept-Language": language,
-      },
-      body: JSON.stringify({ language }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) window.location.reload();
-        else console.error("Error setting language");
-      })
-      .catch((error) => console.error("Error setting language:", error));
-  }
+  async function sendLanguageToServer(language) {
+    try {
+      const response = await fetch(`${currentURL}:3000/api/set-language`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept-Language": language,
+        },
+        body: JSON.stringify({ language }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        loadTranslations(language);
+      } else {
+        console.error("Error setting language");
+      }
+    } catch (error) {
+      console.error("Error setting language:", error);
+    }
+  }  
 });

@@ -400,3 +400,7 @@ FodyWeavers.xsd
 # Environnement
 
 .env
+
+# Pem files
+
+*.pem

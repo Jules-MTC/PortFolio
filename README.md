@@ -199,7 +199,7 @@
 - [X] `► Configure DNS`
 - [X] `► Add https`
 - [ ] `► Add this project on the website`
-- [ ] `► Add CI/CD for auto deploy`
+- [X] `► Add auto deploy don't to do the release`
 - [ ] `► New design ?`
 
 ---
