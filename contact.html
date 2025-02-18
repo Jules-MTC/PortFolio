@@ -42,25 +42,32 @@
                 </div>
                 <form class="shadow-lg" data-bs-theme="light" id="contactForm">
                     <div class="mb-3">
-                        <label class="form-label" id="name" for="name" placeholder="Enter your name..."
+                        <label class="form-label" for="name" placeholder="Enter your name..."
                             data-i18n-key="contact.form.name">Your Name</label>
-                        <input class="form-control item" data-sb-validations="required" type="text" id="name">
+                        <input class="form-control item" min="2" data-sb-validations="required" type="text" id="name">
                         <div class="invalid-feedback" data-sb-feedback="name:required">
                             A name is required.
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" id="subject" for="subject" data-i18n-key="contact.form.subject">Subject</label>
-                        <input class="form-control item" type="text" id="subject" data-sb-validations="required" >
+                        <label class="form-label" for="subject" data-i18n-key="contact.form.subject">Subject</label>
+                        <input class="form-control item" min="2" type="text" id="subject" data-sb-validations="required" >
                         <div class="invalid-feedback" data-sb-feedback="subject:required">
                             A subject is required.
                         </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" id="email" for="email" data-i18n-key="contact.form.email">Email</label>
-                        <input class="form-control item" type="email" id="email" data-sb-validations="required">
+                        <input class="form-control item" min="2" type="email" id="email" data-sb-validations="required">
                         <div class="invalid-feedback" data-sb-feedback="email:required">
                             An email is required.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control item" type="number" id="phone" data-sb-validations="required">
+                        <label class="form-label" min="2" id="phone" for="phone" data-i18n-key="contact.form.email">Email</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">
+                            A phone number is required.
                         </div>
                     </div>
                     <div class="mb-3">
@@ -83,9 +90,13 @@
     <footer class="page-footer py-3 border-top">
         <div class="container my-4">
             <div class="links">
-                <a href="about-me.html" data-i18n-key="footer.aboutMe">About me</a>
+                <a href="cv.html" data-i18n-key="footer.aboutMe">About me</a>
                 <a href="contact.html" data-i18n-key="footer.contactMe">Contact me</a>
                 <a href="projects.html" data-i18n-key="footer.projects">Projects</a>
+                <div class="container" id="copyRight">
+                    <small data-i18n-key="copyright">Copyright &copy; Jules ANTOINE 2024{DATE} | Version:
+                        {VERSION}</small>
+                </div>
             </div>
             <div class="social-icons">
                 <a class="me-3" href="https://www.instagram.com/juls_antoine/" target="_blank"><i

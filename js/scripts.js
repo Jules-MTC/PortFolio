@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   currentURL = window.location.href.slice(0, -1);
 
   // Get DOM elements
-  const environnementElement = document.getElementById("environment");
   const versionElement = document.getElementById("copyRight");
+  const copyRightElement = document.getElementById("copyRight");
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
   const phoneInput = document.getElementById("phone");
@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalError = document.getElementById("errorModal");
   const confCloseButton = document.querySelector(".conf-close-form");
   const errorCloseButton = document.querySelector(".error-close-form");
-  const copyRightElement = document.getElementById("copyRight");
 
   // Adjust environment text based on current URL
   if (currentURL.includes("localhost")) {
