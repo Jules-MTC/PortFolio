@@ -14,6 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalError = document.getElementById("errorModal");
   const confCloseButton = document.querySelector(".conf-close-form");
   const errorCloseButton = document.querySelector(".error-close-form");
+  const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "fr",
+    separateDialCode: true,
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+  });
 
   // Adjust environment text based on current URL
   if (currentURL.includes("localhost")) {
@@ -91,12 +96,12 @@ document.addEventListener("DOMContentLoaded", () => {
     contentOverlay.style.display = "none";
     try {
       // Create and send POST request with FormData
-      const formData = new FormData(document.getElementById("contactForm"));  
+      const formData = new FormData(document.getElementById("contactForm"));
       const response = await fetch(currentURL + ":3000/send-email", {
         method: "POST",
         body: formData,
       });
-  
+
       // Handle response
       if (response.ok) {
         loader.style.display = "none";
@@ -111,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
       modalError.style.display = "block";
       console.error("Error sending form:", error);
     }
-  });  
+  });
 
   // Function to load translations based on selected language
   function loadTranslations(language) {
@@ -142,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.lang = selectedLanguage;
     await sendLanguageToServer(selectedLanguage);
   });
-  
+
   // Function to send selected language to server
   async function sendLanguageToServer(language) {
     try {
@@ -163,5 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Error setting language:", error);
     }
-  }  
+  }
+  phoneInput.addEventListener("countrychange", function () {
+    console.log("Nouveau pays sélectionné :", iti.getSelectedCountryData());
+  });
 });
