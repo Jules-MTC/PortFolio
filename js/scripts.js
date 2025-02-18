@@ -18,22 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Adjust environment text based on current URL
   if (currentURL.includes("localhost")) {
-    currentURL = "http://localhost";
-    environnementElement.textContent = environnementElement.textContent.replace(
-      "{ENV}",
-      "Local - "
-    );
+    var currentURL = "http://localhost";
   } else if (currentURL.includes("julesantoine.tech")) {
     var currentURL = "https://portfolio.julesantoine.tech";
-    environnementElement.textContent = environnementElement.textContent.replace(
-      "{ENV}",
-      ""
-    );
   } else {
-    environnementElement.textContent = environnementElement.textContent.replace(
-      "{ENV}",
-      "INT - "
-    );
+    var currentURL = "https://portfolio.julesantoine.tech";
   }
 
   // Fetch and display API version
@@ -46,41 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     })
     .catch((error) => console.error("Error fetching version:", error));
-
-  // Function to shrink navbar on scroll
-  const navbarShrink = function () {
-    const navbarCollapsible = document.body.querySelector("#mainNav");
-    if (!navbarCollapsible) return;
-    if (window.scrollY === 0) {
-      navbarCollapsible.classList.remove("navbar-shrink");
-    } else {
-      navbarCollapsible.classList.add("navbar-shrink");
-    }
-  };
-  navbarShrink();
-  document.addEventListener("scroll", navbarShrink);
-
-  // Initialize ScrollSpy for main navigation
-  const mainNav = document.body.querySelector("#mainNav");
-  if (mainNav) {
-    new bootstrap.ScrollSpy(document.body, {
-      target: "#mainNav",
-      rootMargin: "0px 0px -40%",
-    });
-  }
-
-  // Toggle navbar collapse on small screens
-  const navbarToggler = document.body.querySelector(".navbar-toggler");
-  const responsiveNavItems = [].slice.call(
-    document.querySelectorAll("#navbarResponsive .nav-link")
-  );
-  responsiveNavItems.map((responsiveNavItem) => {
-    responsiveNavItem.addEventListener("click", () => {
-      if (window.getComputedStyle(navbarToggler).display !== "none") {
-        navbarToggler.click();
-      }
-    });
-  });
 
   // Update copyright year if not 2024
   const currentYears = new Date().getFullYear();

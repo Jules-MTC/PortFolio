@@ -1,57 +1,130 @@
 {
-  "tabTitle": "Jules ANTOINE - Portfolio",
+  "tabTitle": {
+    "contact": "Contact - JA PortFolio",
+    "cv": "CV - JA PortFolio",
+    "home": "Home - JA PortFolio",
+    "projects": "Projects - JA PortFolio"
+  },
+  "portfolioTitle": "Portfolio",
+  "toggleNav": "Toggle navigation",
   "menu": {
-    "portfolio": "Portfolio",
-    "about": "About",
+    "Home": "Home",
+    "Projects": "Projects",
+    "CV": "CV",
+    "about-me": "About me",
     "contact": "Contact"
   },
-  "masthead": {
-    "name": "Jules ANTOINE",
-    "subtitle": "Product Owner - Software Engineer Student"
+  "about": {
+    "description": "Hello! I'm <strong> ANTOINE<strong>. Engineering student at ESIEA, specializing in Software Engineering, Entrepreneurship, and Innovation. Currently Product Owner at Meta-Coaching, I bridge business and tech, managing Agile teams, product evolution, and platform maintenance. Passionate about technology and innovation, I thrive on solving complex challenges"
   },
-  "portfolioSection": {
-    "title": "Portfolio",
-    "modal1": {
-      "title": "Sunglass Bros: Sunglasses E-commerce Platform",
-      "description": "Sunglass Bros is a dynamic e-commerce platform dedicated to the sale of sunglasses, offering a smooth and secure online shopping experience. Built with robust web technologies such as PHP, HTML, CSS and PHPMyAdmin, this platform integrates advanced order, inventory, user and display management features to meet the needs of demanding customers. The Sunglass Bros site offers an attractive and user-friendly user interface, allowing visitors to easily navigate through a huge selection of quality sunglasses. Advanced filtering features allow users to quickly find products that match their style, color and price preferences. The platform seamlessly manages customer orders, providing a secure purchasing process and efficient online payment management. Users can create personal accounts for a faster ordering process and benefit from features like saving payment information and order history. Behind the scenes, site administration is simplified thanks to an intuitive dashboard powered by PHPMyAdmin. Administrators can easily manage inventory, track sales, manage user profiles, and make real-time adjustments to optimize platform performance. Sunglass Bros represents much more than a simple e-commerce site. It is a comprehensive, immersive online experience for sunglasses enthusiasts, offering quality products, exceptional customer service and a robust technology platform to support business operations."
+  "about-me": "About me",
+  "gallery": {
+    "image1": "Nature Image 1",
+    "image2": "Nature Image 2",
+    "image3": "Tech Image 1"
+  },
+  "cta": {
+    "likeWhatYouSee": "Like what you see?"
+  },
+  "skills": {
+    "title": "Special Skills",
+    "webDesign": "Web Design",
+    "webDesign.description": "Creating clean and professional web designs using the latest trends and technologies.",
+    "interfaceDesign": "Interface Design",
+    "interfaceDesign.description": "Building user-friendly interfaces that enhance user experience.",
+    "photographyPrint": "Photography and Print",
+    "photographyPrint.description": "Expertise in photography and high-quality print media design."
+  },
+  "projects": {
+    "title": "Recent Work",
+    "image1": "Nature Project 1",
+    "image2": "Nature Project 2",
+    "image3": "Tech Project 1",
+    "image4": "Nature Project 3",
+    "image5": "Nature Project 4",
+    "image6": "Tech Project 2",
+    "project1": {
+      "title": "Project Alpha",
+      "description": "A cutting-edge web development project leveraging modern technologies."
     },
-    "modal2": {
-      "title": "FastSum: Scientific and Technical Project Management Platform (STP)",
-      "description": "FastSum is a revolutionary online platform designed to simplify science and engineering project (STP) management for students, faculty and mentors. Through the use of Oracle's powerful Apex technology, FastSum provides a smooth and efficient user experience. This versatile platform allows users to create, manage, and collaborate on scientific and engineering projects with ease. FastSum's key features include task management, progress tracking, deadline scheduling, real-time communication and much more. Students, faculty, and mentors can access FastSum from any internet-connected device, enabling seamless collaboration, even remotely. FastSum's intuitive interface makes creating and managing projects as simple as possible, freeing up time and energy to focus on research and innovation. Whether for an academic research project, a technical business project or an interdisciplinary collaboration, FastSum offers a complete solution to simplify and improve the management of scientific and technical projects. With FastSum, the future of scientific collaboration is faster, more efficient and brighter than ever."
+    "project2": {
+      "title": "Project Beta",
+      "description": "A mobile application designed to enhance productivity and user experience."
     },
-    "modal3": {
-      "title": "ARHW: Automated Recycling of Household Waste",
-      "description": "The ARHW (Automated Recycling of Domestic Waste) project represents an innovative initiative aimed at revolutionizing the management of household waste using an automatic sorter bin. Designed and built as a group from scratch, with a particular focus on computer coding, ARHW pushes the boundaries of technology to promote more efficient and sustainable recycling. At the crossroads of mechatronic engineering and IT, ARHW integrates advanced sensors, motorized actuators and an intuitive user interface to automate the waste sorting process. Using sophisticated coding techniques, each component of ARHW is synchronized to ensure precise and efficient operation. The user interacts with ARHW via a user-friendly interface that allows selecting the types of waste to be sorted. Then, the automatic trash sorter uses its sensors to identify and separate waste based on its material (plastic, glass, metal, etc.). The sorted waste is then directed to appropriate compartments for subsequent recycling. The ARHW project represents a significant advance in domestic waste management, offering an automated and sustainable solution to reduce pollution and promote environmental preservation. With its computer coding-centric approach, ARHW is paving the way for a new era of technology for sustainability and environmental responsibility."
+    "project3": {
+      "title": "Project Gamma",
+      "description": "A data analytics tool for better decision-making and insights."
     },
-    "modal4": {
-      "title": "Good Night Analyze (GNA)",
-      "description": "Good Night Analysis (GNA) is an innovative project aimed at improving sleep quality using sensor technology and the Raspberry Pi. Understanding the importance of restful sleep for health and well-being , our team developed GNA to offer a smart and practical solution. Using specially designed sensors, GNA monitors the different phases of sleep in real time, including light sleep, deep sleep and rapid eye movement (REM) phases. This valuable data is collected and analyzed by a Raspberry Pi, which acts as a centralized processing center. GNA's user-friendly interface allows users to easily view their sleep habits and receive personalized advice to optimize their sleep routine. Whether identifying sleep disturbances, adjusting the sleep environment, or improving nighttime habits, GNA provides detailed information to help users achieve quality rest. The Good Night Analysis (GNA) project represents a harmonious convergence between modern technology and human well-being, offering an innovative solution for better health and sleep."
+    "project4": {
+      "title": "Project Delta",
+      "description": "An AI-powered chatbot for customer support automation."
+    },
+    "project5": {
+      "title": "Project Epsilon",
+      "description": "A cloud-based platform for team collaboration and task management."
+    },
+    "project6": {
+      "title": "Project Zeta",
+      "description": "A cybersecurity solution ensuring high-level encryption and protection."
     }
   },
-  "aboutSection": {
-    "title": "About",
-    "text1": "Originally from Lorraine in France, I am currently a student in computer engineering school. After following a preparatory class for the grandes écoles, I chose to specialize in this exciting field. In parallel with my studies, I am working as a product owner, where I have the opportunity to put my technical skills into practice while developing my project management skills. I am passionate about new technologies and motivated by the challenges that this constantly evolving sector presents.",
-    "text2": "As an engineer, I am proficient in several programming languages such as Java, Python and JavaScript. I am also comfortable with agile methods and project management tools. Outside of the technical field, I have excellent communication, teamwork and problem-solving skills. My versatile approach and my desire to constantly learn allow me to adapt quickly to new situations and contribute effectively to ambitious projects.",
-    "text3": "Between January and May 2023, I had the opportunity to participate in an academic exchange in Sousse, Tunisia, as part of my studies in computer engineering. Hosted by the EPI Digital School, this experience allowed me to discover a new educational and cultural framework, while deepening my technical and professional knowledge. During these four months, I took specialized courses in IT and new technologies, which allowed me to strengthen my skills in programming and project management. I also had the opportunity to work on concrete projects in collaboration with local students, which helped me develop a better understanding of Tunisian working methods and cultural practices.",
-    "text4": "This international experience was extremely enriching, not only from an academic point of view, but also personally. I have developed greater adaptability, increased open-mindedness and an ability to integrate and work effectively in multicultural environments. Outside of class, I was able to explore the beauty and richness of Tunisian culture, visiting historical sites, participating in local events, and establishing lasting friendships with people from diverse backgrounds. This stay in Sousse undeniably broadened my perspectives and strengthened my determination to engage in international projects and contribute to diverse and dynamic teams."
+  "contact": {
+    "title": "Contact me",
+    "form": {
+      "name": "Your Name",
+      "subject": "Subject",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Submit Form"
+    }
   },
-  "downloadCV": "Download my CV!",
-  "contactSection": {
+  "cv": {
+    "intro": "Hello! I am <strong>John Smith</strong>. I work as an interface and front-end developer. I have a passion for pixel-perfect, minimal, and easy-to-use interfaces.",
+    "workExperience": "Work Experience",
+    "work": {
+      "webDeveloper": "Web Developer",
+      "company1": "Amazing Co.",
+      "period1": "10/2013 - 04/2015",
+      "description1": "Developed and maintained the company's website and internal tools.",
+      "frontEndDeveloper": "Front End Developer",
+      "company2": "Innovative Org.",
+      "period2": "05/2015 - 12/2017",
+      "description2": "Implemented new UI/UX designs and improved website responsiveness."
+    },
+    "education": "Education",
+    "educationDetails": {
+      "highSchool": "High School",
+      "school1": "Albert Einstein School",
+      "period1": "09/2005 - 05/2010",
+      "description1": "Graduated with a specialization in science and mathematics."
+    },
+    "skills": "Skills",
+    "skillsList": {
+      "html": "HTML",
+      "php": "PHP"
+    },
+    "hobbies": "Hobbies",
+    "hobbiesDescription": "Playing video games, coding side projects, and exploring new technologies."
+  },
+  "contactMe": {
     "title": "Contact Me",
-    "nameLabel": "Full name",
-    "emailLabel": "Email address",
-    "phoneLabel": "Phone number",
-    "messageLabel": "Message",
-    "sendButton": "Send",
-    "confirmationMessage": "Your message has been sent successfully!",
-    "errorMessage": "Error sending message!"
+    "form": {
+      "subject": "Subject",
+      "subjectGroup": "Options",
+      "subjectItems": {
+        "item1": "This is item 1",
+        "item2": "This is item 2",
+        "item3": "This is item 3"
+      },
+      "email": "Email",
+      "message": "Message",
+      "date": "Date",
+      "submit": "Contact Me"
+    }
   },
   "footer": {
-    "location": "Location",
-    "locationDetails": "Paris\n75000",
-    "webTitle": "Around the Web",
-    "aboutSchool": "About my School",
-    "schoolDescription": "ESIEA is an engineering school certified by the Commission for Engineering Titles (CTI) dedicated to teaching and research in digital sciences and technologies : "
-  },
-  "copyright": "Copyright © Jules ANTOINE 2024{DATE} | Version: {VERSION}"
+    "aboutMe": "About me",
+    "contactMe": "Contact me",
+    "projects": "Projects"
+  }
 }
