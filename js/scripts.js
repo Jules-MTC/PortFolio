@@ -104,6 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
         name: document.getElementById("name").value.trim(),
         subject: document.getElementById("subject").value.trim(),
         email: document.getElementById("email").value.trim(),
+        phonecountry: iti.getSelectedCountryData().name,
+        phonecode: iti.getSelectedCountryData().dialCode,
         phone: document.getElementById("phone").value.trim(),
         message: document.getElementById("message").value.trim(),
       };
@@ -132,7 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error sending form:", error);
     }
   });
-
 
   // Function to load translations based on selected language
   function loadTranslations(language) {
@@ -186,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   phoneInput.addEventListener("countrychange", function () {
-    console.log("Nouveau pays sélectionné :", iti.getSelectedCountryData());
+    const countryData = iti.getSelectedCountryData();
+    console.log("Country data:", countryData);
   });
 });

@@ -48,7 +48,7 @@ app.use(i18n.init);
 
 // Route to handle form submission and send email
 app.post("/send-email", (req, res) => {
-  const { name, subject, email, phone, message } = req.body;
+  const { name, subject, email, phonecountry, phonecode, phone, message } = req.body;
   console.log("Received form submission:", req.body);
   if (!name || !email || !phone || !message) {
     return res.status(400).send("All fields are required.");
@@ -71,7 +71,7 @@ app.post("/send-email", (req, res) => {
     from: process.env.EMAIL_FROM_ADDRESS,
     to: process.env.EMAIL_TO_ADDRESS,
     subject: `${subject} - ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+    text: `Name: ${name}\nEmail: ${email}\nPhone Country: ${phonecountry}\nPhone: +${phonecode} ${phone}\nMessage: ${message}`,
     replyTo: email,
   };
 
