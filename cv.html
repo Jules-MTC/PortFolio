@@ -17,6 +17,10 @@
 
 <body>
     <nav class="navbar navbar-expand-lg fixed-top portfolio-navbar gradient navbar-dark">
+        <select class="nav-link py-3 px-0 px-lg-3 rounded m-2" id="languageSwitcher">
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+        </select>
         <div class="container">
             <a class="navbar-brand logo" href="index.html" data-i18n-key="portfolioTitle">PortFolio</a>
             <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
@@ -41,14 +45,18 @@
     <main class="page">
         <section class="portfolio-block block-intro border-bottom">
             <div class="container">
-                <div class="avatar" style="background-image:url(&quot;assets/img/avatars/avatar.jpg&quot;);"></div>
+                <div class="avatar" style="background-image:url(&quot;assets/img/avatars/avatars.svg&quot;);"></div>
                 <div class="about-me">
                     <p data-i18n-key="cv.intro">
-                        Hello! I am <strong>John Smith</strong>. I work as an interface and front-end developer.
-                        I have a passion for pixel-perfect, minimal, and easy-to-use interfaces.
+                        Hello! I am Jules ANTOINE, a Product Owner and computer engineering student. I
+                        bridge the gap between business needs and technical execution, ensuring high-quality
+                        deliverables with a seamless user experience. Passionate about Agile methodologies, I specialize
+                        in product roadmap management, backlog prioritization, and optimizing development processes to
+                        maximize business value. My expertise extends to project coordination, functional design, and
+                        continuous product improvement.
                     </p>
                     <a class="btn btn-outline-primary" role="button" href="contact.html"
-                        data-i18n-key="contact-me">Contact me</a>
+                        data-i18n-key="contact.title">Contact me</a>
                 </div>
             </div>
         </section>
@@ -169,7 +177,7 @@
     <script src="js/pikaday.min.js"></script>
     <script src="js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/scriptCv.js"></script>
 </body>
 
 </html>

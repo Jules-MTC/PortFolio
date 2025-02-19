@@ -15,7 +15,7 @@
     "contact": "Contact"
   },
   "about": {
-    "description": "Hello! I'm <strong> ANTOINE<strong>. Engineering student at ESIEA, specializing in Software Engineering, Entrepreneurship, and Innovation. Currently Product Owner at Meta-Coaching, I bridge business and tech, managing Agile teams, product evolution, and platform maintenance. Passionate about technology and innovation, I thrive on solving complex challenges"
+    "description": "Hello! I'm Jules ANTOINE. Engineering student at ESIEA, specializing in Software Engineering, Entrepreneurship, and Innovation. Currently Product Owner at Meta-Coaching, I bridge business and tech, managing Agile teams, product evolution, and platform maintenance. Passionate about technology and innovation, I thrive on solving complex challenges"
   },
   "about-me": "About me",
   "gallery": {
@@ -79,7 +79,7 @@
     }
   },
   "cv": {
-    "intro": "Hello! I am <strong>John Smith</strong>. I work as an interface and front-end developer. I have a passion for pixel-perfect, minimal, and easy-to-use interfaces.",
+    "intro": "Hello! I am Jules ANTOINE, a Product Owner and computer engineering student. I bridge the gap between business needs and technical execution, ensuring high-quality deliverables with a seamless user experience. Passionate about Agile methodologies, I specialize in product roadmap management, backlog prioritization, and optimizing development processes to maximize business value. My expertise extends to project coordination, functional design, and continuous product improvement.",
     "workExperience": "Work Experience",
     "work": {
       "webDeveloper": "Web Developer",
