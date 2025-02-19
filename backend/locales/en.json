@@ -48,35 +48,29 @@
   },
   "projects": {
     "title": "Recent Work",
+    "description": "Description",
     "image1": "Nature Project 1",
     "image2": "Nature Project 2",
     "image3": "Tech Project 1",
     "image4": "Nature Project 3",
     "image5": "Nature Project 4",
     "image6": "Tech Project 2",
-    "project1": {
-      "title": "Project Alpha",
-      "description": "A cutting-edge web development project leveraging modern technologies."
+    "sunglassBros": {
+      "title": "Sunglass Bros",
+      "content": {
+        "1": "Sunglass Bros is a dynamic e-commerce platform dedicated to the sale of sunglasses, offering a smooth and secure online shopping experience. Built with robust web technologies such as PHP, HTML, CSS and PHPMyAdmin, this platform integrates advanced order, inventory, user and display management features to meet the needs of demanding customers.",
+        "2": "The Sunglass Bros site offers an attractive and user-friendly user interface, allowing visitors to easily navigate through a huge selection of quality sunglasses. Advanced filtering features allow users to quickly find products that match their style, color and price preferences.",
+        "3": "The platform seamlessly manages customer orders, providing a secure purchasing process and efficient online payment management. Users can create personal accounts for a faster ordering process and benefit from features like saving payment information and order history. Behind the scenes, site administration is simplified thanks to an intuitive dashboard powered by PHPMyAdmin.",
+        "4": "Administrators can easily manage inventory, track sales, manage user profiles, and make real-time adjustments to optimize platform performance. Sunglass Bros represents much more than a simple e-commerce site. It is a comprehensive, immersive online experience for sunglasses enthusiasts, offering quality products, exceptional customer service and a robust technology platform to support business operations."
+      }
     },
-    "project2": {
-      "title": "Project Beta",
-      "description": "A mobile application designed to enhance productivity and user experience."
-    },
-    "project3": {
-      "title": "Project Gamma",
-      "description": "A data analytics tool for better decision-making and insights."
-    },
-    "project4": {
-      "title": "Project Delta",
-      "description": "An AI-powered chatbot for customer support automation."
-    },
-    "project5": {
-      "title": "Project Epsilon",
-      "description": "A cloud-based platform for team collaboration and task management."
-    },
-    "project6": {
-      "title": "Project Zeta",
-      "description": "A cybersecurity solution ensuring high-level encryption and protection."
+    "fastsum": {
+      "title": "FastSum",
+      "content": {
+        "1": "FastSum is a revolutionary online platform designed to simplify science and engineering project (STP) management for students, faculty and mentors. Through the use of Oracle's powerful Apex technology, FastSum provides a smooth and efficient user experience. This versatile platform allows users to create, manage, and collaborate on scientific and engineering projects with ease.",
+        "2": "FastSum's key features include task management, progress tracking, deadline scheduling, real-time communication and much more. Students, faculty, and mentors can access FastSum from any internet-connected device, enabling seamless collaboration, even remotely. FastSum's intuitive interface makes creating and managing projects as simple as possible, freeing up time and energy to focus on research and innovation.",
+        "3": "Whether for an academic research project, a technical business project or an interdisciplinary collaboration, FastSum offers a complete solution to simplify and improve the management of scientific and technical projects. With FastSum, the future of scientific collaboration is faster, more efficient and brighter than ever.",
+      }
     }
   },
   "contact": {
