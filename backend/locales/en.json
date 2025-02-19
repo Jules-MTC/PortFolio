@@ -28,12 +28,18 @@
   },
   "skills": {
     "title": "Special Skills",
-    "webDesign": "Web Design",
-    "webDesign.description": "Creating clean and professional web designs using the latest trends and technologies.",
-    "interfaceDesign": "Interface Design",
-    "interfaceDesign.description": "Building user-friendly interfaces that enhance user experience.",
-    "photographyPrint": "Photography and Print",
-    "photographyPrint.description": "Expertise in photography and high-quality print media design."
+    "1": "Product Owner & Scrum Methodologies",
+    "1.description": "Creating clean and professional web designs using the latest trends and technologies.",
+    "2": "UI/UX & Functional Design",
+    "2.description": "Ability to design intuitive interfaces and write detailed functional specifications (User Stories, Wireframes).",
+    "3": "Project Coordination & Stakeholder Management",
+    "3.description": "Experience in managing complex projects, managing stakeholders and meeting deadlines and resources.",
+    "4": "Technical Tools & Development",
+    "4.description": "Mastery of monitoring tools (Redmine, Gitea), as well as development technologies (Python, Java, JavaScript, Docker, AWS, Quasar Framework).",
+    "5": "Continuous Improvement & Data-Driven Decisions",
+    "5.description": "Ability to analyze user feedback, adjust product strategies and present results to decision-makers.",
+    "6": "Entrepreneurial Mindset & Leadership",
+    "6.description": "Experience in managing innovative projects and strategic decision-making."
   },
   "projects": {
     "title": "Recent Work",
