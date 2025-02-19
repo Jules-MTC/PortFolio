@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalError = document.getElementById("errorModal");
   const confCloseButton = document.querySelector(".conf-close-form");
   const errorCloseButton = document.querySelector(".error-close-form");
+  const subjectInput = document.getElementById("subject");
   const iti = window.intlTelInput(phoneInput, {
     initialCountry: "fr",
     separateDialCode: true,
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const validateForm = () => {
     return (
       nameInput.value.trim() !== "" &&
+      subjectInput.value.trim() !== "" &&
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()) &&
       phoneInput.value.trim() !== "" &&
       messageInput.value.trim() !== ""
@@ -70,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Attach input event listeners to form inputs for real-time validation
-  [nameInput, emailInput, phoneInput, messageInput].forEach((input) => {
+  [nameInput, subjectInput, emailInput, phoneInput, messageInput].forEach((input) => {
     input.addEventListener("input", updateSubmitButton);
   });
 
@@ -90,33 +92,47 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle form submission
   document.getElementById("contactForm").addEventListener("submit", async (event) => {
     event.preventDefault();
+
     const loader = document.getElementById("loader-form");
     const contentOverlay = document.getElementById("content-overlay");
     loader.style.display = "block";
     contentOverlay.style.display = "none";
+
     try {
-      // Create and send POST request with FormData
-      const formData = new FormData(document.getElementById("contactForm"));
-      const response = await fetch(currentURL + ":3000/send-email", {
+      // Récupération des valeurs du formulaire
+      const formData = {
+        name: document.getElementById("name").value.trim(),
+        subject: document.getElementById("subject").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        message: document.getElementById("message").value.trim(),
+      };
+
+      // Envoi de la requête au serveur en JSON
+      const response = await fetch("http://localhost:3000/send-email", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
       });
 
-      // Handle response
+      // Gestion de la réponse
       if (response.ok) {
         loader.style.display = "none";
         contentOverlay.style.display = "block";
-        modalConf.style.display = "block";
+        document.getElementById("confirmationModal").style.display = "block";
       } else {
         throw new Error("Failed to send email");
       }
     } catch (error) {
       loader.style.display = "none";
       contentOverlay.style.display = "block";
-      modalError.style.display = "block";
+      document.getElementById("errorModal").style.display = "block";
       console.error("Error sending form:", error);
     }
   });
+
 
   // Function to load translations based on selected language
   function loadTranslations(language) {
