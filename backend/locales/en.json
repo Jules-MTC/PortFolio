@@ -8,7 +8,7 @@
     "gna": "GNA - JA PortFolio",
     "fastsum": "FastSum - JA PortFolio",
     "portfolio": "Portfolio - JA PortFolio",
-    "radd": "RADD - JA PortFolio"
+    "radd": "ARHW - JA PortFolio"
   },
   "portfolioTitle": "Portfolio",
   "toggleNav": "Toggle navigation",
@@ -23,11 +23,6 @@
     "description": "Hello! I'm Jules ANTOINE. Engineering student at ESIEA, specializing in Software Engineering, Entrepreneurship, and Innovation. Currently Product Owner at Meta-Coaching, I bridge business and tech, managing Agile teams, product evolution, and platform maintenance. Passionate about technology and innovation, I thrive on solving complex challenges"
   },
   "about-me": "About me",
-  "gallery": {
-    "image1": "Nature Image 1",
-    "image2": "Nature Image 2",
-    "image3": "Tech Image 1"
-  },
   "cta": {
     "likeWhatYouSee": "Like what you see?"
   },
@@ -49,12 +44,6 @@
   "projects": {
     "title": "Recent Work",
     "description": "Description",
-    "image1": "Nature Project 1",
-    "image2": "Nature Project 2",
-    "image3": "Tech Project 1",
-    "image4": "Nature Project 3",
-    "image5": "Nature Project 4",
-    "image6": "Tech Project 2",
     "sunglassBros": {
       "title": "Sunglass Bros",
       "content": {
@@ -69,7 +58,33 @@
       "content": {
         "1": "FastSum is a revolutionary online platform designed to simplify science and engineering project (STP) management for students, faculty and mentors. Through the use of Oracle's powerful Apex technology, FastSum provides a smooth and efficient user experience. This versatile platform allows users to create, manage, and collaborate on scientific and engineering projects with ease.",
         "2": "FastSum's key features include task management, progress tracking, deadline scheduling, real-time communication and much more. Students, faculty, and mentors can access FastSum from any internet-connected device, enabling seamless collaboration, even remotely. FastSum's intuitive interface makes creating and managing projects as simple as possible, freeing up time and energy to focus on research and innovation.",
-        "3": "Whether for an academic research project, a technical business project or an interdisciplinary collaboration, FastSum offers a complete solution to simplify and improve the management of scientific and technical projects. With FastSum, the future of scientific collaboration is faster, more efficient and brighter than ever.",
+        "3": "Whether for an academic research project, a technical business project or an interdisciplinary collaboration, FastSum offers a complete solution to simplify and improve the management of scientific and technical projects. With FastSum, the future of scientific collaboration is faster, more efficient and brighter than ever."
+      }
+    },
+    "radd": {
+      "title": "ARHW",
+      "content": {
+        "1": "The ARHW (Automated Recycling of Domestic Waste) project represents an innovative initiative aimed at revolutionizing the management of household waste using an automatic sorter bin. Designed and built as a group from scratch, with a particular focus on computer coding, ARHW pushes the boundaries of technology to promote more efficient and sustainable recycling.",
+        "2": " At the crossroads of mechatronic engineering and IT, ARHW integrates advanced sensors, motorized actuators and an intuitive user interface to automate the waste sorting process. Using sophisticated coding techniques, each component of ARHW is synchronized to ensure precise and efficient operation.",
+        "3": "The user interacts with ARHW via a user-friendly interface that allows selecting the types of waste to be sorted. Then, the automatic trash sorter uses its sensors to identify and separate waste based on its material (plastic, glass, metal, etc.). The sorted waste is then directed to appropriate compartments for subsequent recycling.",
+        "4": "The ARHW project represents a significant advance in domestic waste management, offering an automated and sustainable solution to reduce pollution and promote environmental preservation. With its computer coding-centric approach, ARHW is paving the way for a new era of technology for sustainability and environmental responsibility."
+      },
+      "gna": {
+        "title": "GNA",
+        "content": {
+          "1": "Good Night Analysis (GNA) is an innovative project aimed at improving sleep quality using sensor technology and the Raspberry Pi. Understanding the importance of restful sleep for health and well-being , our team developed GNA to offer a smart and practical solution. Using specially designed sensors, GNA monitors the different phases of sleep in real time, including light sleep, deep sleep and rapid eye movement (REM) phases.",
+          "2": "This valuable data is collected and analyzed by a Raspberry Pi, which acts as a centralized processing center. GNA's user-friendly interface allows users to easily view their sleep habits and receive personalized advice to optimize their sleep routine. Whether identifying sleep disturbances, adjusting the sleep environment, or improving nighttime habits, GNA provides detailed information to help users achieve quality rest.",
+          "3": "The Good Night Analysis (GNA) project represents a harmonious convergence between modern technology and human well-being, offering an innovative solution for better health and sleep."
+        }
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "content": {
+        "1": "My Portfolio Project is a web platform designed to showcase my background, skills, and achievements in the field of web development. This personal site serves as an interactive showcase where visitors can explore my projects, discover my expertise, and get in touch with me. Designed as a dynamic and evolving space, this portfolio is based on modern technologies, ensuring smooth navigation and a clean user interface. The home page offers a concise and professional presentation, allowing visitors to quickly get an idea of ​​my profile and my specialties.",
+        "2": "The Projects section is one of the key elements of the site. Each project is presented with a detailed description, the technologies used, and a link to the corresponding GitHub repository.",
+        "3": "In the Skills section, a clear visualization of the technologies mastered is highlighted. HTML, CSS, JavaScript, and other web development tools are illustrated in the form of graphics or icons, highlighting the developer's technical strengths. The site also includes a Contact section, offering visitors the ability to easily reach him via an integrated form or links to my professional networks. This approach encourages interaction and makes it easier to get in touch for collaboration opportunities.",
+        "4": "The site's architecture is based on a responsive design, ensuring an optimal user experience on different devices, whether on a computer, tablet or smartphone. Thanks to PortFolio, I highlight his expertise in web development while offering a neat and professional browsing experience. This project illustrates his commitment to creating modern and accessible solutions, adapted to the needs of recruiters and web enthusiasts."
       }
     }
   },
@@ -87,29 +102,31 @@
     "intro": "Hello! I am Jules ANTOINE, a Product Owner and computer engineering student. I bridge the gap between business needs and technical execution, ensuring high-quality deliverables with a seamless user experience. Passionate about Agile methodologies, I specialize in product roadmap management, backlog prioritization, and optimizing development processes to maximize business value. My expertise extends to project coordination, functional design, and continuous product improvement.",
     "workExperience": "Work Experience",
     "work": {
-      "webDeveloper": "Web Developer",
-      "company1": "Amazing Co.",
-      "period1": "10/2013 - 04/2015",
-      "description1": "Developed and maintained the company's website and internal tools.",
-      "frontEndDeveloper": "Front End Developer",
-      "company2": "Innovative Org.",
-      "period2": "05/2015 - 12/2017",
-      "description2": "Implemented new UI/UX designs and improved website responsiveness."
+      "productOwner": "Product Owner",
+      "company1": "Meta-Coaching",
+      "period1": "07/2023 - 09/2055",
+      "description1": "Supervision and coordination of development teams."
     },
     "education": "Education",
     "educationDetails": {
-      "highSchool": "High School",
-      "school1": "Albert Einstein School",
-      "period1": "09/2005 - 05/2010",
-      "description1": "Graduated with a specialization in science and mathematics."
+      "highSchool": "College",
+      "school1": "ESIEA",
+      "period1": "09/2022 - 09/2025",
+      "description1": "Graduated with a specialization in Software Engineering, Entrepreneurship, and Innovation."
     },
     "skills": "Skills",
     "skillsList": {
       "html": "HTML",
-      "php": "PHP"
+      "js": "JavaScript",
+      "scrum": "Scrum",
+      "python": "Python",
+      "css": "CSS",
+      "aws": "AWS",
+      "docker": "Docker",
+      "quasar": "Quasar Framework"
     },
     "hobbies": "Hobbies",
-    "hobbiesDescription": "Playing video games, coding side projects, and exploring new technologies."
+    "hobbiesDescription": "Playing video games, coding side projects, climbing, and exploring new technologies."
   },
   "contactMe": {
     "title": "Contact Me",
@@ -117,9 +134,10 @@
       "subject": "Subject",
       "subjectGroup": "Options",
       "subjectItems": {
-        "item1": "This is item 1",
-        "item2": "This is item 2",
-        "item3": "This is item 3"
+        "item1": "First contact",
+        "item2": "Job offer",
+        "item3": "Mentorship",
+        "item4": "Other"
       },
       "email": "Email",
       "message": "Message",
