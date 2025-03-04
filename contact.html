@@ -13,16 +13,12 @@
     <link rel="stylesheet" href="css/bs-theme-overrides.css">
     <link rel="stylesheet" href="css/pikaday.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 </head>
 
 <body>
-    <div class="flex flex-row gap-2" id="loader-form" style="display: none">
-        <div class="w-4 h-4 rounded-full bg-green-700 animate-bounce"></div>
-        <div class="w-4 h-4 rounded-full bg-green-700 animate-bounce [animation-delay:-.3s]"></div>
-        <div class="w-4 h-4 rounded-full bg-green-700 animate-bounce [animation-delay:-.5s]"></div>
-    </div>
     <div id="content-overlay" style="display: block"></div>
     <nav class="navbar navbar-expand-lg fixed-top portfolio-navbar gradient navbar-dark">
         <select class="nav-link py-3 px-0 px-lg-3 rounded m-2" id="languageSwitcher">
@@ -95,19 +91,38 @@
                         <div id="confirmationModal" class="modal-form">
                             <div class="modal-form-content">
                                 <span class="conf-close-form">&times;</span>
-                                <p data-i18n-key="contactSection.confirmationMessage">Your message has been sent
+                                <p data-i18n-key="contact.form.messageConfirmation">Your message has been sent
                                     successfully!</p>
                             </div>
                         </div>
                         <div id="errorModal" class="modal-form">
                             <div class="modal-form-content">
                                 <span class="error-close-form">&times;</span>
-                                <p data-i18n-key="contactSection.errorMessage">Error sending message!</p>
+                                <p data-i18n-key="contact.form.errorMessage">Error sending message!</p>
                             </div>
                         </div>
                         <div class="mb-3 mt-4">
                             <button class="btn btn-primary btn-lg d-block w-100" type="submit" id="submitButton"
-                                disabled data-i18n-key="contact.form.submit">Submit Form</button>
+                                disabled data-i18n-key="contact.form.submit" style="display: block;">Submit Form</button>
+                            <div class="loader" id="loader-form" style="display: none;">
+                                <div class="loader__balls">
+                                    <div class="loader__balls__group">
+                                        <div class="ball item1"></div>
+                                        <div class="ball item1"></div>
+                                        <div class="ball item1"></div>
+                                    </div>
+                                    <div class="loader__balls__group">
+                                        <div class="ball item2"></div>
+                                        <div class="ball item2"></div>
+                                        <div class="ball item2"></div>
+                                    </div>
+                                    <div class="loader__balls__group">
+                                        <div class="ball item3"></div>
+                                        <div class="ball item3"></div>
+                                        <div class="ball item3"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                 </form>
             </div>

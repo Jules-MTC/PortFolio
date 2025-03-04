@@ -10,7 +10,7 @@
     "portfolio": "Portfolio - JA PortFolio",
     "radd": "ARHW - JA PortFolio"
   },
-  "portfolioTitle": "Portfolio",
+  "portfolioTitle": "PortFolio",
   "toggleNav": "Toggle navigation",
   "menu": {
     "Home": "Home",
@@ -29,17 +29,17 @@
   "skills": {
     "title": "Special Skills",
     "1": "Product Owner & Scrum Methodologies",
-    "1.description": "Creating clean and professional web designs using the latest trends and technologies.",
+    "1description": "Creating clean and professional web designs using the latest trends and technologies.",
     "2": "UI/UX & Functional Design",
-    "2.description": "Ability to design intuitive interfaces and write detailed functional specifications (User Stories, Wireframes).",
+    "2description": "Ability to design intuitive interfaces and write detailed functional specifications (User Stories, Wireframes).",
     "3": "Project Coordination & Stakeholder Management",
-    "3.description": "Experience in managing complex projects, managing stakeholders and meeting deadlines and resources.",
+    "3description": "Experience in managing complex projects, managing stakeholders and meeting deadlines and resources.",
     "4": "Technical Tools & Development",
-    "4.description": "Mastery of monitoring tools (Redmine, Gitea), as well as development technologies (Python, Java, JavaScript, Docker, AWS, Quasar Framework).",
+    "4description": "Mastery of monitoring tools (Redmine, Gitea), as well as development technologies (Python, Java, JavaScript, Docker, AWS, Quasar Framework).",
     "5": "Continuous Improvement & Data-Driven Decisions",
-    "5.description": "Ability to analyze user feedback, adjust product strategies and present results to decision-makers.",
+    "5description": "Ability to analyze user feedback, adjust product strategies and present results to decision-makers.",
     "6": "Entrepreneurial Mindset & Leadership",
-    "6.description": "Experience in managing innovative projects and strategic decision-making."
+    "6description": "Experience in managing innovative projects and strategic decision-making."
   },
   "projects": {
     "title": "Recent Work",
@@ -68,24 +68,24 @@
         "2": " At the crossroads of mechatronic engineering and IT, ARHW integrates advanced sensors, motorized actuators and an intuitive user interface to automate the waste sorting process. Using sophisticated coding techniques, each component of ARHW is synchronized to ensure precise and efficient operation.",
         "3": "The user interacts with ARHW via a user-friendly interface that allows selecting the types of waste to be sorted. Then, the automatic trash sorter uses its sensors to identify and separate waste based on its material (plastic, glass, metal, etc.). The sorted waste is then directed to appropriate compartments for subsequent recycling.",
         "4": "The ARHW project represents a significant advance in domestic waste management, offering an automated and sustainable solution to reduce pollution and promote environmental preservation. With its computer coding-centric approach, ARHW is paving the way for a new era of technology for sustainability and environmental responsibility."
-      },
-      "gna": {
-        "title": "GNA",
-        "content": {
-          "1": "Good Night Analysis (GNA) is an innovative project aimed at improving sleep quality using sensor technology and the Raspberry Pi. Understanding the importance of restful sleep for health and well-being , our team developed GNA to offer a smart and practical solution. Using specially designed sensors, GNA monitors the different phases of sleep in real time, including light sleep, deep sleep and rapid eye movement (REM) phases.",
-          "2": "This valuable data is collected and analyzed by a Raspberry Pi, which acts as a centralized processing center. GNA's user-friendly interface allows users to easily view their sleep habits and receive personalized advice to optimize their sleep routine. Whether identifying sleep disturbances, adjusting the sleep environment, or improving nighttime habits, GNA provides detailed information to help users achieve quality rest.",
-          "3": "The Good Night Analysis (GNA) project represents a harmonious convergence between modern technology and human well-being, offering an innovative solution for better health and sleep."
-        }
       }
     },
-    "portfolio": {
-      "title": "Portfolio",
+    "gna": {
+      "title": "GNA",
       "content": {
-        "1": "My Portfolio Project is a web platform designed to showcase my background, skills, and achievements in the field of web development. This personal site serves as an interactive showcase where visitors can explore my projects, discover my expertise, and get in touch with me. Designed as a dynamic and evolving space, this portfolio is based on modern technologies, ensuring smooth navigation and a clean user interface. The home page offers a concise and professional presentation, allowing visitors to quickly get an idea of ​​my profile and my specialties.",
-        "2": "The Projects section is one of the key elements of the site. Each project is presented with a detailed description, the technologies used, and a link to the corresponding GitHub repository.",
-        "3": "In the Skills section, a clear visualization of the technologies mastered is highlighted. HTML, CSS, JavaScript, and other web development tools are illustrated in the form of graphics or icons, highlighting the developer's technical strengths. The site also includes a Contact section, offering visitors the ability to easily reach him via an integrated form or links to my professional networks. This approach encourages interaction and makes it easier to get in touch for collaboration opportunities.",
-        "4": "The site's architecture is based on a responsive design, ensuring an optimal user experience on different devices, whether on a computer, tablet or smartphone. Thanks to PortFolio, I highlight his expertise in web development while offering a neat and professional browsing experience. This project illustrates his commitment to creating modern and accessible solutions, adapted to the needs of recruiters and web enthusiasts."
+        "1": "Good Night Analysis (GNA) is an innovative project aimed at improving sleep quality using sensor technology and the Raspberry Pi. Understanding the importance of restful sleep for health and well-being , our team developed GNA to offer a smart and practical solution. Using specially designed sensors, GNA monitors the different phases of sleep in real time, including light sleep, deep sleep and rapid eye movement (REM) phases.",
+        "2": "This valuable data is collected and analyzed by a Raspberry Pi, which acts as a centralized processing center. GNA's user-friendly interface allows users to easily view their sleep habits and receive personalized advice to optimize their sleep routine. Whether identifying sleep disturbances, adjusting the sleep environment, or improving nighttime habits, GNA provides detailed information to help users achieve quality rest.",
+        "3": "The Good Night Analysis (GNA) project represents a harmonious convergence between modern technology and human well-being, offering an innovative solution for better health and sleep."
       }
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "content": {
+      "1": "My Portfolio Project is a web platform designed to showcase my background, skills, and achievements in the field of web development. This personal site serves as an interactive showcase where visitors can explore my projects, discover my expertise, and get in touch with me. Designed as a dynamic and evolving space, this portfolio is based on modern technologies, ensuring smooth navigation and a clean user interface. The home page offers a concise and professional presentation, allowing visitors to quickly get an idea of ​​my profile and my specialties.",
+      "2": "The Projects section is one of the key elements of the site. Each project is presented with a detailed description, the technologies used, and a link to the corresponding GitHub repository.",
+      "3": "In the Skills section, a clear visualization of the technologies mastered is highlighted. HTML, CSS, JavaScript, and other web development tools are illustrated in the form of graphics or icons, highlighting the developer's technical strengths. The site also includes a Contact section, offering visitors the ability to easily reach him via an integrated form or links to my professional networks. This approach encourages interaction and makes it easier to get in touch for collaboration opportunities.",
+      "4": "The site's architecture is based on a responsive design, ensuring an optimal user experience on different devices, whether on a computer, tablet or smartphone. Thanks to PortFolio, I highlight his expertise in web development while offering a neat and professional browsing experience. This project illustrates his commitment to creating modern and accessible solutions, adapted to the needs of recruiters and web enthusiasts."
     }
   },
   "contact": {
@@ -126,23 +126,19 @@
       "quasar": "Quasar Framework"
     },
     "hobbies": "Hobbies",
-    "hobbiesDescription": "Playing video games, coding side projects, climbing, and exploring new technologies."
+    "hobbiesDescription": "Manage projects, code personal projects, scale and explore new technologies."
   },
   "contactMe": {
     "title": "Contact Me",
     "form": {
       "subject": "Subject",
-      "subjectGroup": "Options",
-      "subjectItems": {
-        "item1": "First contact",
-        "item2": "Job offer",
-        "item3": "Mentorship",
-        "item4": "Other"
-      },
       "email": "Email",
       "message": "Message",
       "date": "Date",
-      "submit": "Contact Me"
+      "submit": "Contact Me",
+      "phone": "Phone",
+      "confirmationMessage": "Your message has been sent successfully. I will get back to you as soon as possible.",
+      "errorMessage": "An error occurred while sending your message. Please try again later."
     }
   },
   "footer": {

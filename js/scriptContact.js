@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const confCloseButton = document.querySelector(".conf-close-form");
   const errorCloseButton = document.querySelector(".error-close-form");
   const subjectInput = document.getElementById("subject");
+  const storedLanguage = localStorage.getItem("language") || "en";
   const iti = window.intlTelInput(phoneInput, {
     initialCountry: "fr",
     separateDialCode: true,
@@ -97,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contentOverlay = document.getElementById("content-overlay");
     loader.style.display = "block";
     contentOverlay.style.display = "none";
+    submitButton.style.display = "none";
 
     try {
       // Récupération des valeurs du formulaire
@@ -110,7 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
         message: document.getElementById("message").value.trim(),
       };
 
-      // Envoi de la requête au serveur en JSON
       const response = await fetch("http://localhost:3000/send-email", {
         method: "POST",
         headers: {
@@ -119,19 +120,23 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(formData)
       });
 
-      // Gestion de la réponse
       if (response.ok) {
         loader.style.display = "none";
         contentOverlay.style.display = "block";
         document.getElementById("confirmationModal").style.display = "block";
+        submitButton.style.display = "block";
+        document.getElementById("contactForm").reset();
+        updateSubmitButton();
       } else {
         throw new Error("Failed to send email");
+        submitButton.style.display = "block";
       }
     } catch (error) {
       loader.style.display = "none";
       contentOverlay.style.display = "block";
       document.getElementById("errorModal").style.display = "block";
       console.error("Error sending form:", error);
+      submitButton.style.display = "block";
     }
   });
 
@@ -190,4 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const countryData = iti.getSelectedCountryData();
     console.log("Country data:", countryData);
   });
+
+  document.documentElement.lang = storedLanguage;
+  document.getElementById("languageSwitcher").value = storedLanguage;
+  loadTranslations(storedLanguage);
+  
 });

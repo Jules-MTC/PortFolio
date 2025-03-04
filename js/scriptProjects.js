@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Get DOM elements
   const versionElement = document.getElementById("copyRight");
   const copyRightElement = document.getElementById("copyRight");
+  const storedLanguage = localStorage.getItem("language") || "en";
 
   // Adjust environment text based on current URL
   if (currentURL.includes("localhost")) {
@@ -43,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`/backend/locales/${language}.json`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("Translations loaded:", data);
         applyTranslations(data);
       })
       .catch((error) => {
@@ -90,4 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error setting language:", error);
     }
   }
+
+  document.documentElement.lang = storedLanguage;
+  document.getElementById("languageSwitcher").value = storedLanguage;
+  loadTranslations(storedLanguage);
+
 });
