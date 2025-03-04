@@ -1,6 +1,6 @@
 .modal-form {
   display: none;
-  position: fixed;
+  position: relative;
   z-index: 1;
   left: 0;
   top: 0;
@@ -218,4 +218,9 @@
 }
 .loader__balls__group .item3 {
   animation-delay: 200ms;
+}
+
+button:disabled {
+  background-color: gray !important;
+  cursor: not-allowed;
 }

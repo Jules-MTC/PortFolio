@@ -2,66 +2,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // Retrieve the current URL without the trailing slash
   currentURL = window.location.href.slice(0, -1);
 
-  // Get DOM elements
-  const versionElement = document.getElementById("copyRight");
-  const copyRightElement = document.getElementById("copyRight");
+  // Get DOM elements for form inputs, buttons, and modals
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
   const phoneInput = document.getElementById("phone");
   const messageInput = document.getElementById("message");
   const submitButton = document.getElementById("submitButton");
-  const modalConf = document.getElementById("confirmationModal");
-  const modalError = document.getElementById("errorModal");
-  const confCloseButton = document.querySelector(".conf-close-form");
-  const errorCloseButton = document.querySelector(".error-close-form");
+  const modalConf = document.getElementById("confirmationModal"); // Confirmation modal
+  const modalError = document.getElementById("errorModal"); // Error modal
+  const confCloseButton = document.querySelector(".conf-close-form"); // Close button for confirmation modal
+  const errorCloseButton = document.querySelector(".error-close-form"); // Close button for error modal
   const subjectInput = document.getElementById("subject");
-  const storedLanguage = localStorage.getItem("language") || "en";
+
+  // Initialize international phone input library (intlTelInput)
   const iti = window.intlTelInput(phoneInput, {
-    initialCountry: "fr",
-    separateDialCode: true,
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+    initialCountry: "fr", // Default country: France
+    separateDialCode: true, // Display country dial code separately
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // Load utilities script
   });
 
-  // Adjust environment text based on current URL
+  // Adjust the environment text based on the current URL
   if (currentURL.includes("localhost")) {
     var currentURL = "http://localhost";
   } else if (currentURL.includes("julesantoine.tech")) {
     var currentURL = "https://portfolio.julesantoine.tech";
-  } else {
-    var currentURL = "https://portfolio.julesantoine.tech";
   }
 
-  // Fetch and display API version
-  fetch(currentURL + ":3000/api/version")
-    .then((response) => response.json())
-    .then((data) => {
-      versionElement.textContent = versionElement.textContent.replace(
-        "{VERSION}",
-        data.version || ""
-      );
-    })
-    .catch((error) => console.error("Error fetching version:", error));
-
-  // Update copyright year if not 2024
-  const currentYears = new Date().getFullYear();
-  if ("2024" != currentYears) {
-    copyRightElement.textContent = copyRightElement.textContent.replace(
-      "{DATE}",
-      " - " + currentYears
-    );
-  } else {
-    copyRightElement.textContent = copyRightElement.textContent.replace(
-      "{DATE}",
-      ""
-    );
-  }
-
-  // Function to validate form inputs
+  // Function to validate form inputs before enabling the submit button
   const validateForm = () => {
     return (
       nameInput.value.trim() !== "" &&
       subjectInput.value.trim() !== "" &&
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()) &&
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()) && // Validate email format
       phoneInput.value.trim() !== "" &&
       messageInput.value.trim() !== ""
     );
@@ -72,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     submitButton.disabled = !validateForm();
   };
 
-  // Attach input event listeners to form inputs for real-time validation
+  // Attach event listeners to form inputs for real-time validation
   [nameInput, subjectInput, emailInput, phoneInput, messageInput].forEach((input) => {
     input.addEventListener("input", updateSubmitButton);
   });
@@ -92,27 +64,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Handle form submission
   document.getElementById("contactForm").addEventListener("submit", async (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Prevent default form submission
 
+    // Show loading animation and hide form content
     const loader = document.getElementById("loader-form");
     const contentOverlay = document.getElementById("content-overlay");
-    loader.style.display = "block";
-    contentOverlay.style.display = "none";
-    submitButton.style.display = "none";
+    const contactForm = document.getElementById("contactForm");
+
+    loader.style.display = "block"; // Show loading animation
+    contentOverlay.style.display = "none"; // Hide form content
+
+    // Disable submit button to prevent duplicate submissions
+    submitButton.disabled = true;
+    submitButton.classList.add("btn-secondary"); // Change button style to indicate processing
+    submitButton.classList.remove("btn-primary");
 
     try {
-      // Récupération des valeurs du formulaire
+      // Gather form data
       const formData = {
         name: document.getElementById("name").value.trim(),
         subject: document.getElementById("subject").value.trim(),
         email: document.getElementById("email").value.trim(),
-        phonecountry: iti.getSelectedCountryData().name,
-        phonecode: iti.getSelectedCountryData().dialCode,
+        phonecountry: iti.getSelectedCountryData().name, // Get selected country name
+        phonecode: iti.getSelectedCountryData().dialCode, // Get country dial code
         phone: document.getElementById("phone").value.trim(),
         message: document.getElementById("message").value.trim(),
       };
 
-      const response = await fetch("http://localhost:3000/send-email", {
+      // Send form data to backend API
+      const response = await fetch(`${currentURL}:3000/api/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -120,84 +100,31 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(formData)
       });
 
+      // Handle success response
       if (response.ok) {
-        loader.style.display = "none";
-        contentOverlay.style.display = "block";
-        document.getElementById("confirmationModal").style.display = "block";
-        submitButton.style.display = "block";
-        document.getElementById("contactForm").reset();
-        updateSubmitButton();
+        loader.style.display = "none"; // Hide loading animation
+        contentOverlay.style.display = "block"; // Show form content again
+        document.getElementById("confirmationModal").style.display = "block"; // Show success modal
+        contactForm.reset(); // Reset form fields after successful submission
+
+        // 🔄 Reset submit button state
+        submitButton.disabled = true;
+        submitButton.classList.add("btn-primary"); // Change button style back to normal
+        submitButton.classList.remove("btn-secondary");
       } else {
         throw new Error("Failed to send email");
-        submitButton.style.display = "block";
       }
     } catch (error) {
-      loader.style.display = "none";
-      contentOverlay.style.display = "block";
-      document.getElementById("errorModal").style.display = "block";
+      // Handle errors during form submission
+      loader.style.display = "none"; // Hide loading animation
+      contentOverlay.style.display = "block"; // Show form content again
+      document.getElementById("errorModal").style.display = "block"; // Show error modal
       console.error("Error sending form:", error);
-      submitButton.style.display = "block";
+
+      // Re-enable the submit button to allow retrying
+      submitButton.disabled = false;
+      submitButton.classList.add("btn-danger"); // Change button style to indicate an error
+      submitButton.classList.remove("btn-primary", "btn-secondary");
     }
   });
-
-  // Function to load translations based on selected language
-  function loadTranslations(language) {
-    fetch(`/backend/locales/${language}.json`)
-      .then((response) => response.json())
-      .then((data) => {
-        applyTranslations(data);
-      })
-      .catch((error) => {
-        console.error("Error loading translations:", error);
-      });
-  }
-
-  // Function to apply translations to elements with data-i18n-key attribute
-  function applyTranslations(translations) {
-    document.querySelectorAll("[data-i18n-key]").forEach((element) => {
-      const keys = element.getAttribute("data-i18n-key").split(".");
-      let value = translations;
-      keys.forEach((key) => (value = value[key]));
-      element.textContent = value || element.getAttribute("data-i18n-key");
-    });
-  }
-
-  // Load translations based on selected language
-  document.getElementById("languageSwitcher").addEventListener("change", async (event) => {
-    const selectedLanguage = event.target.value;
-    localStorage.setItem("language", selectedLanguage);
-    document.documentElement.lang = selectedLanguage;
-    await sendLanguageToServer(selectedLanguage);
-  });
-
-  // Function to send selected language to server
-  async function sendLanguageToServer(language) {
-    try {
-      const response = await fetch(`${currentURL}:3000/api/set-language`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept-Language": language,
-        },
-        body: JSON.stringify({ language }),
-      });
-      const data = await response.json();
-      if (data.success) {
-        loadTranslations(language);
-      } else {
-        console.error("Error setting language");
-      }
-    } catch (error) {
-      console.error("Error setting language:", error);
-    }
-  }
-  phoneInput.addEventListener("countrychange", function () {
-    const countryData = iti.getSelectedCountryData();
-    console.log("Country data:", countryData);
-  });
-
-  document.documentElement.lang = storedLanguage;
-  document.getElementById("languageSwitcher").value = storedLanguage;
-  loadTranslations(storedLanguage);
-  
 });

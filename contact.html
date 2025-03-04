@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title data-i18n-key="tabTitle.contact">Contact - JA PortFolio</title>
+
+    <!-- Page Title with Internationalization Support -->
+    <title data-i18n-key="tabTitle.contact">Contact - JA Portfolio</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="css/stylesOld.css">
     <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
@@ -12,25 +16,40 @@
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="css/bs-theme-overrides.css">
     <link rel="stylesheet" href="css/pikaday.min.css">
+
+    <!-- International Telephone Input CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+
+    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Favicon-->
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 </head>
 
 <body>
+    <!-- Content Overlay -->
     <div id="content-overlay" style="display: block"></div>
+
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg fixed-top portfolio-navbar gradient navbar-dark">
+        <!-- Language Switcher -->
         <select class="nav-link py-3 px-0 px-lg-3 rounded m-2" id="languageSwitcher">
             <option value="en">EN</option>
             <option value="fr">FR</option>
         </select>
+
         <div class="container">
-            <a class="navbar-brand logo" href="index.html" data-i18n-key="portfolioTitle">PortFolio</a>
+            <!-- Portfolio Title -->
+            <a class="navbar-brand logo" href="index.html" data-i18n-key="portfolioTitle">Portfolio</a>
+
+            <!-- Mobile Navigation Toggle Button -->
             <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
                 <span class="visually-hidden" data-i18n-key="toggleNav">Toggle navigation</span>
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Navigation Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-i18n-key="menu.Home">Home</a></li>
@@ -44,91 +63,88 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main class="page">
         <section class="portfolio-block">
             <div class="container">
                 <div class="heading">
                     <h2 data-i18n-key="contact.title">Contact me</h2>
                 </div>
+
+                <!-- Contact Form -->
                 <form class="shadow-lg" data-bs-theme="light" id="contactForm">
                     <div class="mb-3">
-                        <label class="form-label" for="name" placeholder="Enter your name..."
-                            data-i18n-key="contact.form.name">Your Name</label>
-                        <input class="form-control item" min="2" data-sb-validations="required" type="text" id="name">
-                        <div class="invalid-feedback" data-sb-feedback="name:required">
-                            A name is required.
-                        </div>
+                        <label class="form-label" for="name" data-i18n-key="contact.form.name">Your Name</label>
+                        <input class="form-control item" type="text" id="name" required>
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label" for="subject" data-i18n-key="contact.form.subject">Subject</label>
-                        <input class="form-control item" min="2" type="text" id="subject"
-                            data-sb-validations="required">
-                        <div class="invalid-feedback" data-sb-feedback="subject:required">
-                            A subject is required.
-                        </div>
+                        <input class="form-control item" type="text" id="subject" required>
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label" for="email" data-i18n-key="contact.form.email">Email</label>
-                        <input class="form-control item" min="2" type="email" id="email" data-sb-validations="required">
-                        <div class="invalid-feedback" data-sb-feedback="email:required">
-                            An email is required.
+                        <input class="form-control item" type="email" id="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="phone" data-i18n-key="contact.form.phone">Phone</label>
+                        <input class="form-control item" type="tel" id="phone" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="message" data-i18n-key="contact.form.message">Message</label>
+                        <textarea class="form-control item" id="message" required></textarea>
+                    </div>
+
+                    <!-- Success and Error Messages -->
+                    <div id="confirmationModal" class="modal-form">
+                        <div class="modal-form-content">
+                            <span class="conf-close-form">&times;</span>
+                            <p data-i18n-key="contact.form.messageConfirmation">Your message has been sent successfully!
+                            </p>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" min="2" for="phone" data-i18n-key="contact.form.phone">Phone</label>
-                        <p><input class="form-control item" type="phone" id="phone" data-sb-validations="required"></p>
-                        <div class="invalid-feedback" data-sb-feedback="email:required">
-                            A phone number is required.
+                    <div id="errorModal" class="modal-form">
+                        <div class="modal-form-content">
+                            <span class="error-close-form">&times;</span>
+                            <p data-i18n-key="contact.form.errorMessage">Error sending message!</p>
                         </div>
-                        </di>
-                        <div class="mb-3">
-                            <label class="form-label" for="message" data-i18n-key="contact.form.message">Message</label>
-                            <textarea class="form-control item" data-sb-validations="required" id="message"></textarea>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">
-                                A message is required.
-                            </div>
-                        </div>
-                        <div id="confirmationModal" class="modal-form">
-                            <div class="modal-form-content">
-                                <span class="conf-close-form">&times;</span>
-                                <p data-i18n-key="contact.form.messageConfirmation">Your message has been sent
-                                    successfully!</p>
-                            </div>
-                        </div>
-                        <div id="errorModal" class="modal-form">
-                            <div class="modal-form-content">
-                                <span class="error-close-form">&times;</span>
-                                <p data-i18n-key="contact.form.errorMessage">Error sending message!</p>
-                            </div>
-                        </div>
-                        <div class="mb-3 mt-4">
-                            <button class="btn btn-primary btn-lg d-block w-100" type="submit" id="submitButton"
-                                disabled data-i18n-key="contact.form.submit" style="display: block;">Submit Form</button>
-                            <div class="loader" id="loader-form" style="display: none;">
-                                <div class="loader__balls">
-                                    <div class="loader__balls__group">
-                                        <div class="ball item1"></div>
-                                        <div class="ball item1"></div>
-                                        <div class="ball item1"></div>
-                                    </div>
-                                    <div class="loader__balls__group">
-                                        <div class="ball item2"></div>
-                                        <div class="ball item2"></div>
-                                        <div class="ball item2"></div>
-                                    </div>
-                                    <div class="loader__balls__group">
-                                        <div class="ball item3"></div>
-                                        <div class="ball item3"></div>
-                                        <div class="ball item3"></div>
-                                    </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="mb-3 mt-4">
+                        <button class="btn btn-primary btn-lg d-block w-100" type="submit" id="submitButton" disabled
+                            data-i18n-key="contact.form.submit">Submit Form</button>
+
+                        <!-- Loader Animation -->
+                        <div class="loader" id="loader-form" style="display: none;">
+                            <div class="loader__balls">
+                                <div class="loader__balls__group">
+                                    <div class="ball item1"></div>
+                                    <div class="ball item1"></div>
+                                    <div class="ball item1"></div>
+                                </div>
+                                <div class="loader__balls__group">
+                                    <div class="ball item2"></div>
+                                    <div class="ball item2"></div>
+                                    <div class="ball item2"></div>
+                                </div>
+                                <div class="loader__balls__group">
+                                    <div class="ball item3"></div>
+                                    <div class="ball item3"></div>
+                                    <div class="ball item3"></div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="page-footer py-3 border-top">
         <div class="container my-4">
             <div class="links">
@@ -140,6 +156,8 @@
                         {VERSION}</small>
                 </div>
             </div>
+
+            <!-- Social Media Links -->
             <div class="social-icons">
                 <a class="me-3" href="https://www.instagram.com/juls_antoine/" target="_blank"><i
                         class="icon ion-social-instagram-outline"></i></a>
@@ -153,12 +171,14 @@
         </div>
     </footer>
 
+    <!-- JavaScript Libraries -->
     <script src="js/script.min.js"></script>
     <script src="js/pikaday.min.js"></script>
     <script src="js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/scriptContact.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>

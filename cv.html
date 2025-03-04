@@ -4,35 +4,48 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title data-i18n-key="tabTitle.cv">CV - JA PortFolio</title>
+
+    <!-- Page Title with Internationalization Key -->
+    <title data-i18n-key="tabTitle.cv">CV - JA Portfolio</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
     <link rel="stylesheet" href="css/Lato.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="css/bs-theme-overrides.css">
     <link rel="stylesheet" href="css/pikaday.min.css">
-    <!-- Favicon-->
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 </head>
 
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg fixed-top portfolio-navbar gradient navbar-dark">
+        <!-- Language Switcher -->
         <select class="nav-link py-3 px-0 px-lg-3 rounded m-2" id="languageSwitcher">
             <option value="en">EN</option>
             <option value="fr">FR</option>
         </select>
+
         <div class="container">
-            <a class="navbar-brand logo" href="index.html" data-i18n-key="portfolioTitle">PortFolio</a>
+            <!-- Portfolio Title -->
+            <a class="navbar-brand logo" href="index.html" data-i18n-key="portfolioTitle">Portfolio</a>
+
+            <!-- Mobile Navigation Toggle Button -->
             <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
                 <span class="visually-hidden" data-i18n-key="toggleNav">Toggle navigation</span>
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Navigation Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" data-i18n-key="menu.Home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="projects.html"
                             data-i18n-key="menu.Projects">Projects</a></li>
-                    <!-- li class="nav-item"><a class="nav-link active" href="cv.html" data-i18n-key="menu.CV">CV</a></li> -->
+                    <!-- Direct link to the PDF CV file -->
                     <li class="nav-item"><a class="nav-link active" href="assets/doc/CV_ANTOINE_Jules_2025.pdf"
                             data-i18n-key="menu.CV">CV</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n-key="menu.contact">Contact
@@ -42,18 +55,22 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main class="page">
         <section class="portfolio-block block-intro border-bottom">
             <div class="container">
+                <!-- Profile Avatar -->
                 <div class="avatar" style="background-image:url(&quot;assets/img/avatars/avatars.svg&quot;);"></div>
+
+                <!-- About Me Section -->
                 <div class="about-me">
                     <p data-i18n-key="cv.intro">
-                        Hello! I am Jules ANTOINE, a Product Owner and computer engineering student. I
-                        bridge the gap between business needs and technical execution, ensuring high-quality
-                        deliverables with a seamless user experience. Passionate about Agile methodologies, I specialize
-                        in product roadmap management, backlog prioritization, and optimizing development processes to
-                        maximize business value. My expertise extends to project coordination, functional design, and
-                        continuous product improvement.
+                        Hello! I am Jules ANTOINE, a Product Owner and computer engineering student. I bridge the gap
+                        between business needs and technical execution, ensuring high-quality deliverables with a
+                        seamless user experience. Passionate about Agile methodologies, I specialize in product roadmap
+                        management, backlog prioritization, and optimizing development processes to maximize business
+                        value. My expertise extends to project coordination, functional design, and continuous product
+                        improvement.
                     </p>
                     <a class="btn btn-outline-primary" role="button" href="contact.html"
                         data-i18n-key="contact.title">Contact me</a>
@@ -61,6 +78,7 @@
             </div>
         </section>
 
+        <!-- Work Experience Section -->
         <section class="portfolio-block cv">
             <div class="container">
                 <div class="work-experience group">
@@ -83,6 +101,7 @@
                     </div>
                 </div>
 
+                <!-- Education Section -->
                 <div class="education group">
                     <div class="heading">
                         <h2 class="text-center" data-i18n-key="cv.education">Education</h2>
@@ -104,80 +123,42 @@
                     </div>
                 </div>
 
+                <!-- Skills Section -->
                 <div class="skills group">
                     <div class="heading">
                         <h2 data-i18n-key="cv.skills">Skills</h2>
                     </div>
+
+                    <!-- Skill Progress Bars -->
                     <h3 data-i18n-key="cv.skills.html">HTML</h3>
                     <div class="progress">
-                        <div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                            style="width: 100%;">
-                            <span class="visually-hidden">90%</span>
-                        </div>
+                        <div class="progress-bar" style="width: 100%;">90%</div>
                     </div>
-                    <h3 data-i18n-key="cv.skills.js">PHP</h3>
-                    <div class="progress">
-                        <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-                            style="width: 90%;">
-                            <span class="visually-hidden">90%</span>
-                        </div>
-                    </div>
-                </div>
-                <h3 data-i18n-key="cv.skills.scrum">PHP</h3>
-                <div class="progress">
-                    <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-                        style="width: 90%;">
-                        <span class="visually-hidden">85%</span>
-                    </div>
-                </div>
-            </div>
-            <h3 data-i18n-key="cv.skills.python">PHP</h3>
-            <div class="progress">
-                <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                    <span class="visually-hidden">95%</span>
-                </div>
-            </div>
-            </div>
-            <h3 data-i18n-key="cv.skills.css">PHP</h3>
-            <div class="progress">
-                <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                    <span class="visually-hidden">70%</span>
-                </div>
-            </div>
-            </div>
-            <h3 data-i18n-key="cv.skills.aws">PHP</h3>
-            <div class="progress">
-                <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                    <span class="visually-hidden">70%</span>
-                </div>
-            </div>
-            </div>
-            <h3 data-i18n-key="cv.skills.docker">PHP</h3>
-            <div class="progress">
-                <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                    <span class="visually-hidden">70%</span>
-                </div>
-            </div>
-            </div>
-            <h3 data-i18n-key="cv.skills.quasar">PHP</h3>
-            <div class="progress">
-                <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                    <span class="visually-hidden">80%</span>
-                </div>
-            </div>
-            </div>
 
-            <div class="hobbies group">
-                <div class="heading">
-                    <h2 class="text-center" data-i18n-key="cv.hobbies">Hobbies</h2>
+                    <h3 data-i18n-key="cv.skills.js">JavaScript</h3>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 90%;">90%</div>
+                    </div>
+
+                    <h3 data-i18n-key="cv.skills.python">Python</h3>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 95%;">95%</div>
+                    </div>
                 </div>
-                <p class="text-center text-muted" data-i18n-key="cv.hobbies.description">Lorem ipsum dolor sit
-                    amet...</p>
-            </div>
+
+                <!-- Hobbies Section -->
+                <div class="hobbies group">
+                    <div class="heading">
+                        <h2 class="text-center" data-i18n-key="cv.hobbies">Hobbies</h2>
+                    </div>
+                    <p class="text-center text-muted" data-i18n-key="cv.hobbies.description">Lorem ipsum dolor sit
+                        amet...</p>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="page-footer py-3 border-top">
         <div class="container my-4">
             <div class="links">
@@ -189,19 +170,22 @@
                         {VERSION}</small>
                 </div>
             </div>
+
+            <!-- Social Media Links -->
             <div class="social-icons">
                 <a class="me-3" href="https://www.instagram.com/juls_antoine/" target="_blank"><i
                         class="icon ion-social-instagram-outline"></i></a>
-                <a class="me-3" href="https://twitter.com/Tortue_G"><i class="icon ion-social-twitter"
-                        target="_blank"></i></a>
+                <a class="me-3" href="https://twitter.com/Tortue_G" target="_blank"><i
+                        class="icon ion-social-twitter"></i></a>
                 <a class="me-3" href="https://www.linkedin.com/in/jules-antoine-dld/" target="_blank"><i
                         class="icon ion-social-linkedin"></i></a>
-                <a class="me-3" href="https://github.com/Jules-MTC"><i class="icon ion-social-github"
-                        target="_blank"></i></a>
+                <a class="me-3" href="https://github.com/Jules-MTC" target="_blank"><i
+                        class="icon ion-social-github"></i></a>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript Libraries -->
     <script src="js/script.min.js"></script>
     <script src="js/pikaday.min.js"></script>
     <script src="js/theme.js"></script>

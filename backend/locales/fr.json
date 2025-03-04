@@ -101,6 +101,7 @@
       "errorMessage": "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer plus tard."
     }
   },
+  "moreProjects": "Voir plus de projets",
   "cv": {
     "intro": "Bonjour ! Je suis Jules ANTOINE, Product Owner et étudiant en ingénierie informatique. Je fais le lien entre les besoins business et l'exécution technique, en garantissant des livrables de haute qualité et une expérience utilisateur fluide. Passionné par les méthodologies Agile, je me spécialise dans la gestion de la roadmap produit, la priorisation du backlog et l'optimisation des processus de développement.",
     "workExperience": "Expérience Professionnelle",
