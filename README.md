@@ -203,6 +203,10 @@
 - [X] `► New design`
 - [ ] `► Upgrade design confirmation and error message in form contact`
 - [ ] `► Dark mode`
+- [ ] `► Upgrade svg projects`
+- [ ] `► Update repository structure`
+- [ ] `► Add project date`
+- [ ] `► Add project tag`
 
 ---
 

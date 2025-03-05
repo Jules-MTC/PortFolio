@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`/backend/locales/${language}.json`)
       .then((response) => response.json())
       .then((data) => {
+        console.log("Translations loaded:", data
+        );
         applyTranslations(data);
       })
       .catch((error) => {
