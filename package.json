@@ -1,6 +1,6 @@
 {
     "name": "portfolio",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "description": "This project is a personal portfolio created to showcase my skills, experiences and projects in the field of web development. The portfolio is designed as a dynamic website with a backend, developed using JavaScript (Node.js), CSS, and HTML.",
     "main": "index.js",
     "scripts": {
