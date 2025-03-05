@@ -198,9 +198,15 @@
 - [X] `► Translate in french`
 - [X] `► Configure DNS`
 - [X] `► Add https`
-- [ ] `► Add this project on the website`
+- [X] `► Add this project on the website`
 - [X] `► Add auto deploy don't to do the release`
-- [ ] `► New design ?`
+- [X] `► New design`
+- [ ] `► Upgrade design confirmation and error message in form contact`
+- [ ] `► Dark mode`
+- [ ] `► Upgrade svg projects`
+- [ ] `► Update repository structure`
+- [ ] `► Add project date`
+- [ ] `► Add project tag`
 
 ---
 
@@ -254,10 +260,6 @@ Contributions are welcome! Here are several ways you can contribute:
 This project is protected under the [The Unlicense](https://https://choosealicense.com/licenses/unlicense/) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
 
 ---
-
-##  Acknowledgments
-
-- List any resources, contributors, inspiration, etc. here.
 
 [**Return**](#-overview)
 

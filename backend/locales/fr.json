@@ -1,57 +1,140 @@
 {
-  "tabTitle": "Jules ANTOINE - Portefeuille",
+  "tabTitle": {
+    "contact": "Contact - JA PortFolio",
+    "cv": "CV - JA PortFolio",
+    "home": "Accueil - JA PortFolio",
+    "projects": "Projets - JA PortFolio",
+    "sunglassBros": "Sunglass Bros - JA PortFolio",
+    "gna": "GNA - JA PortFolio",
+    "fastsum": "FastSum - JA PortFolio",
+    "portfolio": "Portfolio - JA PortFolio",
+    "radd": "RADD - JA PortFolio"
+  },
+  "portfolioTitle": "PortFolio",
+  "toggleNav": "Basculer la navigation",
   "menu": {
-    "portfolio": "Portefeuille",
-    "about": "À propos",
+    "Home": "Accueil",
+    "Projects": "Projets",
+    "CV": "CV",
+    "about-me": "À propos de moi",
     "contact": "Contact"
   },
-  "masthead": {
-    "name": "Jules ANTOINE",
-    "subtitle": "Product Owner - Étudiant en Ingénierie Logicielle"
+  "about": {
+    "description": "Bonjour ! Je suis Jules ANTOINE. Étudiant en ingénierie à l'ESIEA, spécialisé en ingénierie logicielle, entrepreneuriat et innovation. Actuellement Product Owner chez Meta-Coaching, je fais le lien entre le business et la technologie, en gérant des équipes Agile, l'évolution des produits et la maintenance des plateformes. Passionné par la technologie et l'innovation, j'aime résoudre des défis complexes."
   },
-  "portfolioSection": {
-    "title": "Portefeuille",
-    "modal1": {
-      "title": "Sunglass Bros : Plateforme de commerce électronique de lunettes de soleil",
-      "description": "Sunglass Bros est une plateforme de commerce électronique dynamique dédiée à la vente de lunettes de soleil, offrant une expérience de shopping en ligne fluide et sécurisée. Construite avec des technologies web robustes telles que PHP, HTML, CSS et PHPMyAdmin, cette plateforme intègre des fonctionnalités avancées de gestion des commandes, de l'inventaire, des utilisateurs et de l'affichage pour répondre aux besoins des clients exigeants. Le site Sunglass Bros offre une interface utilisateur attrayante et conviviale, permettant aux visiteurs de naviguer facilement à travers une vaste sélection de lunettes de soleil de qualité. Des fonctionnalités de filtrage avancées permettent aux utilisateurs de trouver rapidement des produits qui correspondent à leur style, couleur et préférences de prix. La plateforme gère sans effort les commandes des clients, offrant un processus d'achat sécurisé et une gestion efficace des paiements en ligne. Les utilisateurs peuvent créer des comptes personnels pour un processus de commande plus rapide et bénéficier de fonctionnalités telles que la sauvegarde des informations de paiement et l'historique des commandes. Dans les coulisses, l'administration du site est simplifiée grâce à un tableau de bord intuitif alimenté par PHPMyAdmin. Les administrateurs peuvent facilement gérer l'inventaire, suivre les ventes, gérer les profils des utilisateurs et apporter des ajustements en temps réel pour optimiser les performances de la plateforme. Sunglass Bros représente bien plus qu'un simple site de commerce électronique. C'est une expérience en ligne complète et immersive pour les passionnés de lunettes de soleil, offrant des produits de qualité, un service client exceptionnel et une plateforme technologique robuste pour soutenir les opérations commerciales."
+  "about-me": "À propos de moi",
+  "cta": {
+    "likeWhatYouSee": "Vous aimez ce que vous voyez ?"
+  },
+  "skills": {
+    "title": "Compétences Spéciales",
+    "1": "Product Owner & Méthodologies Scrum",
+    "1description": "Création de designs web propres et professionnels en utilisant les dernières tendances et technologies.",
+    "2": "UI/UX & Conception Fonctionnelle",
+    "2description": "Capacité à concevoir des interfaces intuitives et à rédiger des spécifications fonctionnelles détaillées (User Stories, Wireframes).",
+    "3": "Coordination de Projet & Gestion des Parties Prenantes",
+    "3description": "Expérience dans la gestion de projets complexes, la coordination des parties prenantes et le respect des délais et des ressources.",
+    "4": "Outils Techniques & Développement",
+    "4description": "Maîtrise des outils de suivi (Redmine, Gitea), ainsi que des technologies de développement (Python, Java, JavaScript, Docker, AWS, Quasar Framework).",
+    "5": "Amélioration Continue & Décisions Basées sur les Données",
+    "5description": "Capacité à analyser les retours utilisateurs, ajuster les stratégies produit et présenter les résultats aux décideurs.",
+    "6": "Esprit Entrepreneurial & Leadership",
+    "6description": "Expérience dans la gestion de projets innovants et la prise de décisions stratégiques."
+  },
+  "projects": {
+    "title": "Travaux Récents",
+    "description": "Description",
+    "sunglassBros": {
+      "title": "Sunglass Bros",
+      "content": {
+        "1": "Sunglass Bros est une plateforme de commerce électronique dynamique dédiée à la vente de lunettes de soleil, offrant une expérience d'achat en ligne fluide et sécurisée. Construite avec des technologies web robustes telles que PHP, HTML, CSS et PHPMyAdmin, cette plateforme intègre des fonctionnalités avancées de gestion des commandes, des stocks, des utilisateurs et de l'affichage.",
+        "2": "Le site Sunglass Bros propose une interface utilisateur attrayante et conviviale, permettant aux visiteurs de naviguer facilement parmi une large sélection de lunettes de soleil de qualité. Des fonctionnalités de filtrage avancées permettent aux utilisateurs de trouver rapidement des produits correspondant à leur style, leur couleur et leur budget.",
+        "3": "La plateforme gère efficacement les commandes des clients, offrant un processus d'achat sécurisé et une gestion efficace des paiements en ligne. Les utilisateurs peuvent créer des comptes personnels pour un processus de commande plus rapide et bénéficier de fonctionnalités telles que l'enregistrement des informations de paiement et l'historique des commandes.",
+        "4": "Les administrateurs peuvent facilement gérer les stocks, suivre les ventes, gérer les profils utilisateurs et effectuer des ajustements en temps réel pour optimiser les performances de la plateforme. Sunglass Bros est bien plus qu'un simple site e-commerce : c'est une expérience en ligne immersive pour les passionnés de lunettes de soleil, offrant des produits de qualité, un service client exceptionnel et une technologie robuste pour soutenir les opérations commerciales."
+      }
     },
-    "modal2": {
-      "title": "FastSum : Plateforme de gestion de projets scientifiques et techniques (PST)",
-      "description": "FastSum est une plateforme en ligne révolutionnaire conçue pour simplifier la gestion des projets scientifiques et d'ingénierie (STP) pour les étudiants, les professeurs et les mentors. Grâce à la puissante technologie Apex d'Oracle, FastSum offre une expérience utilisateur fluide et efficace. Cette plateforme polyvalente permet aux utilisateurs de créer, gérer et collaborer sur des projets scientifiques et d'ingénierie avec facilité. Les principales fonctionnalités de FastSum comprennent la gestion des tâches, le suivi des progrès, la planification des échéances, la communication en temps réel et bien plus encore. Les étudiants, les professeurs et les mentors peuvent accéder à FastSum depuis n'importe quel appareil connecté à Internet, permettant une collaboration sans faille, même à distance. L'interface intuitive de FastSum rend la création et la gestion de projets aussi simples que possible, libérant du temps et de l'énergie pour se concentrer sur la recherche et l'innovation. Que ce soit pour un projet de recherche académique, un projet commercial technique ou une collaboration interdisciplinaire, FastSum offre une solution complète pour simplifier et améliorer la gestion des projets scientifiques et techniques. Avec FastSum, l'avenir de la collaboration scientifique est plus rapide, plus efficace et plus brillant que jamais."
+    "fastsum": {
+      "title": "FastSum",
+      "content": {
+        "1": "FastSum est une plateforme en ligne révolutionnaire conçue pour simplifier la gestion des projets scientifiques et techniques (STP) pour les étudiants, les enseignants et les mentors. Grâce à la technologie puissante Apex d'Oracle, FastSum offre une expérience utilisateur fluide et efficace.",
+        "2": "Les fonctionnalités clés de FastSum incluent la gestion des tâches, le suivi des progrès, la planification des échéances, la communication en temps réel et bien plus encore. Les utilisateurs peuvent accéder à FastSum depuis n'importe quel appareil connecté à Internet, facilitant ainsi la collaboration, même à distance.",
+        "3": "Que ce soit pour un projet de recherche académique, un projet technique ou une collaboration interdisciplinaire, FastSum propose une solution complète pour simplifier et améliorer la gestion des projets scientifiques et techniques."
+      }
     },
-    "modal3": {
-      "title": "RADD : Recyclage automatisé des déchets ménagers",
-      "description": "Le projet RADD (Recyclage automatisé des déchets ménagers) représente une initiative innovante visant à révolutionner la gestion des déchets ménagers à l'aide d'une poubelle trieuse automatique. Conçu et construit en groupe depuis zéro, en mettant l'accent sur la programmation informatique, ARHW repousse les limites de la technologie pour promouvoir un recyclage plus efficace et durable. À la croisée de l'ingénierie mécatronique et de l'informatique, ARHW intègre des capteurs avancés, des actionneurs motorisés et une interface utilisateur intuitive pour automatiser le processus de tri des déchets. En utilisant des techniques de codage sophistiquées, chaque composant d'ARHW est synchronisé pour garantir un fonctionnement précis et efficace. L'utilisateur interagit avec ARHW via une interface conviviale qui permet de sélectionner les types de déchets à trier. Ensuite, la poubelle trieuse automatique utilise ses capteurs pour identifier et séparer les déchets en fonction de leur matériau (plastique, verre, métal, etc.). Les déchets triés sont ensuite dirigés vers les compartiments appropriés pour un recyclage ultérieur. Le projet ARHW représente une avancée significative dans la gestion des déchets ménagers, offrant une solution automatisée et durable pour réduire la pollution et promouvoir la préservation de l'environnement. Avec son approche centrée sur le codage informatique, ARHW ouvre la voie à une nouvelle ère de technologie pour la durabilité et la responsabilité environnementale."
+    "radd": {
+      "title": "RADD",
+      "content": {
+        "1": "Le projet RADD (Recyclage Automatisé des Déchets Domestiques) représente une initiative innovante visant à révolutionner la gestion des déchets ménagers à l'aide d'un trieur automatique. Conçu et construit en groupe à partir de zéro, avec un accent particulier sur le codage informatique, ARHW repousse les limites de la technologie pour promouvoir un recyclage plus efficace et durable.",
+        "2": "Au carrefour de l'ingénierie mécatronique et de l'informatique, RADD intègre des capteurs avancés, des actionneurs motorisés et une interface utilisateur intuitive pour automatiser le processus de tri des déchets. Grâce à des techniques de codage sophistiquées, chaque composant de RADD est synchronisé pour assurer un fonctionnement précis et efficace.",
+        "3": "L'utilisateur interagit avec RADD via une interface conviviale qui permet de sélectionner les types de déchets à trier. Ensuite, le trieur automatique de déchets utilise ses capteurs pour identifier et séparer les déchets en fonction de leur matériau (plastique, verre, métal, etc.). Les déchets triés sont ensuite dirigés vers les compartiments appropriés pour un recyclage ultérieur.",
+        "4": "Le projet RADD représente une avancée significative dans la gestion des déchets ménagers, offrant une solution automatisée et durable pour réduire la pollution et favoriser la préservation de l'environnement. Avec son approche centrée sur le codage informatique, RADD ouvre la voie à une nouvelle ère technologique pour la durabilité et la responsabilité environnementale."
+      }
     },
-    "modal4": {
-      "title": "Good Night Analyze (GNA)",
-      "description": "Good Night Analysis (GNA) est un projet innovant visant à améliorer la qualité du sommeil grâce à la technologie des capteurs et au Raspberry Pi. Comprenant l'importance d'un sommeil réparateur pour la santé et le bien-être, notre équipe a développé GNA pour offrir une solution intelligente et pratique. En utilisant des capteurs spécialement conçus, GNA surveille les différentes phases du sommeil en temps réel, y compris le sommeil léger, le sommeil profond et les phases de mouvements oculaires rapides (REM). Ces précieuses données sont collectées et analysées par un Raspberry Pi, qui agit comme un centre de traitement centralisé. L'interface conviviale de GNA permet aux utilisateurs de visualiser facilement leurs habitudes de sommeil et de recevoir des conseils personnalisés pour optimiser leur routine de sommeil. Que ce soit pour identifier les troubles du sommeil, ajuster l'environnement de sommeil ou améliorer les habitudes nocturnes, GNA fournit des informations détaillées pour aider les utilisateurs à obtenir un repos de qualité. Le projet Good Night Analysis (GNA) représente une convergence harmonieuse entre la technologie moderne et le bien-être humain, offrant une solution innovante pour une meilleure santé et un meilleur sommeil."
+    "gna": {
+      "title": "GNA",
+      "content": {
+        "1": "Good Night Analysis (GNA) est un projet innovant visant à améliorer la qualité du sommeil grâce à la technologie des capteurs et au Raspberry Pi. Consciente de l'importance d'un sommeil réparateur pour la santé et le bien-être, notre équipe a développé GNA pour offrir une solution intelligente et pratique. À l'aide de capteurs spécialement conçus, GNA surveille en temps réel les différentes phases du sommeil, notamment les phases de sommeil léger, de sommeil profond et de mouvements oculaires rapides (MOR).",
+        "2": "Ces précieuses données sont collectées et analysées par un Raspberry Pi, qui fait office de centre de traitement centralisé. L'interface conviviale de GNA permet aux utilisateurs de visualiser facilement leurs habitudes de sommeil et de recevoir des conseils personnalisés pour optimiser leur routine de sommeil. Qu'il s'agisse d'identifier les troubles du sommeil, d'ajuster l'environnement de sommeil ou d'améliorer les habitudes nocturnes, GNA fournit des informations détaillées pour aider les utilisateurs à obtenir un repos de qualité.",
+        "3": "Le projet Good Night Analysis (GNA) représente une convergence harmonieuse entre la technologie moderne et le bien-être humain, offrant une solution innovante pour une meilleure santé et un meilleur sommeil."
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "content": {
+        "1": "Mon Portfolio est une plateforme web destinée à mettre en valeur mon parcours, mes compétences et mes réalisations dans le domaine du développement web. Ce site personnel sert de vitrine interactive où les visiteurs peuvent explorer mes projets, découvrir mon expertise et me contacter. Conçu comme un espace dynamique et évolutif, ce portfolio s'appuie sur des technologies modernes, assurant une navigation fluide et une interface utilisateur épurée. La page d'accueil propose une présentation concise et professionnelle, permettant aux visiteurs de se faire rapidement une idée de mon profil et de mes spécialités.",
+        "2": "La section Projets est l'un des éléments clés du site. Chaque projet est présenté avec une description détaillée, les technologies utilisées et un lien vers le dépôt GitHub correspondant.",
+        "3": "Dans la section Compétences, une visualisation claire des technologies maîtrisées est mise en avant. HTML, CSS, JavaScript et autres outils de développement web sont illustrés sous forme de graphiques ou d'icônes, mettant en avant les atouts techniques du développeur. Le site comprend également une section Contact, offrant aux visiteurs la possibilité de le joindre facilement via un formulaire intégré ou des liens vers mes réseaux professionnels. Cette approche favorise les interactions et facilite la prise de contact pour des opportunités de collaboration.",
+        "4": "L'architecture du site repose sur un design responsive, assurant une expérience utilisateur optimale sur différents appareils, que ce soit sur ordinateur, tablette ou smartphone. Grâce à ce PortFolio, je mets en avant son expertise en développement web tout en proposant une expérience de navigation soignée et professionnelle. Ce projet illustre son engagement à créer des solutions modernes et accessibles, adaptées aux besoins des recruteurs et des passionnés du web."
+      }
     }
   },
-  "aboutSection": {
-    "title": "À propos",
-    "text1": "Originaire de Lorraine en France, je suis actuellement étudiant en école d'ingénierie informatique. Après avoir suivi une classe préparatoire aux grandes écoles, j'ai choisi de me spécialiser dans ce domaine passionnant. En parallèle de mes études, je travaille comme product owner, où j'ai l'opportunité de mettre en pratique mes compétences techniques tout en développant mes compétences en gestion de projet. Je suis passionné par les nouvelles technologies et motivé par les défis que ce secteur en constante évolution présente.",
-    "text2": "En tant qu'ingénieur, je maîtrise plusieurs langages de programmation tels que Java, Python et JavaScript. Je suis également à l'aise avec les méthodes agiles et les outils de gestion de projet. En dehors du domaine technique, j'ai d'excellentes compétences en communication, travail d'équipe et résolution de problèmes. Mon approche polyvalente et mon désir d'apprendre constamment me permettent de m'adapter rapidement aux nouvelles situations et de contribuer efficacement aux projets ambitieux.",
-    "text3": "Entre janvier et mai 2023, j'ai eu l'opportunité de participer à un échange académique à Sousse, en Tunisie, dans le cadre de mes études en ingénierie informatique. Accueillie par l'EPI Digital School, cette expérience m'a permis de découvrir un nouveau cadre éducatif et culturel, tout en approfondissant mes connaissances techniques et professionnelles. Durant ces quatre mois, j'ai suivi des cours spécialisés en informatique et en nouvelles technologies, ce qui m'a permis de renforcer mes compétences en programmation et en gestion de projets. J'ai également eu l'occasion de travailler sur des projets concrets en collaboration avec des étudiants locaux, ce qui m'a aidé à développer une meilleure compréhension des méthodes de travail et des pratiques culturelles tunisiennes.",
-    "text4": "Cette expérience internationale a été extrêmement enrichissante, non seulement d'un point de vue académique, mais aussi personnel. J'ai développé une plus grande adaptabilité, une ouverture d'esprit accrue et une capacité à m'intégrer et à travailler efficacement dans des environnements multiculturels. En dehors des cours, j'ai pu explorer la beauté et la richesse de la culture tunisienne, en visitant des sites historiques, en participant à des événements locaux et en établissant des relations amicales durables avec des personnes de divers horizons. Ce séjour à Sousse a indéniablement élargi mes perspectives et renforcé ma détermination à m'engager dans des projets internationaux et à contribuer à des équipes diversifiées et dynamiques."
+  "contact": {
+    "title": "Me Contacter",
+    "form": {
+      "name": "Votre Nom",
+      "subject": "Sujet",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Envoyer le formulaire",
+      "phone": "Téléphone",
+      "messageConfirmation": "Votre message a bien été envoyé. Je vous recontacterai dès que possible. Merci !",
+      "errorMessage": "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer plus tard."
+    }
   },
-  "downloadCV": "Télécharger mon CV !",
-  "contactSection": {
-    "title": "Contactez-moi",
-    "nameLabel": "Nom complet",
-    "emailLabel": "Adresse e-mail",
-    "phoneLabel": "Numéro de téléphone",
-    "messageLabel": "Message",
-    "sendButton": "Envoyer",
-    "confirmationMessage": "Votre message a été envoyé avec succès !",
-    "errorMessage": "Erreur lors de l'envoi du message !"
+  "moreProjects": "Voir plus de projets",
+  "cv": {
+    "intro": "Bonjour ! Je suis Jules ANTOINE, Product Owner et étudiant en ingénierie informatique. Je fais le lien entre les besoins business et l'exécution technique, en garantissant des livrables de haute qualité et une expérience utilisateur fluide. Passionné par les méthodologies Agile, je me spécialise dans la gestion de la roadmap produit, la priorisation du backlog et l'optimisation des processus de développement.",
+    "workExperience": "Expérience Professionnelle",
+    "work": {
+      "productOwner": "Product Owner",
+      "company1": "Meta-Coaching",
+      "period1": "07/2023 - 09/2025",
+      "description1": "Supervision et coordination des équipes de développement."
+    },
+    "education": "Éducation",
+    "educationDetails": {
+      "highSchool": "Université",
+      "school1": "ESIEA",
+      "period1": "09/2022 - 09/2025",
+      "description1": "Diplômé avec une spécialisation en Ingénierie Logicielle, Entrepreneuriat et Innovation."
+    },
+    "skills": "Compétences",
+    "skillsList": {
+      "html": "HTML",
+      "js": "JavaScript",
+      "scrum": "Scrum",
+      "python": "Python",
+      "css": "CSS",
+      "aws": "AWS",
+      "docker": "Docker",
+      "quasar": "Quasar Framework"
+    },
+    "hobbies": "Loisirs",
+    "hobbiesDescription": "Gérer des projets, coder des projets personnels, escalader et explorer de nouvelles technologies."
   },
   "footer": {
-    "location": "Emplacement",
-    "locationDetails": "Paris\n75000",
-    "webTitle": "Autour du Web",
-    "aboutSchool": "À propos de mon école",
-    "schoolDescription": "L'ESIEA est une école d'ingénieurs certifiée par la Commission des Titres d'Ingénieur (CTI) dédiée à l'enseignement et à la recherche en sciences et technologies du numérique : "
-  },
-  "copyright": "Copyright © Jules ANTOINE 2024{DATE} | Version: {VERSION}"
+    "aboutMe": "À propos de moi",
+    "contactMe": "Me contacter",
+    "projects": "Projets"
+  }
 }

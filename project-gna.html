@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html data-bs-theme="light">
+
+<head>
+    <!-- Character encoding and viewport settings for responsive design -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Author metadata -->
+    <meta name="author" content="Jules Antoine" />
+
+    <!-- Page title with internationalization support -->
+    <title data-i18n-key="tabTitle.gna">GNA - JA Portfolio</title>
+
+    <!-- Linking external stylesheets for styling -->
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <link rel="stylesheet" href="css/Lato.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="css/bs-theme-overrides.css">
+    <link rel="stylesheet" href="css/pikaday.min.css">
+
+    <!-- Favicon for the website -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+</head>
+
+<body>
+    <!-- Navigation bar with Bootstrap styling -->
+    <nav class="navbar navbar-expand-lg fixed-top portfolio-navbar gradient navbar-dark">
+        <!-- Language selection dropdown -->
+        <select class="nav-link py-3 px-0 px-lg-3 rounded m-2" id="languageSwitcher">
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+        </select>
+
+        <div class="container">
+            <!-- Logo with internationalization support -->
+            <a class="navbar-brand logo" href="index.html" data-i18n-key="portfolioTitle">PortFolio</a>
+
+            <!-- Button for mobile navigation toggle -->
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
+                <span class="visually-hidden">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html" data-i18n-key="menu.Home">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html"
+                            data-i18n-key="menu.Projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" data-i18n-key="menu.CV">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n-key="menu.contact">Contact
+                            me</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page">
+        <!-- Project section -->
+        <section class="portfolio-block project">
+            <div class="container">
+                <div class="heading">
+                    <!-- Project title with internationalization support -->
+                    <h2 data-i18n-key="projects.gna.title">GNA</h2>
+                </div>
+
+                <!-- Project image as a background -->
+                <div class="image" style="background-image:url(&quot;assets/img/portfolio/gna.webp&quot;);"></div>
+                <!-- Alternative image tag (commented out) -->
+                <!-- <img src="assets/img/portfolio/gna.webp" alt="GNA Image"> -->
+
+                <div class="row">
+                    <div class="col-12 col-md-10 offset-md-1 info">
+                        <h3 data-i18n-key="projects.description">Description</h3>
+
+                        <!-- Project description with multiple paragraphs -->
+                        <p data-i18n-key="projects.gna.content.1">
+                            Good Night Analysis (GNA) is an innovative project aimed at improving sleep quality using
+                            sensor technology and the Raspberry Pi.
+                            Understanding the importance of restful sleep for health and well-being, our team developed
+                            GNA to offer a smart and practical solution.
+                            Using specially designed sensors, GNA monitors different phases of sleep in real time,
+                            including light sleep, deep sleep, and REM sleep.
+                        </p>
+                        <p data-i18n-key="projects.gna.content.2">
+                            This valuable data is collected and analyzed by a Raspberry Pi, which acts as a centralized
+                            processing center.
+                            GNA's user-friendly interface allows users to easily view their sleep habits and receive
+                            personalized advice to optimize their sleep routine.
+                            Whether identifying sleep disturbances, adjusting the sleep environment, or improving
+                            nighttime habits, GNA provides detailed insights for quality rest.
+                        </p>
+                        <p data-i18n-key="projects.gna.content.3">
+                            The site's architecture is based on a responsive design, ensuring an optimal user experience
+                            across different devices,
+                            whether on a computer, tablet, or smartphone. Through this project, I showcase my expertise
+                            in web development while providing a seamless and professional browsing experience.
+                            This project demonstrates my commitment to creating modern and accessible solutions tailored
+                            to the needs of recruiters and web enthusiasts.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section for displaying more projects -->
+                <div class="more-projects">
+                    <h3 class="text-center" data-i18n-key="moreProjects">More Projects</h3>
+                    <div class="row gallery">
+                        <div class="col-md-4 col-lg-3">
+                            <div class="item"><a href="project-radd.html"><img class="img-fluid scale-on-hover"
+                                        src="assets/img/portfolio/radd.webp"></a></div>
+                        </div>
+                        <div class="col-md-4 col-lg-3">
+                            <div class="item"><a href="project-sunglassbros.html"><img class="img-fluid scale-on-hover"
+                                        src="assets/img/portfolio/sunglassbro.webp"></a></div>
+                        </div>
+                        <div class="col-md-4 col-lg-3">
+                            <div class="item"><a href="project-fastsum.html"><img class="img-fluid scale-on-hover"
+                                        src="assets/img/portfolio/fastsum.webp"></a></div>
+                        </div>
+                        <div class="col-md-4 col-lg-3">
+                            <div class="item"><a href="project-portfolio.html"><img class="img-fluid scale-on-hover"
+                                        src="assets/img/portfolio/portfolio.webp"></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="page-footer py-3 border-top">
+        <div class="container my-4">
+            <div class="links">
+                <!-- Footer navigation links -->
+                <a href="cv.html" data-i18n-key="footer.aboutMe">About me</a>
+                <a href="contact.html" data-i18n-key="footer.contactMe">Contact me</a>
+                <a href="projects.html" data-i18n-key="footer.projects">Projects</a>
+
+                <!-- Copyright information -->
+                <div class="container" id="copyRight">
+                    <small data-i18n-key="copyright">
+                        Copyright &copy; Jules ANTOINE 2024{DATE} | Version: {VERSION}
+                    </small>
+                </div>
+            </div>
+
+            <!-- Social media links -->
+            <div class="social-icons">
+                <a class="me-3" href="https://www.instagram.com/juls_antoine/" target="_blank"><i
+                        class="icon ion-social-instagram-outline"></i></a>
+                <a class="me-3" href="https://twitter.com/Tortue_G" target="_blank"><i
+                        class="icon ion-social-twitter"></i></a>
+                <a class="me-3" href="https://www.linkedin.com/in/jules-antoine-dld/" target="_blank"><i
+                        class="icon ion-social-linkedin"></i></a>
+                <a class="me-3" href="https://github.com/Jules-MTC" target="_blank"><i
+                        class="icon ion-social-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript files for interactive features -->
+    <script src="js/script.min.js"></script>
+    <script src="js/pikaday.min.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

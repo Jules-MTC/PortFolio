@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Page Title with Internationalization Support -->
+    <title data-i18n-key="tabTitle.contact">Contact - JA Portfolio</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/stylesOld.css">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <link rel="stylesheet" href="css/Lato.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="css/bs-theme-overrides.css">
+    <link rel="stylesheet" href="css/pikaday.min.css">
+
+    <!-- International Telephone Input CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+</head>
+
+<body>
+    <!-- Content Overlay -->
+    <div id="content-overlay" style="display: block"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top portfolio-navbar gradient navbar-dark">
+        <!-- Language Switcher -->
+        <select class="nav-link py-3 px-0 px-lg-3 rounded m-2" id="languageSwitcher">
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+        </select>
+
+        <div class="container">
+            <!-- Portfolio Title -->
+            <a class="navbar-brand logo" href="index.html" data-i18n-key="portfolioTitle">Portfolio</a>
+
+            <!-- Mobile Navigation Toggle Button -->
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
+                <span class="visually-hidden" data-i18n-key="toggleNav">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n-key="menu.Home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html"
+                            data-i18n-key="menu.Projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" data-i18n-key="menu.CV">CV</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html"
+                            data-i18n-key="menu.contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page">
+        <section class="portfolio-block">
+            <div class="container">
+                <div class="heading">
+                    <h2 data-i18n-key="contact.title">Contact me</h2>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="shadow-lg" data-bs-theme="light" id="contactForm">
+                    <div class="mb-3">
+                        <label class="form-label" for="name" data-i18n-key="contact.form.name">Your Name</label>
+                        <input class="form-control item" type="text" id="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="subject" data-i18n-key="contact.form.subject">Subject</label>
+                        <input class="form-control item" type="text" id="subject" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="email" data-i18n-key="contact.form.email">Email</label>
+                        <input class="form-control item" type="email" id="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="phone" data-i18n-key="contact.form.phone">Phone</label>
+                        <input class="form-control item" type="tel" id="phone" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="message" data-i18n-key="contact.form.message">Message</label>
+                        <textarea class="form-control item" id="message" required></textarea>
+                    </div>
+
+                    <!-- Success and Error Messages -->
+                    <div id="confirmationModal" class="modal-form">
+                        <div class="modal-form-content">
+                            <span class="conf-close-form">&times;</span>
+                            <p data-i18n-key="contact.form.messageConfirmation">Your message has been sent successfully!
+                            </p>
+                        </div>
+                    </div>
+                    <div id="errorModal" class="modal-form">
+                        <div class="modal-form-content">
+                            <span class="error-close-form">&times;</span>
+                            <p data-i18n-key="contact.form.errorMessage">Error sending message!</p>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="mb-3 mt-4">
+                        <button class="btn btn-primary btn-lg d-block w-100" type="submit" id="submitButton" disabled
+                            data-i18n-key="contact.form.submit">Submit Form</button>
+
+                        <!-- Loader Animation -->
+                        <div class="loader" id="loader-form" style="display: none;">
+                            <div class="loader__balls">
+                                <div class="loader__balls__group">
+                                    <div class="ball item1"></div>
+                                    <div class="ball item1"></div>
+                                    <div class="ball item1"></div>
+                                </div>
+                                <div class="loader__balls__group">
+                                    <div class="ball item2"></div>
+                                    <div class="ball item2"></div>
+                                    <div class="ball item2"></div>
+                                </div>
+                                <div class="loader__balls__group">
+                                    <div class="ball item3"></div>
+                                    <div class="ball item3"></div>
+                                    <div class="ball item3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer py-3 border-top">
+        <div class="container my-4">
+            <div class="links">
+                <a href="cv.html" data-i18n-key="footer.aboutMe">About me</a>
+                <a href="contact.html" data-i18n-key="footer.contactMe">Contact me</a>
+                <a href="projects.html" data-i18n-key="footer.projects">Projects</a>
+                <div class="container" id="copyRight">
+                    <small data-i18n-key="copyright">Copyright &copy; Jules ANTOINE 2024{DATE} | Version:
+                        {VERSION}</small>
+                </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="social-icons">
+                <a class="me-3" href="https://www.instagram.com/juls_antoine/" target="_blank"><i
+                        class="icon ion-social-instagram-outline"></i></a>
+                <a class="me-3" href="https://twitter.com/Tortue_G" target="_blank"><i
+                        class="icon ion-social-twitter"></i></a>
+                <a class="me-3" href="https://www.linkedin.com/in/jules-antoine-dld/" target="_blank"><i
+                        class="icon ion-social-linkedin"></i></a>
+                <a class="me-3" href="https://github.com/Jules-MTC" target="_blank"><i
+                        class="icon ion-social-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="js/script.min.js"></script>
+    <script src="js/pikaday.min.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="js/scriptContact.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js" integrity="sha384-d6C/Dc4YGOG7kgNRXiAb9oUq4Lv6Z0thbRHYdcqihPVyj52vkKCluruqbZYTmJaK" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,459 +1,258 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-bs-theme="light">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="" />
-  <meta name="author" content="Jules Antoine" />
-  <title id="environment" data-i18n-key="tabTitle">Jules ANTOINE - PortFolio</title>
-  <!-- Favicon-->
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-  <link href="css/styles.css" rel="stylesheet" />
+    <!-- Character encoding and viewport settings for responsive design -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Author metadata -->
+    <meta name="author" content="Jules Antoine" />
+
+    <!-- Page title with internationalization support -->
+    <title data-i18n-key="tabTitle.home">Home - JA Portfolio</title>
+
+    <!-- Linking external stylesheets for styling -->
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <link rel="stylesheet" href="css/Lato.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="css/bs-theme-overrides.css">
+    <link rel="stylesheet" href="css/pikaday.min.css">
+
+    <!-- Favicon for the website -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 </head>
 
-<body id="page-top">
-  <div class="🤚" id="loader-form" style="display: none">
-    <div class="👉"></div>
-    <div class="👉"></div>
-    <div class="👉"></div>
-    <div class="👉"></div>
-    <div class="🌴"></div>
-    <div class="👍"></div>
-  </div>
-  <div id="content-overlay" style="display: block">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-      <div class="container">
+<body>
+    <!-- Navigation bar with Bootstrap styling -->
+    <nav class="navbar navbar-expand-lg fixed-top portfolio-navbar gradient navbar-dark">
+        <!-- Language selection dropdown -->
         <select class="nav-link py-3 px-0 px-lg-3 rounded m-2" id="languageSwitcher">
-          <option value="en">EN</option>
-          <option value="fr">FR</option>
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
         </select>
-        <a class="navbar-brand" href="#page-top">Jules ANTOINE</a>
-        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
-          data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-          aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio" data-i18n-key="menu.portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about" data-i18n-key="menu.about">About</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact" data-i18n-key="menu.contact">Contact</a>
-            </li>
-          </ul>
+
+        <div class="container">
+            <!-- Logo with internationalization support -->
+            <a class="navbar-brand logo" href="index.html" data-i18n-key="portfolioTitle">PortFolio</a>
+
+            <!-- Button for mobile navigation toggle -->
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
+                <span class="visually-hidden">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html" data-i18n-key="menu.Home">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html"
+                            data-i18n-key="menu.Projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" data-i18n-key="menu.CV">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n-key="menu.contact">Contact
+                            me</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
-    <!-- Masthead-->
-    <header class="masthead bg-primary text-white text-center">
-      <div class="container d-flex align-items-center flex-column">
-        <!-- Masthead Avatar Image-->
-        <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-        <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0" data-i18n-key="masthead.name">Jules ANTOINE</h1>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0" data-i18n-key="masthead.subtitle">
-          Product Owner - Software Engineer Student
-        </p>
-      </div>
-    </header>
-    <!-- Portfolio Section-->
-    <section class="page-section portfolio" id="portfolio">
-      <div class="container">
-        <!-- Portfolio Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" data-i18n-key="portfolioSection.title">
-          Portfolio
-        </h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <!-- Portfolio Grid Items-->
-        <div class="row justify-content-center">
-          <!-- Portfolio Item 1-->
-          <div class="col-md-6 col-lg-4 mb-5">
-            <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white">
-                  <i class="fas fa-plus fa-3x"></i>
+
+    <main class="page">
+        <!-- Introduction section -->
+        <section class="portfolio-block block-intro">
+            <div class="container">
+                <!-- Profile avatar image -->
+                <div class="avatar" style="background-image:url(&quot;assets/img/avatars/avatars.svg&quot;);"></div>
+
+                <div class="about-me">
+                    <!-- About section with internationalization support -->
+                    <p data-i18n-key="about.description">
+                        Hello! I'm Jules ANTOINE. Engineering student at ESIEA, specializing in Software
+                        Engineering, Entrepreneurship, and Innovation. Currently Product Owner at Meta-Coaching,
+                        I bridge business and tech, managing Agile teams, product evolution, and platform
+                        maintenance. Passionate about technology and innovation, I thrive on solving complex
+                        challenges.
+                    </p>
+
+                    <!-- Contact button -->
+                    <a class="btn btn-outline-primary" role="button" href="contact.html"
+                        data-i18n-key="contact.title">Contact me</a>
                 </div>
-              </div>
-              <img class="img-fluid" src="assets/img/portfolio/ecommerce.png" alt="Ecommerce icon" />
             </div>
-          </div>
-          <!-- Portfolio Item 2-->
-          <div class="col-md-6 col-lg-4 mb-5">
-            <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white">
-                  <i class="fas fa-plus fa-3x"></i>
+        </section>
+
+        <!-- Portfolio project display section -->
+        <section class="portfolio-block photography">
+            <div class="container">
+                <div class="row g-0">
+                    <!-- Portfolio items -->
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                        <a href="project-portfolio.html"><img class="img-fluid image"
+                                src="assets/img/portfolio/portfolio.webp" alt="Portfolio Project"></a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                        <a href="project-sunglassbros.html"><img class="img-fluid image"
+                                src="assets/img/portfolio/sunglassbro.webp" alt="Sunglass Bros Project"></a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                        <a href="project-gna.html"><img class="img-fluid image" src="assets/img/portfolio/gna.webp"
+                                alt="GNA Project"></a>
+                    </div>
                 </div>
-              </div>
-              <img class="img-fluid" src="assets/img/portfolio/dashboard.png" alt="Dashboard icon" />
             </div>
-          </div>
-          <!-- Portfolio Item 3-->
-          <div class="col-md-6 col-lg-4 mb-5">
-            <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white">
-                  <i class="fas fa-plus fa-3x"></i>
+        </section>
+
+        <!-- Call-to-action section -->
+        <section class="portfolio-block call-to-action border-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-center align-items-center content">
+                    <h3 data-i18n-key="cta.likeWhatYouSee">Like what you see?</h3>
+                    <a class="btn btn-outline-primary btn-lg" href="contact.html" data-i18n-key="contact.title">Contact
+                        me</a>
                 </div>
-              </div>
-              <img class="img-fluid" src="assets/img/portfolio/recycler.png" alt="Recycler icon" />
             </div>
-          </div>
-          <!-- Portfolio Item 4-->
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white">
-                  <i class="fas fa-plus fa-3x"></i>
+        </section>
+
+        <!-- Skills section -->
+        <section class="portfolio-block skills">
+            <div class="container">
+                <div class="heading">
+                    <h2 data-i18n-key="skills.title">Special Skills</h2>
                 </div>
-              </div>
-              <img class="img-fluid" src="assets/img/portfolio/sleep.png" alt="Sleep icon" />
+                <div class="row">
+                    <!-- Skill cards -->
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0">
+                                <i class="icon ion-ios-compose-outline"></i>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title" data-i18n-key="skills.1">Product Owner & Scrum Methodologies</h3>
+                                <p class="card-text" data-i18n-key="skills.1description">
+                                    Expertise in roadmap management, backlog tracking and Scrum ritual facilitation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0">
+                                <i class="icon ion-aperture"></i>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title" data-i18n-key="skills.2">UI/UX & Functional Design
+                                </h3>
+                                <p class="card-text" data-i18n-key="skills.2description">
+                                    Ability to design intuitive interfaces and write detailed functional specifications
+                                    (User Stories, Wireframes).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0">
+                                <i class="icon ion-ios-people-outline"></i>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title" data-i18n-key="skills.3">Project Coordination & Stakeholder
+                                    Management</h3>
+                                <p class="card-text" data-i18n-key="skills.3description">
+                                    Experience in managing complex projects, managing stakeholders and meeting deadlines
+                                    and resources.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0">
+                                <i class="icon ion-ios-gear-outline"></i>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title" data-i18n-key="skills.4">Technical Tools & Development</h3>
+                                <p class="card-text" data-i18n-key="skills.4description">
+                                    Mastery of monitoring tools (Redmine, Gitea), as well as development technologies
+                                    (Python, Java, JavaScript, Docker, AWS, Quasar Framework).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0">
+                                <i class="icon ion-ios-loop-strong"></i>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title" data-i18n-key="skills.5">Continuous Improvement & Data-Driven
+                                    Decisions
+                                </h3>
+                                <p class="card-text" data-i18n-key="skills.5description">
+                                    Ability to analyze user feedback, adjust product strategies and present results to
+                                    decision-makers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0">
+                                <i class="icon ion-ios-folder-outline"></i>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title" data-i18n-key="skills.6">Entrepreneurial Mindset & Leadership
+                                </h3>
+                                <p class="card-text" data-i18n-key="skills.6description">
+                                    Experience in managing innovative projects and strategic decision-making.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- About Section-->
-    <section class="page-section bg-primary text-white mb-0" id="about">
-      <div class="container">
-        <!-- About Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-white" data-i18n-key="aboutSection.title">
-          About
-        </h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <!-- About Section Content-->
-        <div class="row">
-          <div class="col-lg-4 ms-auto">
-            <p class="lead" id="aboutMe" data-i18n-key="aboutSection.text1">
-              Originally from Lorraine in France, I am currently a student in computer engineering school. After following a preparatory class for the grandes écoles, I chose to specialize in this exciting field. In parallel with my studies, I am working as a product owner, where I have the opportunity to put my technical skills into practice while developing my project management skills. I am passionate about new technologies and motivated by the challenges that this constantly evolving sector presents.
-            </p>
-          </div>
-          <div class="col-lg-4 me-auto">
-            <p class="lead" data-i18n-key="aboutSection.text2">
-              As an engineer, I am proficient in several programming languages such as Java, Python and JavaScript. I am also comfortable with agile methods and project management tools. Outside of the technical field, I have excellent communication, teamwork and problem-solving skills. My versatile approach and my desire to constantly learn allow me to adapt quickly to new situations and contribute effectively to ambitious projects.
-            </p>
-          </div>
-        </div>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 ms-auto">
-            <p class="lead" id="aboutMe" data-i18n-key="aboutSection.text3">
-              Between January and May 2023, I had the opportunity to participate in an academic exchange in Sousse, Tunisia, as part of my studies in computer engineering. Hosted by the EPI Digital School, this experience allowed me to discover a new educational and cultural framework, while deepening my technical and professional knowledge. During these four months, I took specialized courses in IT and new technologies, which allowed me to strengthen my skills in programming and project management. I also had the opportunity to work on concrete projects in collaboration with local students, which helped me develop a better understanding of Tunisian working methods and cultural practices.
-            </p>
-          </div>
-          <div class="col-lg-4 me-auto">
-            <p class="lead" data-i18n-key="aboutSection.text4">
-              As an engineer, I am proficient in several programming languages such as Java, Python and JavaScript. I am also comfortable with agile methods and project management tools. Outside of the technical field, I have excellent communication, teamwork and problem-solving skills. My versatile approach and my desire to constantly learn allow me to adapt quickly to new situations and contribute effectively to ambitious projects.
-            </p>
-          </div>
-        </div>
-        <!-- About Section Button-->
-        <div class="text-center mt-4">
-          <a class="btn btn-xl btn-outline-light" href="./assets/doc/CV_ANTOINE_Jules_2025.pdf" data-i18n-key="downloadCV">
-            <i class="fas fa-download me-2"></i>
-            Download my CV!
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- Contact Section-->
-    <section class="page-section" id="contact">
-      <div class="container">
-        <!-- Contact Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" data-i18n-key="contactSection.title">
-          Contact Me
-        </h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <!-- Contact Section Form-->
-        <div class="row justify-content-center">
-          <div class="col-lg-8 col-xl-7">
-            <form id="contactForm" method="post">
-              <!-- Name input-->
-              <div class="form-floating mb-3">
-                <input class="form-control" id="name" name="name" placeholder="Enter your name..." data-sb-validations="required" />
-                <label for="name" data-i18n-key="contactSection.nameLabel">Full name</label>
-                <div class="invalid-feedback" data-sb-feedback="name:required">
-                  A name is required.
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="page-footer py-3 border-top">
+        <div class="container my-4">
+            <div class="links">
+                <!-- Footer navigation links -->
+                <a href="cv.html" data-i18n-key="footer.aboutMe">About me</a>
+                <a href="contact.html" data-i18n-key="footer.contactMe">Contact me</a>
+                <a href="projects.html" data-i18n-key="footer.projects">Projects</a>
+
+                <!-- Copyright information -->
+                <div class="container" id="copyRight">
+                    <small data-i18n-key="copyright">
+                        Copyright &copy; Jules ANTOINE 2024{DATE} | Version: {VERSION}
+                    </small>
                 </div>
-              </div>
-              <!-- Email address input-->
-              <div class="form-floating mb-3">
-                <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                <label for="email" data-i18n-key="contactSection.emailLabel">Email address</label>
-                <div class="invalid-feedback" data-sb-feedback="email:required">
-                  An email is required.
-                </div>
-                <div class="invalid-feedback" data-sb-feedback="email:email">
-                  Email is not valid.
-                </div>
-              </div>
-              <!-- Phone number input-->
-              <div class="form-floating mb-3">
-                <input class="form-control" id="phone" name="phone" placeholder="(123) 456-7890" data-sb-validations="required" />
-                <label for="phone" data-i18n-key="contactSection.phoneLabel">Phone number</label>
-                <div class="invalid-feedback" data-sb-feedback="phone:required">
-                  A phone number is required.
-                </div>
-              </div>
-              <!-- Message input-->
-              <div class="form-floating mb-3">
-                <textarea class="form-control" id="message" name="message" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                <label for="message" data-i18n-key="contactSection.messageLabel">Message</label>
-                <div class="invalid-feedback" data-sb-feedback="message:required">
-                  A message is required.
-                </div>
-              </div>
-              <div id="confirmationModal" class="modal-form">
-                <div class="modal-form-content">
-                  <span class="conf-close-form">&times;</span>
-                  <p data-i18n-key="contactSection.confirmationMessage">Your message has been sent successfully!</p>
-                </div>
-              </div>
-              <div id="errorModal" class="modal-form">
-                <div class="modal-form-content">
-                  <span class="error-close-form">&times;</span>
-                  <p data-i18n-key="contactSection.errorMessage">Error sending message!</p>
-                </div>
-              </div>
-              <!-- Submit Button-->
-              <button class="btn btn-primary btn-xl" id="submitButton" type="submit" disabled data-i18n-key="contactSection.sendButton">
-                Send
-              </button>
-            </form>
-          </div>
+            </div>
+
+            <!-- Social media links -->
+            <div class="social-icons">
+                <a class="me-3" href="https://www.instagram.com/juls_antoine/" target="_blank"><i
+                        class="icon ion-social-instagram-outline"></i></a>
+                <a class="me-3" href="https://twitter.com/Tortue_G" target="_blank"><i
+                        class="icon ion-social-twitter"></i></a>
+                <a class="me-3" href="https://www.linkedin.com/in/jules-antoine-dld/" target="_blank"><i
+                        class="icon ion-social-linkedin"></i></a>
+                <a class="me-3" href="https://github.com/Jules-MTC" target="_blank"><i
+                        class="icon ion-social-github"></i></a>
+            </div>
         </div>
-      </div>
-    </section>
-    <!-- Footer-->
-    <footer class="footer text-center">
-      <div class="container">
-        <div class="row">
-          <!-- Footer Location-->
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4" data-i18n-key="footer.location">Location</h4>
-            <p class="lead mb-0" data-i18n-key="footer.locationDetails">
-              Paris
-              <br />
-              75000
-            </p>
-          </div>
-          <!-- Footer Social Icons-->
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4" data-i18n-key="footer.webTitle">Around the Web</h4>
-            <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/juls_antoine/"><i class="fab fa-fw fa-instagram"></i></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/Tortue_G"><i class="fab fa-fw fa-twitter"></i></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/jules-antoine-dld/"><i class="fab fa-fw fa-linkedin-in"></i></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/Jules-MTC"><i class="fab fa-fw fa-github"></i></a>
-          </div>
-          <!-- Footer About Text-->
-          <div class="col-lg-4">
-            <h4 class="text-uppercase mb-4" data-i18n-key="footer.aboutSchool">About my School</h4>
-            <p class="lead mb-0" data-i18n-key="footer.schoolDescription">
-              ESIEA is an engineering school certified by the Commission for Engineering Titles (CTI) dedicated to teaching and research in digital sciences and technologies : </p>
-              <a href="https://www.esiea.fr/">ESIEA </a>
-          </div>
-        </div>
-      </div>
     </footer>
-    <!-- Copyright Section-->
-    <div class="copyright py-4 text-center text-white">
-      <div class="container" id="copyRight">
-        <small data-i18n-key="copyright">Copyright &copy; Jules ANTOINE 2024{DATE} | Version: {VERSION}</small>
-      </div>
-    </div>
-  </div>
-  <!-- Portfolio Modals-->
-  <!-- Portfolio Modal 1-->
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center pb-5">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title-->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n-key="portfolioSection.modal1.title">
-                  Sunglass Bros : Sunglasses E-commerce Platform
-                </h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image-->
-                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/ecommerce.png" alt="Ecommerce icon" />
-                <!-- Portfolio Modal - Text-->
-                <p class="mb-4" data-i18n-key="portfolioSection.modal1.description">
-                  Sunglass Bros is a dynamic e-commerce platform dedicated to the sale of sunglasses, offering a smooth and secure online shopping experience. Built with robust web technologies such as PHP, HTML, CSS and PHPMyAdmin, this platform integrates advanced order, inventory, user and display management features to meet the needs of demanding customers. The Sunglass Bros site offers an attractive and user-friendly user interface, allowing visitors to easily navigate through a huge selection of quality sunglasses. Advanced filtering features allow users to quickly find products that match their style, color and price preferences. The platform seamlessly manages customer orders, providing a secure purchasing process and efficient online payment management. Users can create personal accounts for a faster ordering process and benefit from features like saving payment information and order history. Behind the scenes, site administration is simplified thanks to an intuitive dashboard powered by PHPMyAdmin. Administrators can easily manage inventory, track sales, manage user profiles, and make real-time adjustments to optimize platform performance. Sunglass Bros represents much more than a simple e-commerce site. It is a comprehensive, immersive online experience for sunglasses enthusiasts, offering quality products, exceptional customer service and a robust technology platform to support business operations.                </p>
-                <button class="btn btn-primary" data-bs-dismiss="modal">
-                  <i class="fas fa-xmark fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Portfolio Modal 2-->
-  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center pb-5">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title-->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n-key="portfolioSection.modal2.title">
-                  FastSum : Scientific and Technical Project Management Platform (STP)
-                </h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image-->
-                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/dashboard.png" alt="Dashboard icon" />
-                <!-- Portfolio Modal - Text-->
-                <p class="mb-4" data-i18n-key="portfolioSection.modal2.description">
-                  FastSum is a revolutionary online platform designed to simplify science and engineering project (STP) management for students, faculty and mentors. Through the use of Oracle's powerful Apex technology, FastSum provides a smooth and efficient user experience. This versatile platform allows users to create, manage, and collaborate on scientific and engineering projects with ease. FastSum's key features include task management, progress tracking, deadline scheduling, real-time communication and much more. Students, faculty, and mentors can access FastSum from any internet-connected device, enabling seamless collaboration, even remotely. FastSum's intuitive interface makes creating and managing projects as simple as possible, freeing up time and energy to focus on research and innovation. Whether for an academic research project, a technical business project or an interdisciplinary collaboration, FastSum offers a complete solution to simplify and improve the management of scientific and technical projects. With FastSum, the future of scientific collaboration is faster, more efficient and brighter than ever.                </p>
-                <button class="btn btn-primary" data-bs-dismiss="modal">
-                  <i class="fas fa-xmark fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Portfolio Modal 3-->
-  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center pb-5">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title-->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n-key="portfolioSection.modal3.title">
-                  ARHW : Automated Recycling of Household Waste
-                </h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image-->
-                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/recycler.png" alt="Recycler icon" />
-                <!-- Portfolio Modal - Text-->
-                <p class="mb-4" data-i18n-key="portfolioSection.modal3.description">
-                  The ARHW (Automated Recycling of Domestic Waste) project represents an innovative initiative aimed at revolutionizing the management of household waste using an automatic sorter bin. Designed and built as a group from scratch, with a particular focus on computer coding, ARHW pushes the boundaries of technology to promote more efficient and sustainable recycling. At the crossroads of mechatronic engineering and IT, ARHW integrates advanced sensors, motorized actuators and an intuitive user interface to automate the waste sorting process. Using sophisticated coding techniques, each component of ARHW is synchronized to ensure precise and efficient operation. The user interacts with ARHW via a user-friendly interface that allows selecting the types of waste to be sorted. Then, the automatic trash sorter uses its sensors to identify and separate waste based on its material (plastic, glass, metal, etc.). The sorted waste is then directed to appropriate compartments for subsequent recycling. The ARHW project represents a significant advance in domestic waste management, offering an automated and sustainable solution to reduce pollution and promote environmental preservation. With its computer coding-centric approach, ARHW is paving the way for a new era of technology for sustainability and environmental responsibility.
-                </p>
-                <button class="btn btn-primary" data-bs-dismiss="modal">
-                  <i class="fas fa-xmark fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Portfolio Modal 4-->
-  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center pb-5">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title-->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n-key="portfolioSection.modal4.title">
-                  Good Night Analyze (GNA)
-                </h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image-->
-                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/sleep.png" alt="Sleep icon" />
-                <!-- Portfolio Modal - Text-->
-                <p class="mb-4" data-i18n-key="portfolioSection.modal4.description">
-                  Good Night Analysis (GNA) is an innovative project aimed at improving sleep quality using sensor technology and the Raspberry Pi. Understanding the importance of restful sleep for health and well-being , our team developed GNA to offer a smart and practical solution. Using specially designed sensors, GNA monitors the different phases of sleep in real time, including light sleep, deep sleep and rapid eye movement (REM) phases. This valuable data is collected and analyzed by a Raspberry Pi, which acts as a centralized processing center. GNA's user-friendly interface allows users to easily view their sleep habits and receive personalized advice to optimize their sleep routine. Whether identifying sleep disturbances, adjusting the sleep environment, or improving nighttime habits, GNA provides detailed information to help users achieve quality rest. The Good Night Analysis (GNA) project represents a harmonious convergence between modern technology and human well-being, offering an innovative solution for better health and sleep.
-                </p>
-                <button class="btn btn-primary" data-bs-dismiss="modal">
-                  <i class="fas fa-xmark fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Bootstrap core JS-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Core theme JS-->
-  <script src="js/scripts.js"></script>
+
+    <!-- JavaScript files for interactive features -->
+    <script src="js/script.min.js"></script>
+    <script src="js/pikaday.min.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>

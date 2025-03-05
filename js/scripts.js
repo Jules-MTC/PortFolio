@@ -2,41 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // Retrieve the current URL without the trailing slash
   currentURL = window.location.href.slice(0, -1);
 
-  // Get DOM elements
-  const environnementElement = document.getElementById("environment");
+  // Get DOM elements for version display and copyright update
   const versionElement = document.getElementById("copyRight");
-  const nameInput = document.getElementById("name");
-  const emailInput = document.getElementById("email");
-  const phoneInput = document.getElementById("phone");
-  const messageInput = document.getElementById("message");
-  const submitButton = document.getElementById("submitButton");
-  const modalConf = document.getElementById("confirmationModal");
-  const modalError = document.getElementById("errorModal");
-  const confCloseButton = document.querySelector(".conf-close-form");
-  const errorCloseButton = document.querySelector(".error-close-form");
   const copyRightElement = document.getElementById("copyRight");
 
-  // Adjust environment text based on current URL
+  // Retrieve stored language from localStorage or default to English
+  const storedLanguage = localStorage.getItem("language") || "en";
+
+  // Adjust environment URL based on the current domain
   if (currentURL.includes("localhost")) {
-    currentURL = "http://localhost";
-    environnementElement.textContent = environnementElement.textContent.replace(
-      "{ENV}",
-      "Local - "
-    );
+    var currentURL = "http://localhost";
   } else if (currentURL.includes("julesantoine.tech")) {
     var currentURL = "https://portfolio.julesantoine.tech";
-    environnementElement.textContent = environnementElement.textContent.replace(
-      "{ENV}",
-      ""
-    );
-  } else {
-    environnementElement.textContent = environnementElement.textContent.replace(
-      "{ENV}",
-      "INT - "
-    );
   }
 
-  // Fetch and display API version
+  // Fetch and display the API version
   fetch(currentURL + ":3000/api/version")
     .then((response) => response.json())
     .then((data) => {
@@ -47,42 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((error) => console.error("Error fetching version:", error));
 
-  // Function to shrink navbar on scroll
-  const navbarShrink = function () {
-    const navbarCollapsible = document.body.querySelector("#mainNav");
-    if (!navbarCollapsible) return;
-    if (window.scrollY === 0) {
-      navbarCollapsible.classList.remove("navbar-shrink");
-    } else {
-      navbarCollapsible.classList.add("navbar-shrink");
-    }
-  };
-  navbarShrink();
-  document.addEventListener("scroll", navbarShrink);
-
-  // Initialize ScrollSpy for main navigation
-  const mainNav = document.body.querySelector("#mainNav");
-  if (mainNav) {
-    new bootstrap.ScrollSpy(document.body, {
-      target: "#mainNav",
-      rootMargin: "0px 0px -40%",
-    });
-  }
-
-  // Toggle navbar collapse on small screens
-  const navbarToggler = document.body.querySelector(".navbar-toggler");
-  const responsiveNavItems = [].slice.call(
-    document.querySelectorAll("#navbarResponsive .nav-link")
-  );
-  responsiveNavItems.map((responsiveNavItem) => {
-    responsiveNavItem.addEventListener("click", () => {
-      if (window.getComputedStyle(navbarToggler).display !== "none") {
-        navbarToggler.click();
-      }
-    });
-  });
-
-  // Update copyright year if not 2024
+  // Update the copyright year dynamically if it is not 2024
   const currentYears = new Date().getFullYear();
   if ("2024" != currentYears) {
     copyRightElement.textContent = copyRightElement.textContent.replace(
@@ -96,75 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // Function to validate form inputs
-  const validateForm = () => {
-    return (
-      nameInput.value.trim() !== "" &&
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()) &&
-      phoneInput.value.trim() !== "" &&
-      messageInput.value.trim() !== ""
-    );
-  };
-
-  // Function to update submit button state based on form validation
-  const updateSubmitButton = () => {
-    submitButton.disabled = !validateForm();
-  };
-
-  // Attach input event listeners to form inputs for real-time validation
-  [nameInput, emailInput, phoneInput, messageInput].forEach((input) => {
-    input.addEventListener("input", updateSubmitButton);
-  });
-
-  // Initialize submit button state on page load
-  updateSubmitButton();
-
-  // Close confirmation modal on button click
-  confCloseButton.onclick = () => {
-    modalConf.style.display = "none";
-  };
-
-  // Close error modal on button click
-  errorCloseButton.onclick = () => {
-    modalError.style.display = "none";
-  };
-
-  // Handle form submission
-  document.getElementById("contactForm").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const loader = document.getElementById("loader-form");
-    const contentOverlay = document.getElementById("content-overlay");
-    loader.style.display = "block";
-    contentOverlay.style.display = "none";
-    try {
-      // Create and send POST request with FormData
-      const formData = new FormData(document.getElementById("contactForm"));  
-      const response = await fetch(currentURL + ":3000/send-email", {
-        method: "POST",
-        body: formData,
-      });
-  
-      // Handle response
-      if (response.ok) {
-        loader.style.display = "none";
-        contentOverlay.style.display = "block";
-        modalConf.style.display = "block";
-      } else {
-        throw new Error("Failed to send email");
-      }
-    } catch (error) {
-      loader.style.display = "none";
-      contentOverlay.style.display = "block";
-      modalError.style.display = "block";
-      console.error("Error sending form:", error);
-    }
-  });  
-
-  // Function to load translations based on selected language
+  // Function to load translations based on the selected language
   function loadTranslations(language) {
     fetch(`/backend/locales/${language}.json`)
       .then((response) => response.json())
       .then((data) => {
+        console.log("Translations loaded:", data
+        );
         applyTranslations(data);
       })
       .catch((error) => {
@@ -172,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Function to apply translations to elements with data-i18n-key attribute
+  // Function to apply translations to elements with the data-i18n-key attribute
   function applyTranslations(translations) {
     document.querySelectorAll("[data-i18n-key]").forEach((element) => {
       const keys = element.getAttribute("data-i18n-key").split(".");
@@ -182,15 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Load translations based on selected language
+  // Listen for language selection changes and update the language accordingly
   document.getElementById("languageSwitcher").addEventListener("change", async (event) => {
     const selectedLanguage = event.target.value;
     localStorage.setItem("language", selectedLanguage);
     document.documentElement.lang = selectedLanguage;
     await sendLanguageToServer(selectedLanguage);
   });
-  
-  // Function to send selected language to server
+
+  // Function to send the selected language to the server
   async function sendLanguageToServer(language) {
     try {
       const response = await fetch(`${currentURL}:3000/api/set-language`, {
@@ -210,5 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Error setting language:", error);
     }
-  }  
+  }
+
+  // Set the document language and update the language selector on page load
+  document.documentElement.lang = storedLanguage;
+  document.getElementById("languageSwitcher").value = storedLanguage;
+
+  // Load translations for the stored or default language
+  loadTranslations(storedLanguage);
 });
