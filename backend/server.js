@@ -52,6 +52,8 @@ i18n.configure({
   objectNotation: true, // Allows using nested translation keys like "menu.home"
 });
 
+console.log("Process env", process.env.NODE_ENV);
+
 // Initialize i18n middleware
 app.use(i18n.init);
 
@@ -145,6 +147,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Start the HTTPS server if in production, otherwise start a regular HTTP server
 if (process.env.NODE_ENV === "production") {
+  console.log("Starting HTTPS server on port", port);
   https
     .createServer({ key: privateKey, cert: certificate, ca: ca }, app)
     .listen(port);
