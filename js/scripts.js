@@ -99,4 +99,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load translations for the stored or default language
   loadTranslations(storedLanguage);
+
+  const themeSwitcher = document.getElementById("themeSwitcher");
+  const htmlElement = document.documentElement;
+
+  // Vérifiez les préférences système
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const prefersLightScheme = window.matchMedia("(prefers-color-scheme: light)").matches;
+  console.log("prefersDarkScheme", prefersDarkScheme);
+  console.log("prefersLightScheme", prefersLightScheme);
+  // Charger le thème depuis le localStorage ou utiliser le thème système par défaut
+  let savedTheme = localStorage.getItem("theme");
+
+  if (!savedTheme) {
+    // Si aucun thème n'est défini, appliquez le thème système
+    savedTheme = prefersDarkScheme ? "dark" : prefersLightScheme ? "light" : "dark";
+  }
+
+  // Appliquer le thème
+  htmlElement.setAttribute("data-bs-theme", savedTheme);
+  updateButtonText(savedTheme);
+
+  // Ajouter un écouteur d'événement pour le bouton
+  themeSwitcher.addEventListener("click", () => {
+    const currentTheme = htmlElement.getAttribute("data-bs-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+    // Appliquer le nouveau thème
+    htmlElement.setAttribute("data-bs-theme", newTheme);
+
+    // Sauvegarder la préférence dans le localStorage
+    localStorage.setItem("theme", newTheme);
+
+    // Mettre à jour le texte du bouton
+    updateButtonText(newTheme);
+  });
+
+  // Fonction pour mettre à jour le texte du bouton
+  function updateButtonText(theme) {
+    themeSwitcher.textContent = theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
+  }
 });
