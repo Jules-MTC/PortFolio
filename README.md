@@ -202,7 +202,7 @@
 - [X] `► Add auto deploy don't to do the release`
 - [X] `► New design`
 - [ ] `► Upgrade design confirmation and error message in form contact`
-- [ ] `► Dark mode`
+- [X] `► Dark mode`
 - [ ] `► Upgrade svg projects`
 - [ ] `► Update repository structure`
 - [ ] `► Add project date`
