@@ -1,6 +1,5 @@
 // Load environment variables from the .env file into process.env
-require("dotenv").config();
-
+require('dotenv').config({ path: '/var/www/html/PortFolio/.env' });
 // Import required modules
 const fs = require("fs"); // File system module for reading files
 const https = require("https"); // HTTPS module to create a secure server
