@@ -207,6 +207,7 @@
 - [ ] `► Update repository structure`
 - [ ] `► Add project date`
 - [ ] `► Add project tag`
+- [ ] `► Fix CV page`
 
 ---
 
