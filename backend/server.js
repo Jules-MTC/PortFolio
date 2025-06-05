@@ -71,7 +71,7 @@ app.post("/api/send-email", (req, res) => {
 
   // Configure the email transporter using SMTP settings
   const transporterConfig = {
-    host: "us2.smtp.mailhostbox.com",
+    host: "ssl0.ovh.net", // SMTP server host
     port: 587,
     secure: false, // Use TLS instead of SSL
     auth: {
