@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (currentURL.includes("localhost")) {
     var currentURL = "http://localhost";
   } else if (currentURL.includes("julesantoine.fr")) {
-    var currentURL = "https://www.portfolio.julesantoine.fr/";
+    var currentURL = "https://www.portfolio.julesantoine.fr";
   }
 
   // Fetch and display the API version
