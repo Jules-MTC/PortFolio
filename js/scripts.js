@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Adjust environment URL based on the current domain
   if (currentURL.includes("localhost")) {
     var currentURL = "http://localhost";
-  } else if (currentURL.includes("julesantoine.tech")) {
-    var currentURL = "https://portfolio.julesantoine.tech";
+  } else if (currentURL.includes("julesantoine.fr")) {
+    var currentURL = "https://www.portfolio.julesantoine.fr/";
   }
 
   // Fetch and display the API version

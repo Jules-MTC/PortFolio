@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Adjust the environment text based on the current URL
   if (currentURL.includes("localhost")) {
     var currentURL = "http://localhost";
-  } else if (currentURL.includes("julesantoine.tech")) {
-    var currentURL = "https://portfolio.julesantoine.tech";
+  } else if (currentURL.includes("julesantoine.fr")) {
+    var currentURL = "https://www.portfolio.julesantoine.fr";
   }
 
   // Function to validate form inputs before enabling the submit button
