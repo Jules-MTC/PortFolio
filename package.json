@@ -22,7 +22,7 @@
         "i18next-browser-languagedetector": "^8.0.2",
         "latest-version": "^9.0.0",
         "lusca": "^1.7.0",
-        "multer": "^2.0.1",
+        "multer": "^2.0.2",
         "nodemailer": "^6.9.16"
     },
     "devDependencies": {
