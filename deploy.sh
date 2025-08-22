@@ -8,4 +8,4 @@ git pull origin master
 npm install
 
 # Relance le backend
-sudo pm2 restart all
+pm2 restart all
