@@ -74,6 +74,7 @@ app.post("/api/send-email", (req, res) => {
     host: "ssl0.ovh.net", // SMTP server host
     port: 587,
     secure: false, // Use TLS instead of SSL
+
     auth: {
       user: process.env.EMAIL_FROM_ADDRESS, // Email sender address from environment variables
       pass: process.env.EMAIL_FROM_PASSWORD, // Email sender password from environment variables
@@ -139,7 +140,6 @@ if (process.env.NODE_ENV === "production") {
   // Read SSL certificate files for HTTPS in production
   privateKey = fs.readFileSync(process.env.SSL_KEY_PATH, "utf8");
   certificate = fs.readFileSync(process.env.SSL_CERT_PATH, "utf8");
-  ca = fs.readFileSync(process.env.SSL_CA_PATH, "utf8");
 } else {
   console.log("Running in development mode, skipping SSL setup.");
 }
@@ -148,7 +148,7 @@ if (process.env.NODE_ENV === "production") {
 if (process.env.NODE_ENV === "production") {
   console.log("Starting HTTPS server on port", port);
   https
-    .createServer({ key: privateKey, cert: certificate, ca: ca }, app)
+    .createServer({ key: privateKey, cert: certificate }, app)
     .listen(port);
 } else {
   app.listen(port, () => {
@@ -160,5 +160,4 @@ if (process.env.NODE_ENV === "production") {
 const credentials = {
   key: privateKey,
   cert: certificate,
-  ca: ca,
 };
