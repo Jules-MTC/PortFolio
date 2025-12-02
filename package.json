@@ -23,7 +23,7 @@
         "latest-version": "^9.0.0",
         "lusca": "^1.7.0",
         "multer": "^2.0.2",
-        "nodemailer": "^7.0.7"
+        "nodemailer": "^7.0.11"
     },
     "devDependencies": {
         "semantic-release": "^24.2.0"
