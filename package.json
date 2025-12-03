@@ -26,6 +26,6 @@
         "nodemailer": "^7.0.7"
     },
     "devDependencies": {
-        "semantic-release": "^24.2.0"
+        "semantic-release": "^25.0.2"
     }
 }
